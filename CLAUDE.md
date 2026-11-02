@@ -49,7 +49,7 @@ Look: off-white ground #F4F2EE, ink #1B1A18, muted #5E5A54, rules #D9D5CE, one s
 - Food: full board at Rødegaard 625 DKK/day (breakfast, lunch, dinner, tea/coffee, snacks; all vegetarian, mostly from the garden). Alternatively, a small kitchen in the atelier. No shops in Knebel; groceries in Vrinners/Ebeltoft, about 20 minutes by bus.
 - Lodging: tent in the Rødegaard garden (small fee), rooms at Rødegaard/Jordens Sang (kontakt@jordenssang.dk), Molsgaarden B&B https://hosmolsgaarden.dk/ (Kildevej 26, Knebel).
 - Getting there: Rødegaard, Karlshøjvej 5, 8420 Knebel, about 45 minutes from Aarhus. From Norway, the Larvik–Hirtshals ferry.
-- Jan-Ove Tuv, from malekurstuv.no: born 1976; Odd Nerdrum's assistant 1996–2002; has taught for about 14 years; books on kitsch; «Jakten på Nerdrum»; podcast The Cave of Apelles; motto «Enkle regler – enkelt forklart»; reduced palette; teaches in Norwegian and English.
+- Jan-Ove Tuv, from malekurstuv.no: born 1976; Odd Nerdrum's assistant 1996–2002; has run courses for 16 years (confirmed by Lasse); books on kitsch; «Jakten på Nerdrum»; podcast The Cave of Apelles; motto «Enkle regler – enkelt forklart»; reduced palette; teaches in Norwegian and English.
 - Links: video https://www.youtube.com/watch?v=s_7lLQkglj0 (How to use the Apelles Palette), https://caveofapelles.com/about/, https://www.youtube.com/c/schoolofapelles, https://malekurstuv.no/
 - Contact: lassetopbjerg@gmail.com, +45 31 17 75 06, Instagram @lasse.topbjerg
 
