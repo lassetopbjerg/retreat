@@ -24,7 +24,10 @@
     datesEn: "12–16 June 2027",          // e.g. "5–9 July 2027"
     placesTotal: 10,
     placesTaken: 0,       // opdatér når folk tilmelder sig / update as people sign up
-    email: "lassetopbjerg@gmail.com"
+    email: "lassetopbjerg@gmail.com",
+    // Betalingslink (Stripe). Bruges kun når status er "open". Lad stå tom for at reservere via mail.
+    // Payment link (Stripe). Only used while status is "open". Leave empty to reserve by email.
+    paymentLink: "https://buy.stripe.com/3cI7sKgGX4fWfIQgdY14406"
   };
 </script>
 <style>
@@ -266,7 +269,7 @@
       <details>
         <summary>Reservation og betaling</summary>
         <div class="answer">
-          <p>Skriv til Lasse for at reservere en plads. Du får betalingsoplysninger, materialeliste og praktisk information som svar.</p>
+          <p>Reservér og betal med kort via knappen øverst på siden. Bagefter får du materialeliste og praktisk information fra Lasse.</p>
           <p>Spørgsmål først? Skriv til <a href="mailto:lassetopbjerg@gmail.com">lassetopbjerg@gmail.com</a> eller ring på <a href="tel:+4531177506">+45 31 17 75 06</a>.</p>
         </div>
       </details>
@@ -402,7 +405,7 @@
       <details>
         <summary>Reserving and paying</summary>
         <div class="answer">
-          <p>Write to Lasse to reserve a place. You get payment details, the materials list and practical information in reply.</p>
+          <p>Reserve and pay by card with the button at the top of the page. Afterwards Lasse sends you the materials list and practical information.</p>
           <p>Questions first? Write to <a href="mailto:lassetopbjerg@gmail.com">lassetopbjerg@gmail.com</a> or call <a href="tel:+4531177506">+45 31 17 75 06</a>.</p>
         </div>
       </details>
@@ -425,11 +428,14 @@
     var status = r.status || "soon";
     if (status === "open" && taken >= total) status = "full";
     var email = r.email || "lassetopbjerg@gmail.com";
+    var pay = status === "open" && r.paymentLink;
     var left = total - taken;
 
     var text = {
       da: {
         dates: r.datesDa,
+        pay: { cta: "Reservér og betal", note: "Sikker betaling med kort via Stripe. Spørgsmål først? ",
+               mail: "Skriv til Lasse" },
         open: { cta: "Reservér en plads", subject: "Malerophold 2027 – reservation",
                 note: "Åbner en mail til Lasse. Du får betalingsoplysninger og materialeliste som svar.",
                 places: left + " af " + total + " pladser ledige" },
@@ -444,6 +450,8 @@
       },
       en: {
         dates: r.datesEn,
+        pay: { cta: "Reserve and pay", note: "Secure card payment via Stripe. Questions first? ",
+               mail: "Write to Lasse" },
         open: { cta: "Reserve a place", subject: "Retreat 2027 – reservation",
                 note: "Opens an email to Lasse. You get payment details and the materials list in reply.",
                 places: left + " of " + total + " places left" },
@@ -466,9 +474,21 @@
       main.querySelector(".js-places").textContent = s.places;
 
       var cta = main.querySelector(".js-cta");
-      cta.textContent = s.cta;
-      cta.href = "mailto:" + email + "?subject=" + encodeURIComponent(s.subject);
-      main.querySelector(".js-note").textContent = s.note;
+      var note = main.querySelector(".js-note");
+      if (pay) {
+        cta.textContent = t.pay.cta;
+        cta.href = r.paymentLink;
+        note.textContent = t.pay.note;
+        var a = document.createElement("a");
+        a.href = "mailto:" + email + "?subject=" + encodeURIComponent(s.subject);
+        a.textContent = t.pay.mail;
+        note.appendChild(a);
+        note.appendChild(document.createTextNode("."));
+      } else {
+        cta.textContent = s.cta;
+        cta.href = "mailto:" + email + "?subject=" + encodeURIComponent(s.subject);
+        note.textContent = s.note;
+      }
 
       var dots = main.querySelector(".js-dots");
       dots.setAttribute("aria-label", status === "soon" ? t.dotsSoon : t.dotsTaken);

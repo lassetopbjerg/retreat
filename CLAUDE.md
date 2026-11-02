@@ -6,11 +6,8 @@ Lasse writes in Danish or English, so answer in the language he uses.
 
 ## Status (2 Nov 2026)
 
-- The page is finished and committed locally, but **not online yet**.
+- **Live** at https://lassetopbjerg.github.io/retreat/ (repo `lassetopbjerg/retreat`, Pages from `main`, folder `/`). Pushing to `main` updates the site.
 - Next steps:
-  1. Create the GitHub repo `lassetopbjerg/retreat` (public) and push `main`.
-  2. Enable GitHub Pages: deploy from branch `main`, folder `/`.
-  3. Check https://lassetopbjerg.github.io/retreat/
   4. Point the Retreat link on lassetopbjerg.com to it.
   5. Optional: custom domain retreat.lassetopbjerg.com (add a CNAME file plus a DNS CNAME record at Squarespace/the domain host).
 
@@ -26,9 +23,9 @@ gh api -X POST repos/lassetopbjerg/retreat/pages -f "source[branch]=main" -f "so
 - **Danish first, full English version below.** An "English ↓" link sits in the header. Every change must be made in BOTH languages.
 - Settings live in the `window.RETREAT` block at the top of `index.html`:
   - `status`: `"open"` gives Reserve a place, `"full"` gives Join the waitlist, `"soon"` gives Get notified
-  - `datesDa` / `datesEn`, `placesTotal`, `placesTaken`, `email`
+  - `datesDa` / `datesEn`, `placesTotal`, `placesTaken`, `email`, `paymentLink` (Stripe)
   - When `placesTaken` reaches `placesTotal`, the page switches to waitlist by itself.
-- The button opens an email to Lasse with a prefilled subject. There is no form and no backend.
+- While `status` is `"open"` and `paymentLink` is set, the top button is "Reservér og betal / Reserve and pay" and goes to Stripe; the note under it has a small email link. Otherwise the button opens an email to Lasse with a prefilled subject. There is no form and no backend.
 - Fold-out sections use native `<details>`. The video is a youtube-nocookie embed with a "watch on YouTube" fallback link.
 - Only external dependencies: the Google Font Source Serif 4 (Georgia fallback) and YouTube.
 - An attempt at a Pages CMS / content.json version was rejected by Lasse and reverted. Keep it a single file.
@@ -53,7 +50,7 @@ Look: off-white ground #F4F2EE, ink #1B1A18, muted #5E5A54, rules #D9D5CE, one s
 
 ## Still open
 
-- Payment, deposit and cancellation terms. The page currently says details come by email.
+- Deposit and cancellation terms. Payment is by Stripe link (added 2 Nov 2026); the page does not state the terms yet.
 - Tent price per night, canvas size, and the afternoon end time. These are worded generally on the page.
 - Jan-Ove should approve his bio and the student quote (Edith Maier Kihle).
 - Ask Jordens Sang whether they are fine with being listed.
