@@ -40,7 +40,7 @@ Look: off-white ground #F4F2EE, ink #1B1A18, muted #5E5A54, rules #D9D5CE, one s
 
 - Dates: 12–16 June 2027 (Sat–Wed). Sign-up is open. Max 10 painters.
 - Price: 6,500 DKK covering tuition and model. Lodging is not included.
-- Days: 10–13 live model, 13–16 break, from 16 optional plein air. The atelier stays open when it rains.
+- Days: 10–13 live model, 13–16 break, from 16 optional plein air. The atelier is open all day and in the evening, not only when it rains.
 - Food: full board at Rødegaard 625 DKK/day (breakfast, lunch, dinner, tea/coffee, snacks; all vegetarian, mostly from the garden). Alternatively, a small kitchen in the atelier. No shops in Knebel; groceries in Vrinners/Ebeltoft, about 20 minutes by bus.
 - Lodging: tent in the Rødegaard garden (small fee), rooms at Rødegaard/Jordens Sang (kontakt@jordenssang.dk), Molsgaarden B&B https://hosmolsgaarden.dk/ (Kildevej 26, Knebel).
 - Getting there: Rødegaard, Karlshøjvej 5, 8420 Knebel, about 45 minutes from Aarhus. From Norway, the Larvik–Hirtshals ferry.
