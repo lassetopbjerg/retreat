@@ -18,11 +18,11 @@ gh repo create lassetopbjerg/retreat --public --source . --push
 gh api -X POST repos/lassetopbjerg/retreat/pages -f "source[branch]=main" -f "source[path]=/"
 ```
 
-## Dark design test (2 Nov 2026)
+## Design (dark, since 2 Nov 2026)
 
-- `preview/index.html` is a dark, candlelit version inspired by nerdrum.com (Cinzel capitals, gold accent, Smykkeskrinet as full-width hero). Live, unlinked and noindex, at https://lassetopbjerg.github.io/retreat/preview/ . Its image paths point to `../works/`.
-- The light design is tagged `foer-moerkt-design`. To adopt the dark one: copy preview/index.html over index.html, change `../works/` to `works/`, remove the noindex meta and delete preview/. To go back afterwards: `git checkout foer-moerkt-design -- index.html`.
-- Text changes made before adopting must go into both files.
+- Dark, candlelit look inspired by nerdrum.com (Jan-Ove was Nerdrum's student; Lasse wants a touch of the kitsch spirit): warm umber ground #17120E, ivory text #EEE5D6, muted gold accent #C8A35E, Cinzel capitals for the masthead, headings, labels and button, Source Serif 4 for text.
+- Top: Smykkeskrinet as a full-height hero (whole figure visible, edges faded), with the name, "Sommer 2027 · Rødegaard" and Jan-Ove's motto over it.
+- The earlier light design is tagged `foer-moerkt-design`. To go back: `git checkout foer-moerkt-design -- index.html` (text changes made since then must be redone).
 
 ## Name
 
@@ -45,7 +45,7 @@ The retreat is called **Malerefugium på Mols** (English: **Painting Retreat on 
 
 Lasse's principles: attention and clarity first; what is left out matters as much as what is in. Whitespace isolates the one main action. Few choices at once, and details are revealed progressively (fold-outs). Recognition over recall. Honest status: places left, open or full, with graceful fallbacks. Every element must justify its existence, so never show placeholder brackets; hide unknowns or phrase them generally instead.
 
-Look: off-white ground #F4F2EE, ink #1B1A18, muted #5E5A54, rules #D9D5CE, one serif typeface, no decorative colour. Works at 390px phone width with no horizontal scroll.
+Look: see "Design" above (the original light look, off-white #F4F2EE with no decorative colour, was replaced by the dark one). Works at 390px phone width with no horizontal scroll.
 
 ## Content facts (confirmed by Lasse)
 
