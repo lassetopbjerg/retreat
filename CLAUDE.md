@@ -18,6 +18,12 @@ gh repo create lassetopbjerg/retreat --public --source . --push
 gh api -X POST repos/lassetopbjerg/retreat/pages -f "source[branch]=main" -f "source[path]=/"
 ```
 
+## Dark design test (2 Nov 2026)
+
+- `preview/index.html` is a dark, candlelit version inspired by nerdrum.com (Cinzel capitals, gold accent, Smykkeskrinet as full-width hero). Live, unlinked and noindex, at https://lassetopbjerg.github.io/retreat/preview/ . Its image paths point to `../works/`.
+- The light design is tagged `foer-moerkt-design`. To adopt the dark one: copy preview/index.html over index.html, change `../works/` to `works/`, remove the noindex meta and delete preview/. To go back afterwards: `git checkout foer-moerkt-design -- index.html`.
+- Text changes made before adopting must go into both files.
+
 ## Name
 
 The retreat is called **Malerefugium på Mols** (English: **Painting Retreat on Mols**), chosen by Lasse on 2 Nov 2026. It sits first in the line above the heading.
