@@ -37,6 +37,7 @@ The retreat is called **Malerefugium på Mols** (English: **Painting Retreat on 
   - `datesDa` / `datesEn` (shown in the facts and in the line over the name at the top), `placesTotal`, `placesTaken`, `email`, `paymentLink` (Stripe)
   - When `placesTaken` reaches `placesTotal`, the page switches to waitlist by itself.
 - While `status` is `"open"` and `paymentLink` is set, the top button is "Reservér og betal / Reserve and pay" and goes to Stripe; the note under it has a small email link. Otherwise the button opens an email to Lasse with a prefilled subject. There is no form and no backend.
+- Links to other websites open in a new tab: give every new external link `target="_blank" rel="noopener"`. The Stripe button stays in the same tab.
 - Fold-out sections use native `<details>`. The video is a youtube-nocookie embed with a "watch on YouTube" fallback link.
 - Only external dependencies: the Google Font Source Serif 4 (Georgia fallback) and YouTube.
 - An attempt at a Pages CMS / content.json version was rejected by Lasse and reverted. Keep it a single file.
