@@ -11,10 +11,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
-<!--
-  All text and settings live in content.json.
-  Edit them with Pages CMS (app.pagescms.org) — no need to touch this file.
--->
+<script>
+  // ============================================================
+  // EDIT HERE — the only part you normally need to change.
+  // ============================================================
+  window.RETREAT = {
+    // "open"  → Reserve a place
+    // "full"  → Join the waitlist
+    // "soon"  → Get notified (use while dates are not set)
+    status: "soon",
+    dates: "",            // e.g. "5–9 July 2027". Leave "" until decided.
+    placesTotal: 10,
+    placesTaken: 0,       // update as people sign up
+    email: "lassetopbjerg@gmail.com"
+  };
+</script>
 <style>
   :root {
     --ground: #F4F2EE;
@@ -37,7 +48,6 @@
   a { color: var(--ink); text-underline-offset: 4px; }
   a:hover { color: var(--muted); }
   a:focus-visible, summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
-  [hidden] { display: none !important; }
 
   header, footer {
     display: flex; justify-content: space-between; align-items: center;
@@ -72,7 +82,7 @@
   .fact .label { font-size: 14px; color: var(--muted); }
   .fact .value { font-size: 19px; }
   .fact .sub { font-size: 13px; color: var(--muted); }
-  .dots { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+  .dots { display: flex; gap: 4px; margin-top: 6px; }
   .dots span { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--ink); }
   .dots span.taken { background: var(--ink); }
 
@@ -81,7 +91,7 @@
     display: inline-block; background: var(--ink); color: var(--ground);
     text-decoration: none; padding: 16px 32px; font-size: 17px; min-height: 44px;
   }
-  .button:hover { background: var(--body); color: var(--ground); }
+  .button:hover { background: #3A3733; color: var(--ground); }
 
   .video { position: relative; width: 100%; aspect-ratio: 16 / 9; background: var(--dark); }
   .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
@@ -105,11 +115,14 @@
   details[open] summary::after { content: "–"; }
   .answer { padding: 0 0 24px; color: var(--body); }
   .answer p { margin: 0 0 12px; }
-  .answer ul { margin: 0 0 12px; padding-left: 20px; }
-  .answer li { margin-bottom: 6px; }
-  .answer > :last-child { margin-bottom: 0; }
+  .answer p:last-child { margin: 0; }
+  .schedule { display: grid; grid-template-columns: 76px 1fr; gap: 8px 16px; margin: 0 0 12px; }
+  .schedule dt { font-variant-numeric: tabular-nums; color: var(--muted); }
+  .schedule dd { margin: 0; }
+  ul { margin: 0 0 12px; padding-left: 20px; }
+  li { margin-bottom: 6px; }
 
-  .fallback { max-width: 560px; }
+  noscript p { margin: 0; }
 </style>
 </head>
 <body>
@@ -119,148 +132,168 @@
   <a href="https://www.lassetopbjerg.com">See my paintings ↗</a>
 </header>
 
-<main id="page" hidden>
+<main>
 
+  <!-- 1. The essentials and the one action -->
   <section aria-labelledby="title">
-    <p class="kicker" data-text="kicker"></p>
-    <h1 id="title" data-text="title"></h1>
-    <p class="lede" data-text="intro"></p>
+    <p class="kicker">Summer 2027 · Rødegaard, Mols, Denmark</p>
+    <h1 id="title">Five days of classical painting with Jan-Ove Tuv</h1>
+    <p class="lede">Paint from a live model every morning. Paint the hills and coast of Mols in the afternoon. For beginners and experienced painters.</p>
 
     <div class="facts">
       <div class="fact">
         <span class="label">Dates</span>
-        <span class="value" id="dates"></span>
+        <span class="value" id="dates">Announced soon</span>
       </div>
       <div class="fact">
         <span class="label">Price</span>
-        <span class="value" data-text="price"></span>
-        <span class="sub" data-text="price_note"></span>
+        <span class="value">6,500 DKK</span>
+        <span class="sub">Tuition and model fees</span>
       </div>
       <div class="fact">
         <span class="label">Places</span>
-        <span class="value" id="places"></span>
-        <div class="dots" id="dots" role="img"></div>
+        <span class="value" id="places">10 painters</span>
+        <div class="dots" id="dots" role="img" aria-label="10 places"></div>
       </div>
     </div>
 
     <div class="action">
-      <a class="button" id="cta" href="#"></a>
-      <p class="note" id="cta-note"></p>
+      <a class="button" id="cta" href="mailto:lassetopbjerg@gmail.com?subject=Retreat%202027%20%E2%80%93%20notify%20me">Get notified</a>
+      <p class="note" id="cta-note">Opens an email to Lasse. You hear from us as soon as dates are set.</p>
     </div>
   </section>
 
-  <section aria-labelledby="lesson" id="lesson-section">
-    <h2 id="lesson" data-text="video_heading"></h2>
-    <p class="lede" data-text="video_intro"></p>
-    <div class="video" id="video"></div>
-    <p class="note">Video not playing? <a id="video-link" href="#">Watch it on YouTube</a>.</p>
-    <div class="links" id="links" aria-label="More about Jan-Ove"></div>
+  <!-- 2. See how he teaches -->
+  <section aria-labelledby="lesson">
+    <h2 id="lesson">Try a lesson first</h2>
+    <p class="lede">Jan-Ove shows how to mix colour with the Apelles palette. Watch it to see how he teaches.</p>
+    <div class="video">
+      <iframe src="https://www.youtube-nocookie.com/embed/s_7lLQkglj0" title="How to use the Apelles Palette, by Jan-Ove Tuv" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p class="note">Video not playing? <a href="https://www.youtube.com/watch?v=s_7lLQkglj0">Watch it on YouTube</a>.</p>
+
+    <div class="links" aria-label="More about Jan-Ove">
+      <a href="https://caveofapelles.com/about/"><span>The Cave of Apelles <span class="desc">— his podcast on painting, myth and culture</span></span><span aria-hidden="true">↗</span></a>
+      <a href="https://www.youtube.com/c/schoolofapelles"><span>School of Apelles <span class="desc">— painting demonstrations on YouTube</span></span><span aria-hidden="true">↗</span></a>
+      <a href="https://malekurstuv.no/"><span>Malekurstuv.no <span class="desc">— his own site, courses and work</span></span><span aria-hidden="true">↗</span></a>
+    </div>
   </section>
 
+  <!-- 3. Details, revealed on demand -->
   <section aria-labelledby="details">
-    <h2 id="details" data-text="details_heading"></h2>
-    <div class="faq" id="faq"></div>
+    <h2 id="details">Everything you need to know</h2>
+    <div class="faq">
+
+      <details open>
+        <summary>The days</summary>
+        <div class="answer">
+          <dl class="schedule">
+            <dt>10–13</dt><dd>Painting from the live model: light, shadow and colour mixing</dd>
+            <dt>13–16</dt><dd>Break: lunch, rest, a swim</dd>
+            <dt>16–</dt><dd>Optional painting outdoors in the hills, by the coast or in the garden</dd>
+          </dl>
+          <p>On rainy days the atelier stays open.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Your teacher</summary>
+        <div class="answer">
+          <p>Jan-Ove Tuv is a Norwegian painter and longtime student of Odd Nerdrum. He paints and teaches in the classical, old-master tradition from his studio on the south coast of Norway, and hosts the podcast The Cave of Apelles.</p>
+          <p>He teaches in English and Norwegian.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Where to stay</summary>
+        <div class="answer">
+          <p>Lodging is not included, which keeps the price down. Choose what suits you:</p>
+          <ul>
+            <li>Bring a tent and camp in the Rødegaard garden for a small nightly fee</li>
+            <li>A room at Rødegaard / Jordens Sang: <a href="mailto:kontakt@jordenssang.dk">kontakt@jordenssang.dk</a></li>
+            <li>Molsgaarden B&amp;B, Kildevej 26, Knebel</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Food</summary>
+        <div class="answer">
+          <p>There is a small kitchen in the atelier where you can cook. There are no shops in Knebel. Groceries are in Vrinners or Ebeltoft, about 20 minutes by bus.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Getting there</summary>
+        <div class="answer">
+          <p>Rødegaard, Karlshøjvej 5, 8420 Knebel, Denmark. About 45 minutes by car from Aarhus.</p>
+          <p>From Norway, the Larvik–Hirtshals ferry is the easiest route.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What to bring</summary>
+        <div class="answer">
+          <ul>
+            <li>Your own oil painting materials. You get the full list when you reserve.</li>
+            <li>A canvas for the model painting</li>
+            <li>An easel or pochade box for painting outdoors</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Reserving and paying</summary>
+        <div class="answer">
+          <p>Write to Lasse to reserve a place. You get payment details, the materials list and practical information in reply.</p>
+          <p>Questions first? Write to <a href="mailto:lassetopbjerg@gmail.com">lassetopbjerg@gmail.com</a> or call <a href="tel:+4531177506">+45 31 17 75 06</a>.</p>
+        </div>
+      </details>
+
+    </div>
   </section>
 
 </main>
-
-<!-- Shown only if content.json can't be loaded -->
-<main id="fallback" hidden>
-  <section class="fallback">
-    <h1>Summer painting retreat with Jan-Ove Tuv</h1>
-    <p class="lede">This page didn't load properly. The retreat is still on. Write to <a href="mailto:lassetopbjerg@gmail.com">lassetopbjerg@gmail.com</a> or call <a href="tel:+4531177506">+45 31 17 75 06</a> and you'll get all the details.</p>
-  </section>
-</main>
-
-<noscript>
-  <main>
-    <section class="fallback">
-      <h1>Summer painting retreat with Jan-Ove Tuv</h1>
-      <p class="lede">Write to <a href="mailto:lassetopbjerg@gmail.com">lassetopbjerg@gmail.com</a> for dates and details.</p>
-    </section>
-  </main>
-</noscript>
 
 <footer>
-  <span id="footer-text">Rødegaard · Karlshøjvej 5 · 8420 Knebel</span>
-  <a id="instagram" href="https://www.instagram.com/lasse.topbjerg">Instagram</a>
+  <span>Rødegaard · Karlshøjvej 5 · 8420 Knebel</span>
+  <a href="https://www.instagram.com/lasse.topbjerg">Instagram</a>
 </footer>
 
 <script>
-(function () {
-  function el(tag, cls, text) {
-    var e = document.createElement(tag);
-    if (cls) e.className = cls;
-    if (text != null) e.textContent = text;
-    return e;
-  }
-
-  function safeUrl(u) {
-    u = String(u || "").trim();
-    return /^(https?:|mailto:|tel:)/i.test(u) ? u : "#";
-  }
-
-  // Turns emails and web addresses in plain text into links.
-  function addLinked(parent, text) {
-    var re = /([\w.+-]+@[\w-]+\.[\w.-]+)|(https?:\/\/[^\s)]+)/g, last = 0, m;
-    while ((m = re.exec(text))) {
-      if (m.index > last) parent.appendChild(document.createTextNode(text.slice(last, m.index)));
-      var a = el("a", null, m[0]);
-      a.href = m[1] ? "mailto:" + m[1] : m[2];
-      parent.appendChild(a);
-      last = re.lastIndex;
-    }
-    if (last < text.length) parent.appendChild(document.createTextNode(text.slice(last)));
-  }
-
-  // Plain text → paragraphs; lines starting with "- " become a bullet list.
-  function renderBody(parent, body) {
-    String(body || "").split(/\n\s*\n/).forEach(function (block) {
-      var lines = block.split("\n").map(function (l) { return l.trim(); }).filter(Boolean);
-      if (!lines.length) return;
-      if (lines.every(function (l) { return /^[-•]\s+/.test(l); })) {
-        var ul = el("ul");
-        lines.forEach(function (l) { var li = el("li"); addLinked(li, l.replace(/^[-•]\s+/, "")); ul.appendChild(li); });
-        parent.appendChild(ul);
-      } else {
-        var p = el("p"); addLinked(p, lines.join(" ")); parent.appendChild(p);
-      }
-    });
-  }
-
-  function youtubeId(url) {
-    var m = String(url || "").match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([\w-]{11})/);
-    return m ? m[1] : null;
-  }
-
-  function render(c) {
-    document.querySelectorAll("[data-text]").forEach(function (n) {
-      var v = c[n.getAttribute("data-text")];
-      n.textContent = v || "";
-      n.hidden = !v;
-    });
-
-    // Status, places and the one action
-    var total = Math.max(1, parseInt(c.places_total, 10) || 10);
-    var taken = Math.max(0, Math.min(total, parseInt(c.places_taken, 10) || 0));
-    var status = c.status || "soon";
+  (function () {
+    var r = window.RETREAT || {};
+    var total = r.placesTotal || 10;
+    var taken = Math.max(0, Math.min(total, r.placesTaken || 0));
+    var status = r.status || "soon";
     if (status === "open" && taken >= total) status = "full";
-    var email = c.email || "lassetopbjerg@gmail.com";
+    var email = r.email || "lassetopbjerg@gmail.com";
+
     var states = {
-      open: { cta: "Reserve a place", subject: "Retreat – reservation",
-              note: "Opens an email to Lasse. You get payment details and the materials list in reply.",
-              places: (total - taken) + " of " + total + " places left" },
-      full: { cta: "Join the waitlist", subject: "Retreat – waitlist",
-              note: "All places are taken. Write to Lasse and you hear first if one opens.",
-              places: "Full" },
-      soon: { cta: "Get notified", subject: "Retreat – notify me",
-              note: "Opens an email to Lasse. You hear from us as soon as dates are set.",
-              places: total + " painters" }
+      open: {
+        cta: "Reserve a place",
+        subject: "Retreat 2027 – reservation",
+        note: "Opens an email to Lasse. You get payment details and the materials list in reply.",
+        places: (total - taken) + " of " + total + " places left"
+      },
+      full: {
+        cta: "Join the waitlist",
+        subject: "Retreat 2027 – waitlist",
+        note: "All places are taken. Write to Lasse and you hear first if one opens.",
+        places: "Full"
+      },
+      soon: {
+        cta: "Get notified",
+        subject: "Retreat 2027 – notify me",
+        note: "Opens an email to Lasse. You hear from us as soon as dates are set.",
+        places: total + " painters"
+      }
     };
     var s = states[status] || states.soon;
 
-    document.getElementById("dates").textContent = c.dates || "Announced soon";
+    if (r.dates) document.getElementById("dates").textContent = r.dates;
     document.getElementById("places").textContent = s.places;
+
     var cta = document.getElementById("cta");
     cta.textContent = s.cta;
     cta.href = "mailto:" + email + "?subject=" + encodeURIComponent(s.subject);
@@ -269,66 +302,11 @@
     var dots = document.getElementById("dots");
     dots.setAttribute("aria-label", status === "soon" ? total + " places" : taken + " of " + total + " places taken");
     for (var i = 0; i < total; i++) {
-      var d = el("span");
+      var d = document.createElement("span");
       if (status !== "soon" && i < taken) d.className = "taken";
       dots.appendChild(d);
     }
-
-    // Video
-    var id = youtubeId(c.video_url);
-    var videoBox = document.getElementById("video");
-    if (id) {
-      var f = el("iframe");
-      f.src = "https://www.youtube-nocookie.com/embed/" + id;
-      f.title = c.video_title || "Video lesson";
-      f.loading = "lazy";
-      f.allow = "accelerometer; encrypted-media; gyroscope; picture-in-picture";
-      f.allowFullscreen = true;
-      videoBox.appendChild(f);
-      document.getElementById("video-link").href = "https://www.youtube.com/watch?v=" + id;
-    } else {
-      videoBox.hidden = true;
-      document.getElementById("video-link").parentNode.hidden = true;
-    }
-
-    // Links
-    var links = document.getElementById("links");
-    (c.links || []).forEach(function (l) {
-      if (!l || !l.title) return;
-      var a = el("a"); a.href = safeUrl(l.url);
-      var label = el("span", null, l.title + " ");
-      if (l.description) label.appendChild(el("span", "desc", "— " + l.description));
-      var arrow = el("span", null, "↗"); arrow.setAttribute("aria-hidden", "true");
-      a.appendChild(label); a.appendChild(arrow);
-      links.appendChild(a);
-    });
-    links.hidden = !links.children.length;
-
-    // Fold-out details
-    var faq = document.getElementById("faq");
-    (c.details || []).forEach(function (item) {
-      if (!item || !item.title) return;
-      var det = el("details");
-      if (item.open) det.open = true;
-      det.appendChild(el("summary", null, item.title));
-      var ans = el("div", "answer");
-      renderBody(ans, item.body);
-      det.appendChild(ans);
-      faq.appendChild(det);
-    });
-
-    if (c.footer) document.getElementById("footer-text").textContent = c.footer;
-    if (c.instagram) document.getElementById("instagram").href = safeUrl(c.instagram);
-    if (c.title) document.title = c.title + " · Mols, Denmark";
-
-    document.getElementById("page").hidden = false;
-  }
-
-  fetch("content.json", { cache: "no-cache" })
-    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-    .then(render)
-    .catch(function () { document.getElementById("fallback").hidden = false; });
-})();
+  })();
 </script>
 </body>
 </html>
