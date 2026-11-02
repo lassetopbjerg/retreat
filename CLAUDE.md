@@ -58,7 +58,7 @@ Look: see "Design" above (the original light look, off-white #F4F2EE with no dec
 - Getting there: Rødegaard, Karlshøjvej 5, 8420 Knebel, about 45 minutes from Aarhus. From Norway, the Larvik–Hirtshals ferry.
 - Jan-Ove Tuv, from malekurstuv.no: born 1976; Odd Nerdrum's assistant 1996–2002; has run courses for 16 years (confirmed by Lasse); books on kitsch; «Jakten på Nerdrum»; podcast The Cave of Apelles; motto «Enkle regler – enkelt forklart»; reduced palette; teaches in Norwegian and English.
 - Links: video https://www.youtube.com/watch?v=s_7lLQkglj0 (How to use the Apelles Palette), https://caveofapelles.com/about/, https://www.youtube.com/c/schoolofapelles, https://malekurstuv.no/
-- Contact: lassetopbjerg@gmail.com, +45 31 17 75 06, Instagram @lasse.topbjerg
+- Contact: lassetopbjerg@gmail.com, +45 31 17 75 06. Instagram on the page: Jan-Ove's @jan_ove_tuv (Lasse's own @lasse.topbjerg is not active)
 
 ## Still open
 
