@@ -150,17 +150,18 @@
   .works figure { margin: 0; }
   .works img { display: block; width: 100%; height: auto; }
   .works figcaption { margin-top: 6px; font-size: 13px; line-height: 1.4; color: var(--muted); }
+  .works figcaption a { color: var(--muted); }
   @media (min-width: 1340px) {
     main { position: relative; }
     .works { display: contents; }
     .works-label { display: none; }
-    .works figure { position: absolute; width: min(240px, calc((100vw - 760px) / 2 - 88px)); }
-    .works figure:nth-of-type(odd) { left: calc(100% + 56px); }
-    .works figure:nth-of-type(even) { right: calc(100% + 56px); }
+    .works figure { position: absolute; left: calc(100% + 56px); width: min(240px, calc((100vw - 760px) / 2 - 88px)); }
     .works figure:nth-of-type(1) { top: 40px; }
-    .works figure:nth-of-type(2) { top: 560px; }
+    .works figure:nth-of-type(2) { top: 600px; }
     .works figure:nth-of-type(3) { top: 1160px; }
-    .works figure:nth-of-type(4) { top: 1700px; }
+    .works.places figure { left: auto; right: calc(100% + 56px); }
+    .works.places figure:nth-of-type(1) { top: 600px; }
+    .works.places figure:nth-of-type(2) { top: 1160px; }
   }
   .place-photo { margin: 0; }
   .place-photo img { display: block; width: 100%; height: auto; }
@@ -168,6 +169,17 @@
   .place-photo figcaption a { color: var(--muted); }
   @media (min-width: 1340px) {
     .place-photo { position: absolute; top: 40px; right: calc(100% + 56px); width: min(240px, calc((100vw - 760px) / 2 - 88px)); }
+  }
+  /* Click a picture to see it large */
+  .works img, .place-photo img { cursor: zoom-in; }
+  .zoom { padding: 0; border: 0; background: transparent; max-width: 100vw; max-height: 100vh; overflow: visible; }
+  .zoom::backdrop { background: rgba(27, 26, 24, 0.9); }
+  .zoom figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; cursor: zoom-out; }
+  .zoom img { display: block; max-width: 94vw; max-height: 86vh; width: auto; height: auto; }
+  .zoom figcaption { color: #F4F2EE; font-size: 15px; text-align: center; padding: 0 16px; }
+  .zoom button {
+    position: fixed; top: 12px; right: 12px; min-width: 44px; min-height: 44px;
+    background: none; border: 0; color: #F4F2EE; font: inherit; font-size: 28px; line-height: 1; cursor: pointer;
   }
 </style>
 </head>
@@ -259,6 +271,18 @@
     <figure>
       <img src="works/discovery.jpg" alt="Jan-Ove Tuv, Discovery: nøgne skikkelser omkring en lanterne i mørket" width="1200" height="1046" loading="lazy">
       <figcaption>Discovery</figcaption>
+    </figure>
+  </aside>
+
+  <aside class="works places" aria-label="Nationalpark Mols Bjerge">
+    <p class="note works-label">Nationalpark Mols Bjerge</p>
+    <figure>
+      <img src="works/mols-bjerge-stabelhoeje.jpg" alt="Grønne bakker og udsigt over vig og marker fra Stabelhøje" width="960" height="540" loading="lazy">
+      <figcaption>Udsigt fra Stabelhøje. <a href="https://commons.wikimedia.org/wiki/File:Stabelh%C3%B8je_Udsigt_2.JPG">Foto: Old Dane</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
+    </figure>
+    <figure>
+      <img src="works/mols-bjerge-kvaeg.jpg" alt="Kvæg græsser i en lysning mellem træerne i Mols Bjerge" width="960" height="540" loading="lazy">
+      <figcaption>Kvæg i skovbrynet. <a href="https://commons.wikimedia.org/wiki/File:Kv%C3%A6g_Mols_Bjerge.jpg">Foto: Fugit hora</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
     </figure>
   </aside>
 
@@ -427,6 +451,18 @@
     <figure>
       <img src="works/discovery.jpg" alt="Jan-Ove Tuv, Discovery: nude figures gathered around a lantern in the dark" width="1200" height="1046" loading="lazy">
       <figcaption>Discovery</figcaption>
+    </figure>
+  </aside>
+
+  <aside class="works places" aria-label="Mols Bjerge National Park">
+    <p class="note works-label">Mols Bjerge National Park</p>
+    <figure>
+      <img src="works/mols-bjerge-stabelhoeje.jpg" alt="Green hills with a view over the bay and fields from Stabelhøje" width="960" height="540" loading="lazy">
+      <figcaption>View from Stabelhøje. <a href="https://commons.wikimedia.org/wiki/File:Stabelh%C3%B8je_Udsigt_2.JPG">Photo: Old Dane</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
+    </figure>
+    <figure>
+      <img src="works/mols-bjerge-kvaeg.jpg" alt="Cattle grazing in a clearing among trees in Mols Bjerge" width="960" height="540" loading="lazy">
+      <figcaption>Cattle at the forest edge. <a href="https://commons.wikimedia.org/wiki/File:Kv%C3%A6g_Mols_Bjerge.jpg">Photo: Fugit hora</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
     </figure>
   </aside>
 
@@ -608,6 +644,33 @@
         dots.appendChild(d);
       }
     });
+  })();
+</script>
+<dialog class="zoom" id="zoom">
+  <button type="button" aria-label="Luk / Close">×</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+</dialog>
+<script>
+  (function () {
+    var dlg = document.getElementById("zoom");
+    if (!dlg.showModal) return;
+    var big = dlg.querySelector("img"), cap = dlg.querySelector("figcaption");
+    document.querySelectorAll(".works img, .place-photo img").forEach(function (img) {
+      img.tabIndex = 0;
+      img.setAttribute("role", "button");
+      function open() {
+        var fc = img.closest("figure").querySelector("figcaption");
+        big.src = img.src;
+        big.alt = img.alt;
+        cap.textContent = fc ? fc.textContent : "";
+        dlg.showModal();
+      }
+      img.addEventListener("click", open);
+      img.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
+      });
+    });
+    dlg.addEventListener("click", function () { dlg.close(); });
   })();
 </script>
 </body>
