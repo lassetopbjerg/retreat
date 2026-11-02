@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Summer Painting Retreat with Jan-Ove Tuv · Mols, Denmark</title>
+<meta name="description" content="Five days of classical painting with Jan-Ove Tuv at Rødegaard, Mols, Denmark. Live model every morning, plein air in the afternoon. Max 10 painters.">
+<meta property="og:title" content="Summer Painting Retreat with Jan-Ove Tuv">
+<meta property="og:description" content="Five days of classical painting at Rødegaard, Mols, Denmark. Max 10 painters.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<script>
+  // ============================================================
+  // EDIT HERE — the only part you normally need to change.
+  // ============================================================
+  window.RETREAT = {
+    // "open"  → Reserve a place
+    // "full"  → Join the waitlist
+    // "soon"  → Get notified (use while dates are not set)
+    status: "soon",
+    dates: "",            // e.g. "5–9 July 2027". Leave "" until decided.
+    placesTotal: 10,
+    placesTaken: 0,       // update as people sign up
+    email: "lassetopbjerg@gmail.com"
+  };
+</script>
+<style>
+  :root {
+    --ground: #F4F2EE;
+    --ink: #1B1A18;
+    --body: #3A3733;
+    --muted: #5E5A54;
+    --rule: #D9D5CE;
+    --dark: #2E2A26;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  a { color: var(--ink); text-underline-offset: 4px; }
+  a:hover { color: var(--muted); }
+  a:focus-visible, summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+  header, footer {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px 24px;
+    padding: 28px clamp(16px, 5vw, 48px);
+    font-size: 16px;
+  }
+  header a { text-decoration: none; padding: 10px 0; }
+  .name { font-weight: 600; }
+  footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: 14px; }
+  footer a { color: var(--muted); }
+
+  main {
+    max-width: 760px; margin: 0 auto;
+    padding: clamp(24px, 6vw, 56px) 16px 120px;
+    display: flex; flex-direction: column; gap: 88px;
+  }
+  section { display: flex; flex-direction: column; gap: 24px; }
+
+  .kicker { margin: 0; font-size: 15px; color: var(--muted); }
+  h1 { margin: 0; font-size: clamp(32px, 6vw, 46px); font-weight: 600; line-height: 1.15; }
+  h2 { margin: 0; font-size: 26px; font-weight: 600; line-height: 1.25; }
+  .lede { margin: 0; color: var(--body); }
+  .note { margin: 0; font-size: 15px; color: var(--muted); }
+
+  .facts {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 20px 24px; padding: 24px 0;
+    border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  }
+  .fact { display: flex; flex-direction: column; gap: 2px; }
+  .fact .label { font-size: 14px; color: var(--muted); }
+  .fact .value { font-size: 19px; }
+  .fact .sub { font-size: 13px; color: var(--muted); }
+  .dots { display: flex; gap: 4px; margin-top: 6px; }
+  .dots span { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--ink); }
+  .dots span.taken { background: var(--ink); }
+
+  .action { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+  .button {
+    display: inline-block; background: var(--ink); color: var(--ground);
+    text-decoration: none; padding: 16px 32px; font-size: 17px; min-height: 44px;
+  }
+  .button:hover { background: #3A3733; color: var(--ground); }
+
+  .video { position: relative; width: 100%; aspect-ratio: 16 / 9; background: var(--dark); }
+  .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+  .links { display: flex; flex-direction: column; border-top: 1px solid var(--rule); }
+  .links a {
+    display: flex; justify-content: space-between; gap: 16px;
+    padding: 16px 0; border-bottom: 1px solid var(--rule); text-decoration: none;
+  }
+  .links .desc { color: var(--muted); }
+
+  .faq { border-top: 1px solid var(--rule); }
+  details { border-bottom: 1px solid var(--rule); }
+  summary {
+    list-style: none; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    padding: 22px 0; font-size: 19px; min-height: 44px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-size: 24px; color: var(--muted); line-height: 1; }
+  details[open] summary::after { content: "–"; }
+  .answer { padding: 0 0 24px; color: var(--body); }
+  .answer p { margin: 0 0 12px; }
+  .answer p:last-child { margin: 0; }
+  .schedule { display: grid; grid-template-columns: 76px 1fr; gap: 8px 16px; margin: 0 0 12px; }
+  .schedule dt { font-variant-numeric: tabular-nums; color: var(--muted); }
+  .schedule dd { margin: 0; }
+  ul { margin: 0 0 12px; padding-left: 20px; }
+  li { margin-bottom: 6px; }
+
+  noscript p { margin: 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="name" href="https://www.lassetopbjerg.com">Lasse Topbjerg Storgaard</a>
+  <a href="https://www.lassetopbjerg.com">See my paintings ↗</a>
+</header>
+
+<main>
+
+  <!-- 1. The essentials and the one action -->
+  <section aria-labelledby="title">
+    <p class="kicker">Summer 2027 · Rødegaard, Mols, Denmark</p>
+    <h1 id="title">Five days of classical painting with Jan-Ove Tuv</h1>
+    <p class="lede">Paint from a live model every morning. Paint the hills and coast of Mols in the afternoon. For beginners and experienced painters.</p>
+
+    <div class="facts">
+      <div class="fact">
+        <span class="label">Dates</span>
+        <span class="value" id="dates">Announced soon</span>
+      </div>
+      <div class="fact">
+        <span class="label">Price</span>
+        <span class="value">6,500 DKK</span>
+        <span class="sub">Tuition and model fees</span>
+      </div>
+      <div class="fact">
+        <span class="label">Places</span>
+        <span class="value" id="places">10 painters</span>
+        <div class="dots" id="dots" role="img" aria-label="10 places"></div>
+      </div>
+    </div>
+
+    <div class="action">
+      <a class="button" id="cta" href="mailto:lassetopbjerg@gmail.com?subject=Retreat%202027%20%E2%80%93%20notify%20me">Get notified</a>
+      <p class="note" id="cta-note">Opens an email to Lasse. You hear from us as soon as dates are set.</p>
+    </div>
+  </section>
+
+  <!-- 2. See how he teaches -->
+  <section aria-labelledby="lesson">
+    <h2 id="lesson">Try a lesson first</h2>
+    <p class="lede">Jan-Ove shows how to mix colour with the Apelles palette. Watch it to see how he teaches.</p>
+    <div class="video">
+      <iframe src="https://www.youtube-nocookie.com/embed/s_7lLQkglj0" title="How to use the Apelles Palette, by Jan-Ove Tuv" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p class="note">Video not playing? <a href="https://www.youtube.com/watch?v=s_7lLQkglj0">Watch it on YouTube</a>.</p>
+
+    <div class="links" aria-label="More about Jan-Ove">
+      <a href="https://caveofapelles.com/about/"><span>The Cave of Apelles <span class="desc">— his podcast on painting, myth and culture</span></span><span aria-hidden="true">↗</span></a>
+      <a href="https://www.youtube.com/c/schoolofapelles"><span>School of Apelles <span class="desc">— painting demonstrations on YouTube</span></span><span aria-hidden="true">↗</span></a>
+      <a href="https://malekurstuv.no/"><span>Malekurstuv.no <span class="desc">— his own site, courses and work</span></span><span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <!-- 3. Details, revealed on demand -->
+  <section aria-labelledby="details">
+    <h2 id="details">Everything you need to know</h2>
+    <div class="faq">
+
+      <details open>
+        <summary>The days</summary>
+        <div class="answer">
+          <dl class="schedule">
+            <dt>10–13</dt><dd>Painting from the live model: light, shadow and colour mixing</dd>
+            <dt>13–16</dt><dd>Break: lunch, rest, a swim</dd>
+            <dt>16–</dt><dd>Optional painting outdoors in the hills, by the coast or in the garden</dd>
+          </dl>
+          <p>On rainy days the atelier stays open.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Your teacher</summary>
+        <div class="answer">
+          <p>Jan-Ove Tuv is a Norwegian painter and longtime student of Odd Nerdrum. He paints and teaches in the classical, old-master tradition from his studio on the south coast of Norway, and hosts the podcast The Cave of Apelles.</p>
+          <p>He teaches in English and Norwegian.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Where to stay</summary>
+        <div class="answer">
+          <p>Lodging is not included, which keeps the price down. Choose what suits you:</p>
+          <ul>
+            <li>Bring a tent and camp in the Rødegaard garden for a small nightly fee</li>
+            <li>A room at Rødegaard / Jordens Sang: <a href="mailto:kontakt@jordenssang.dk">kontakt@jordenssang.dk</a></li>
+            <li>Molsgaarden B&amp;B, Kildevej 26, Knebel</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Food</summary>
+        <div class="answer">
+          <p>There is a small kitchen in the atelier where you can cook. There are no shops in Knebel. Groceries are in Vrinners or Ebeltoft, about 20 minutes by bus.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Getting there</summary>
+        <div class="answer">
+          <p>Rødegaard, Karlshøjvej 5, 8420 Knebel, Denmark. About 45 minutes by car from Aarhus.</p>
+          <p>From Norway, the Larvik–Hirtshals ferry is the easiest route.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What to bring</summary>
+        <div class="answer">
+          <ul>
+            <li>Your own oil painting materials. You get the full list when you reserve.</li>
+            <li>A canvas for the model painting</li>
+            <li>An easel or pochade box for painting outdoors</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Reserving and paying</summary>
+        <div class="answer">
+          <p>Write to Lasse to reserve a place. You get payment details, the materials list and practical information in reply.</p>
+          <p>Questions first? Write to <a href="mailto:lassetopbjerg@gmail.com">lassetopbjerg@gmail.com</a> or call <a href="tel:+4531177506">+45 31 17 75 06</a>.</p>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>Rødegaard · Karlshøjvej 5 · 8420 Knebel</span>
+  <a href="https://www.instagram.com/lasse.topbjerg">Instagram</a>
+</footer>
+
+<script>
+  (function () {
+    var r = window.RETREAT || {};
+    var total = r.placesTotal || 10;
+    var taken = Math.max(0, Math.min(total, r.placesTaken || 0));
+    var status = r.status || "soon";
+    if (status === "open" && taken >= total) status = "full";
+    var email = r.email || "lassetopbjerg@gmail.com";
+
+    var states = {
+      open: {
+        cta: "Reserve a place",
+        subject: "Retreat 2027 – reservation",
+        note: "Opens an email to Lasse. You get payment details and the materials list in reply.",
+        places: (total - taken) + " of " + total + " places left"
+      },
+      full: {
+        cta: "Join the waitlist",
+        subject: "Retreat 2027 – waitlist",
+        note: "All places are taken. Write to Lasse and you hear first if one opens.",
+        places: "Full"
+      },
+      soon: {
+        cta: "Get notified",
+        subject: "Retreat 2027 – notify me",
+        note: "Opens an email to Lasse. You hear from us as soon as dates are set.",
+        places: total + " painters"
+      }
+    };
+    var s = states[status] || states.soon;
+
+    if (r.dates) document.getElementById("dates").textContent = r.dates;
+    document.getElementById("places").textContent = s.places;
+
+    var cta = document.getElementById("cta");
+    cta.textContent = s.cta;
+    cta.href = "mailto:" + email + "?subject=" + encodeURIComponent(s.subject);
+    document.getElementById("cta-note").textContent = s.note;
+
+    var dots = document.getElementById("dots");
+    dots.setAttribute("aria-label", status === "soon" ? total + " places" : taken + " of " + total + " places taken");
+    for (var i = 0; i < total; i++) {
+      var d = document.createElement("span");
+      if (status !== "soon" && i < taken) d.className = "taken";
+      dots.appendChild(d);
+    }
+  })();
+</script>
+</body>
+</html>
