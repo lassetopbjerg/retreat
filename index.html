@@ -221,12 +221,12 @@
 
   .hero {
     position: relative; overflow: hidden;
-    min-height: min(76vh, 720px);
+    min-height: min(90vh, 940px);
     display: flex; align-items: flex-end; justify-content: center;
   }
   .hero-img {
     position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-    height: 100%; width: auto; max-width: none;
+    height: 108%; width: auto; max-width: none;
     filter: brightness(0.6) saturate(0.9);
     -webkit-mask-image: linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent 100%);
     mask-image: linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent 100%);
@@ -266,10 +266,10 @@
   .works img { box-shadow: 0 0 0 1px rgba(238, 229, 214, 0.08); }
 
   @media (max-width: 599px) {
-    .hero { min-height: min(60svh, 540px); }
+    .hero { min-height: min(80svh, 700px); }
     .hero-text { padding-bottom: 32px; }
     .hero-line { font-size: 17px; }
-    .hero-kicker { font-size: 14px; letter-spacing: 0.18em; }
+    .hero-kicker { font-size: 14px; letter-spacing: 0.14em; text-wrap: balance; }
     main { padding-top: 24px; }
     h2 { font-size: 19px; }
   }
@@ -301,7 +301,7 @@
 <div class="hero" lang="da">
   <img class="hero-img" src="works/smykkeskrinet.jpg" alt="" width="963" height="1176">
   <div class="hero-text">
-    <p class="hero-kicker">Sommer 2027 · <a href="https://jordenssang.dk/">Rødegaard</a></p>
+    <p class="hero-kicker"><span class="js-hero-dates">12.–16. juni 2027</span> · <a href="https://jordenssang.dk/">Rødegaard</a>, Mols</p>
     <p class="hero-name">Malerefugium på Mols</p>
     <p class="hero-line">«Enkle regler – enkelt forklart» <span>— Jan-Ove Tuv</span></p>
   </div>
@@ -479,7 +479,7 @@
 <div class="hero" lang="en">
   <img class="hero-img" src="works/smykkeskrinet.jpg" alt="" width="963" height="1176">
   <div class="hero-text">
-    <p class="hero-kicker">Summer 2027 · <a href="https://jordenssang.dk/">Rødegaard</a>, Denmark</p>
+    <p class="hero-kicker"><span class="js-hero-dates">12–16 June 2027</span> · <a href="https://jordenssang.dk/">Rødegaard</a>, Mols</p>
     <p class="hero-name">Painting Retreat on Mols</p>
     <p class="hero-line">“Simple rules, simply explained” <span>— Jan-Ove Tuv</span></p>
   </div>
@@ -701,6 +701,11 @@
         dotsTaken: taken + " of " + total + " places taken"
       }
     };
+
+    document.querySelectorAll(".hero[lang]").forEach(function (hero) {
+      var t = text[hero.getAttribute("lang")];
+      if (t && t.dates) hero.querySelector(".js-hero-dates").textContent = t.dates;
+    });
 
     document.querySelectorAll("main[data-lang]").forEach(function (main) {
       var t = text[main.getAttribute("data-lang")];

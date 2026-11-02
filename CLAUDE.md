@@ -34,7 +34,7 @@ The retreat is called **Malerefugium på Mols** (English: **Painting Retreat on 
 - **Phones (< 600px) are the main audience.** Tighter spacing, facts as label/value rows, link descriptions hidden, pictures in one swipeable row, and photo credits moved from the captions to the footer. Wide screens (≥ 1340px) put the paintings in the right margin and the Mols Bjerge photos in the left.
 - Settings live in the `window.RETREAT` block at the top of `index.html`:
   - `status`: `"open"` gives Reserve a place, `"full"` gives Join the waitlist, `"soon"` gives Get notified
-  - `datesDa` / `datesEn`, `placesTotal`, `placesTaken`, `email`, `paymentLink` (Stripe)
+  - `datesDa` / `datesEn` (shown in the facts and in the line over the name at the top), `placesTotal`, `placesTaken`, `email`, `paymentLink` (Stripe)
   - When `placesTaken` reaches `placesTotal`, the page switches to waitlist by itself.
 - While `status` is `"open"` and `paymentLink` is set, the top button is "Reservér og betal / Reserve and pay" and goes to Stripe; the note under it has a small email link. Otherwise the button opens an email to Lasse with a prefilled subject. There is no form and no backend.
 - Fold-out sections use native `<details>`. The video is a youtube-nocookie embed with a "watch on YouTube" fallback link.
