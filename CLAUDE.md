@@ -18,6 +18,10 @@ gh repo create lassetopbjerg/retreat --public --source . --push
 gh api -X POST repos/lassetopbjerg/retreat/pages -f "source[branch]=main" -f "source[path]=/"
 ```
 
+## Name
+
+The retreat is called **Malerefugium på Mols** (English: **Painting Retreat on Mols**), chosen by Lasse on 2 Nov 2026. It sits first in the line above the heading.
+
 ## How the page works
 
 - **Danish first, full English version below.** An "English ↓" link sits in the header. Every change must be made in BOTH languages.
@@ -55,4 +59,3 @@ Look: off-white ground #F4F2EE, ink #1B1A18, muted #5E5A54, rules #D9D5CE, one s
 - Jan-Ove should approve his bio and the student quote (Edith Maier Kihle).
 - Ask Jordens Sang whether they are fine with being listed.
 - Photos: atelier, garden, Jan-Ove, and paintings. The page has no images yet; adding one strong hero image would help.
-- Danish term: "malerophold" is used for retreat. Lasse may prefer another word.
