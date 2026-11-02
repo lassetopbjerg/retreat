@@ -20,7 +20,7 @@ gh api -X POST repos/lassetopbjerg/retreat/pages -f "source[branch]=main" -f "so
 
 ## Design (dark, since 2 Nov 2026)
 
-- Dark, candlelit look inspired by nerdrum.com (Jan-Ove was Nerdrum's student; Lasse wants a touch of the kitsch spirit): warm umber ground #17120E, ivory text #EEE5D6, muted gold accent #C8A35E, Cinzel capitals for the masthead, headings, labels and button, Source Serif 4 for text.
+- Dark, candlelit look inspired by nerdrum.com (Jan-Ove was Nerdrum's student; Lasse wants a touch of the kitsch spirit): warm umber ground #17120E, ivory text #EEE5D6, muted gold accent #C8A35E, only two typefaces (Lasse asked for fewer): Cinzel for everything that names or labels (top, headings, fold-out titles, facts, links, button), Source Serif 4 regular for running text. No italics or bold.
 - Top: Smykkeskrinet as a full-height hero (whole figure visible, edges faded), with the name, "Sommer 2027 · Rødegaard" and Jan-Ove's motto over it.
 - The earlier light design is tagged `foer-moerkt-design`. To go back: `git checkout foer-moerkt-design -- index.html` (text changes made since then must be redone).
 

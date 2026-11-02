@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400&display=swap" rel="stylesheet">
 <script>
   document.documentElement.setAttribute("data-show", location.hash === "#english" ? "en" : "da");
 </script>
@@ -97,8 +97,6 @@
   .flag-link:hover .flag { opacity: 0.75; }
 
   .kicker { margin: 0; font-size: 15px; color: var(--muted); }
-  .masthead { display: flex; flex-direction: column; gap: 4px; text-align: center; }
-  .masthead-name { margin: 0; font-size: 26px; font-weight: 600; line-height: 1.2; }
   h1 { margin: 0; font-size: clamp(32px, 6vw, 46px); font-weight: 600; line-height: 1.15; }
   h2 { margin: 0; font-size: 26px; font-weight: 600; line-height: 1.25; }
   .lede { margin: 0; color: var(--body); }
@@ -192,12 +190,11 @@
     header nav { grid-column: 2; gap: 16px; }
     main { padding-top: 8px; padding-bottom: 72px; gap: 56px; }
     section { gap: 20px; }
-    h1 { font-size: 27px; line-height: 1.2; }
-    .masthead-name { font-size: 24px; }
-    .facts { grid-template-columns: 1fr; gap: 12px; padding: 16px 0; }
-    .fact { display: grid; grid-template-columns: 76px 1fr; column-gap: 16px; align-items: baseline; }
+    h1 { font-size: 24px; line-height: 1.3; }
+    .facts { grid-template-columns: 1fr; gap: 16px; padding: 20px 0; }
+    .fact { display: grid; grid-template-columns: 92px 1fr; column-gap: 12px; align-items: baseline; }
     .fact .label { grid-row: 1 / span 3; }
-    .fact .value { font-size: 18px; }
+    .fact .value { font-size: 21px; }
     .links .desc { display: none; }
     .links a { padding: 14px 0; }
     .credit { display: none; }
@@ -246,12 +243,22 @@
     font-size: clamp(30px, 7vw, 66px); line-height: 1.12; letter-spacing: 0.08em;
     text-transform: uppercase; color: var(--ink); text-wrap: balance;
   }
-  .hero-line { margin: 18px 0 0; font-style: italic; font-size: 19px; color: var(--body); }
-  .hero-line span { font-style: normal; font-size: 15px; color: var(--muted); }
+  .hero-line { margin: 18px 0 0; font-family: var(--caps); font-size: 18px; letter-spacing: 0.04em; color: var(--body); }
+  .hero-line { text-wrap: balance; }
+  .hero-line span { font-size: 14px; color: var(--muted); white-space: nowrap; }
 
-  h1 { font-weight: 400; }
+  /* Two typefaces only: Cinzel for everything that names or labels, Source Serif 4 for running text */
+  h1 { font-family: var(--caps); font-weight: 400; font-size: clamp(26px, 4.4vw, 38px); line-height: 1.25; letter-spacing: 0.02em; }
+  summary { font-family: var(--caps); font-size: 18px; letter-spacing: 0.04em; }
+  .fact .value { font-family: var(--caps); }
+  .links a > span:first-child { font-family: var(--caps); letter-spacing: 0.03em; }
+  .links .desc { font-family: "Source Serif 4", Georgia, serif; letter-spacing: 0; }
+  strong { font-weight: 400; color: var(--ink); }
   h2 { font-family: var(--caps); font-weight: 400; font-size: 22px; letter-spacing: 0.1em; text-transform: uppercase; }
-  .fact .label { font-family: var(--caps); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+  .fact .label { font-family: var(--caps); font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+  .fact .value { font-size: 23px; line-height: 1.35; }
+  .fact .sub { font-size: 15px; }
+  .dots span { width: 16px; height: 16px; }
   .dots span { border-color: var(--muted); }
   .dots span.taken { background: var(--gold); border-color: var(--gold); }
   .button {
@@ -268,7 +275,8 @@
   @media (max-width: 599px) {
     .hero { min-height: min(80svh, 700px); }
     .hero-text { padding-bottom: 32px; }
-    .hero-line { font-size: 17px; }
+    .hero-line { font-size: 16px; }
+    .hero-line span { display: block; margin-top: 4px; }
     .hero-kicker { font-size: 14px; letter-spacing: 0.14em; text-wrap: balance; }
     main { padding-top: 24px; }
     h2 { font-size: 19px; }
@@ -674,7 +682,7 @@
                mail: "Skriv til Lasse" },
         open: { cta: "Reservér en plads", subject: "Malerefugium 2027 – reservation",
                 note: "Åbner en mail til Lasse. Du får betalingsoplysninger og materialeliste som svar.",
-                places: left + " af " + total + " pladser ledige" },
+                places: left + " af " + total + " ledige" },
         full: { cta: "Skriv dig på ventelisten", subject: "Malerefugium 2027 – venteliste",
                 note: "Alle pladser er taget. Skriv til Lasse, så hører du først, hvis en plads bliver ledig.",
                 places: "Fuldt booket" },
@@ -690,7 +698,7 @@
                mail: "Write to Lasse" },
         open: { cta: "Reserve a place", subject: "Retreat 2027 – reservation",
                 note: "Opens an email to Lasse. You get payment details and the materials list in reply.",
-                places: left + " of " + total + " places left" },
+                places: left + " of " + total + " left" },
         full: { cta: "Join the waitlist", subject: "Retreat 2027 – waitlist",
                 note: "All places are taken. Write to Lasse and you hear first if one opens.",
                 places: "Full" },
