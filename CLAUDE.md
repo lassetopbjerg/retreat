@@ -24,7 +24,8 @@ The retreat is called **Malerefugium på Mols** (English: **Painting Retreat on 
 
 ## How the page works
 
-- **Danish first, full English version below.** An "English ↓" link sits in the header. Every change must be made in BOTH languages.
+- **Two full language versions in one file, one shown at a time.** The page shows Danish by default; the flags in the header switch language (`html[data-show="da"|"en"]`), and `#english` opens the English version directly. Without JavaScript both versions show, one after the other. Every change must be made in BOTH languages.
+- **Phones (< 600px) are the main audience.** Tighter spacing, facts as label/value rows, link descriptions hidden, pictures in one swipeable row, and photo credits moved from the captions to the footer. Wide screens (≥ 1340px) put the paintings in the right margin and the Mols Bjerge photos in the left.
 - Settings live in the `window.RETREAT` block at the top of `index.html`:
   - `status`: `"open"` gives Reserve a place, `"full"` gives Join the waitlist, `"soon"` gives Get notified
   - `datesDa` / `datesEn`, `placesTotal`, `placesTaken`, `email`, `paymentLink` (Stripe)
