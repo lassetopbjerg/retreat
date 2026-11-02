@@ -46,7 +46,8 @@ Look: off-white ground #F4F2EE, ink #1B1A18, muted #5E5A54, rules #D9D5CE, one s
 - Dates: 12–16 June 2027 (Sat–Wed). Sign-up is open. Max 10 painters.
 - Price: 6,500 DKK covering tuition and model. Lodging is not included.
 - Days: 10–13 live model, 13–16 break, from 16 optional plein air. The atelier is open all day and in the evening.
-- Food: full board at Rødegaard 625 DKK/day (breakfast, lunch, dinner, tea/coffee, snacks; all vegetarian, mostly from the garden). Alternatively, a small kitchen in the atelier. No shops in Knebel; groceries in Vrinners/Ebeltoft, about 20 minutes by bus.
+- Terms (confirmed): full amount paid at sign-up, no deposit; if the retreat is cancelled, all money is returned.
+- Food: full board at Rødegaard 625 DKK/day, booked with Jordens Sang (kontakt@jordenssang.dk) (breakfast, lunch, dinner, tea/coffee, snacks; all vegetarian, mostly from the garden). Alternatively, a small kitchen in the atelier. No shops in Knebel; groceries in Vrinners/Ebeltoft, about 20 minutes by bus.
 - Lodging: tent in the Rødegaard garden (small fee), rooms at Rødegaard/Jordens Sang (kontakt@jordenssang.dk), Molsgaarden B&B https://hosmolsgaarden.dk/ (Kildevej 26, Knebel).
 - Getting there: Rødegaard, Karlshøjvej 5, 8420 Knebel, about 45 minutes from Aarhus. From Norway, the Larvik–Hirtshals ferry.
 - Jan-Ove Tuv, from malekurstuv.no: born 1976; Odd Nerdrum's assistant 1996–2002; has run courses for 16 years (confirmed by Lasse); books on kitsch; «Jakten på Nerdrum»; podcast The Cave of Apelles; motto «Enkle regler – enkelt forklart»; reduced palette; teaches in Norwegian and English.
@@ -55,7 +56,9 @@ Look: off-white ground #F4F2EE, ink #1B1A18, muted #5E5A54, rules #D9D5CE, one s
 
 ## Still open
 
-- Deposit and cancellation terms. Payment is by Stripe link (added 2 Nov 2026); the page does not state the terms yet.
+- Price is 6,500 DKK (confirmed). The Stripe link charged DKK 6,000 on 2 Nov 2026 and its public business name was "Art"; Lasse must fix both in Stripe.
+- Start time on day one and end time on day five: Lasse gives them later.
+- What happens if a participant cancels: not decided yet.
 - Tent price per night, canvas size, and the afternoon end time. These are worded generally on the page.
 - Jan-Ove should approve his bio and the student quote (Edith Maier Kihle).
 - Ask Jordens Sang whether they are fine with being listed.
