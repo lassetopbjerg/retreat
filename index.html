@@ -5,15 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#17120E">
 <title>Malerefugium på Mols med Jan-Ove Tuv · Painting Retreat on Mols</title>
-<meta name="description" content="Fem dages klassisk maleri med Jan-Ove Tuv på Rødegaard, Mols. Five days of classical painting with Jan-Ove Tuv at Rødegaard, Mols, Denmark. Max 10 malere / painters.">
+<meta name="description" content="Malerefugium på Mols: fem dages klassisk malekursus med Jan-Ove Tuv ved Nationalpark Mols Bjerge, 12.–16. juni 2027. Levende model, landskabsmaleri, højst ti malere. Painting Retreat on Mols: a five-day classical painting course with Jan-Ove Tuv, 12–16 June 2027.">
 <meta property="og:title" content="Malerefugium på Mols med Jan-Ove Tuv · Painting Retreat on Mols">
-<meta property="og:description" content="Fem dages klassisk maleri på Rødegaard, Mols. Five days of classical painting in Mols, Denmark.">
+<meta property="og:description" content="Fem dages klassisk malekursus med Jan-Ove Tuv ved Nationalpark Mols Bjerge, 12.–16. juni 2027. Højst ti malere.">
+<meta property="og:url" content="https://lassetopbjerg.github.io/retreat/">
+<meta property="og:image" content="https://lassetopbjerg.github.io/retreat/works/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Malerefugium på Mols, 12.–16. juni 2027, Rødegaard. Maleriet Smykkeskrinet af Jan-Ove Tuv.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400&display=swap" rel="stylesheet">
 <script>
-  document.documentElement.setAttribute("data-show", location.hash === "#english" ? "en" : "da");
+  // Language: #english in the link wins, then the visitor's own choice, then the browser language
+  // (Danish, Norwegian and Swedish readers get Danish, everyone else English).
+  (function () {
+    var lang = null;
+    if (location.hash === "#english") lang = "en";
+    else if (location.hash === "#dansk") lang = "da";
+    if (!lang) { try { lang = localStorage.getItem("lang"); } catch (e) {} }
+    if (lang !== "da" && lang !== "en") {
+      var langs = navigator.languages || [navigator.language || "da"];
+      lang = /^(da|nb|nn|no|sv)\b/i.test(langs[0] || "da") ? "da" : "en";
+    }
+    document.documentElement.setAttribute("data-show", lang);
+  })();
 </script>
 <script>
   // ============================================================
@@ -70,7 +90,9 @@
   html[data-show="da"] main[lang="en"], html[data-show="en"] main[lang="da"],
   html[data-show="da"] .hero[lang="en"], html[data-show="en"] .hero[lang="da"],
   html[data-show] .language-break,
-  html[data-show="da"] .credits[lang="en"], html[data-show="en"] .credits[lang="da"] { display: none; }
+  html[data-show="da"] .credits[lang="en"], html[data-show="en"] .credits[lang="da"],
+  html[data-show="da"] .organiser[lang="en"], html[data-show="en"] .organiser[lang="da"] { display: none; }
+  .organiser { margin: 0; flex-basis: 100%; }
   html[data-show="da"] .flag-link[lang="en"] .flag, html[data-show="en"] .flag-link[lang="da"] .flag { opacity: 0.45; }
   .credits { display: none; margin: 0; flex-basis: 100%; font-size: 13px; line-height: 1.5; }
   header a { text-decoration: none; padding: 10px 0; }
@@ -156,25 +178,18 @@
   .works img { display: block; width: 100%; height: auto; }
   .works figcaption { margin-top: 6px; font-size: 13px; line-height: 1.4; color: var(--muted); }
   .works figcaption a { color: var(--muted); }
-  @media (min-width: 1340px) {
+  @media (min-width: 1240px) {
     main { position: relative; }
     .works { display: contents; }
-    .works figure { position: absolute; width: min(240px, calc((100vw - 760px) / 2 - 88px)); }
-    .works .pos-r1, .works .pos-r2, .works .pos-r3 { left: calc(100% + 56px); }
-    .works .pos-l1, .works .pos-l2, .works .pos-l3 { right: calc(100% + 56px); }
+    .works figure { position: absolute; width: min(240px, calc((100vw - 760px) / 2 - 72px)); }
+    .works .pos-r1, .works .pos-r2, .works .pos-r3 { left: calc(100% + 48px); }
+    .works .pos-l1, .works .pos-l2, .works .pos-l3 { right: calc(100% + 48px); }
     .works .pos-r1, .works .pos-l1 { top: 40px; }
     .works .pos-r2, .works .pos-l2 { top: 600px; }
     .works .pos-r3, .works .pos-l3 { top: 1160px; }
   }
-  .place-photo { margin: 0; }
-  .place-photo img { display: block; width: 100%; height: auto; }
-  .place-photo figcaption { margin-top: 6px; font-size: 13px; line-height: 1.4; color: var(--muted); }
-  .place-photo figcaption a { color: var(--muted); }
-  @media (min-width: 1340px) {
-    .place-photo { position: absolute; top: 40px; right: calc(100% + 56px); width: min(240px, calc((100vw - 760px) / 2 - 88px)); }
-  }
   /* Click a picture to see it large */
-  .works img, .place-photo img { cursor: zoom-in; }
+  .works img { cursor: zoom-in; }
   .zoom { padding: 0; border: 0; background: transparent; max-width: 100vw; max-height: 100vh; overflow: visible; }
   .zoom::backdrop { background: rgba(27, 26, 24, 0.9); }
   .zoom figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; cursor: zoom-out; }
@@ -190,7 +205,7 @@
     header nav { grid-column: 2; gap: 16px; }
     main { padding-top: 8px; padding-bottom: 72px; gap: 56px; }
     section { gap: 20px; }
-    h1 { font-size: 24px; line-height: 1.3; }
+    h1 { font-size: 20px; line-height: 1.4; }
     .facts { grid-template-columns: 1fr; gap: 16px; padding: 20px 0; }
     .fact { display: grid; grid-template-columns: 92px 1fr; column-gap: 12px; align-items: baseline; }
     .fact .label { grid-row: 1 / span 3; }
@@ -248,7 +263,7 @@
   .hero-line span { font-size: 14px; color: var(--muted); white-space: nowrap; }
 
   /* Two typefaces only: Cinzel for everything that names or labels, Source Serif 4 for running text */
-  h1 { font-family: var(--caps); font-weight: 400; font-size: clamp(26px, 4.4vw, 38px); line-height: 1.25; letter-spacing: 0.02em; }
+  h1 { font-family: var(--caps); font-weight: 400; font-size: clamp(21px, 2.6vw, 28px); line-height: 1.35; letter-spacing: 0.03em; color: var(--body); }
   summary { font-family: var(--caps); font-size: 18px; letter-spacing: 0.04em; }
   .fact .value { font-family: var(--caps); }
   .links a > span:first-child { font-family: var(--caps); letter-spacing: 0.03em; }
@@ -320,7 +335,7 @@
 
   <section aria-labelledby="title-da">
     <h1 id="title-da">Fem dages klassisk malekursus med Jan-Ove Tuv ved <a href="https://nationalparkmolsbjerge.dk/" target="_blank" rel="noopener">Nationalpark Mols Bjerge</a></h1>
-    <p class="lede">Nyd Mols Bjerge og de idylliske omgivelser ved <a href="https://jordenssang.dk/" target="_blank" rel="noopener">Rødegaard</a>, imens du lærer klassiske og tidsløse malerteknikker. For både nybegyndere og øvede malere.</p>
+    <p class="lede">Højst ti malere, levende model og maleri i landskabet omkring <a href="https://jordenssang.dk/" target="_blank" rel="noopener">Rødegaard</a>. For både nybegyndere og øvede malere.</p>
 
     <div class="facts">
       <div class="fact">
@@ -351,13 +366,13 @@
   </section>
 
   <section aria-labelledby="lesson-da">
-    <h2 id="lesson-da">Prøv en lektion først</h2>
-    <p class="lede">Jan-Ove Tuv er tidligere assistent for Odd Nerdrum og har en dyb forståelse for maleriets grundprincipper, kunsthistorie, myter og fortællinger. Han er en erfaren underviser og tilpasser undervisningen til alle, fra komplette nybegyndere til øvede kunstnere.</p>
+    <h2 id="lesson-da">Mød din underviser</h2>
+    <p class="lede">Jan-Ove Tuv (f. 1976) er norsk maler og var assistent for Odd Nerdrum fra 1996 til 2002. Han har en dyb forståelse for maleriets grundprincipper, kunsthistorie, myter og fortællinger, har skrevet bøger om kitsch og medvirket i dokumentarserien «Jakten på Nerdrum».</p>
+    <p class="lede">Han har afholdt kurser i 16 år og tilpasser undervisningen til alle, fra komplette nybegyndere til øvede kunstnere. Han underviser på norsk og engelsk.</p>
     <p class="lede">I videoen herunder forklarer han kort Apelles-paletten, som vi også arbejder med på kurset.</p>
     <div class="video">
       <iframe src="https://www.youtube-nocookie.com/embed/s_7lLQkglj0" title="Sådan bruger du Apelles-paletten, med Jan-Ove Tuv" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-    <p class="note">Virker videoen ikke? <a href="https://www.youtube.com/watch?v=s_7lLQkglj0" target="_blank" rel="noopener">Se den på YouTube</a>.</p>
 
     <div class="links" aria-label="Mere om Jan-Ove">
       <a href="https://malekurstuv.no/arbeider/" target="_blank" rel="noopener"><span>Jan-Oves værker <span class="desc">— malerier, tegninger og tryk</span></span><span aria-hidden="true">↗</span></a>
@@ -384,12 +399,12 @@
       <figcaption>Nationalpark Mols Bjerge, Trehøje<span class="credit">. <a href="https://commons.wikimedia.org/wiki/File:Treh%C3%B8je_Mols_Bjerge.jpg" target="_blank" rel="noopener">Foto: Mikkel Houmøller</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></span></figcaption>
     </figure>
     <figure class="pos-l2">
-      <img src="works/mols-bjerge-stabelhoeje.jpg" alt="Grønne bakker og udsigt over vig og marker fra Stabelhøje" width="960" height="540" loading="lazy">
-      <figcaption>Udsigt fra Stabelhøje<span class="credit">. <a href="https://commons.wikimedia.org/wiki/File:Stabelh%C3%B8je_Udsigt_2.JPG" target="_blank" rel="noopener">Foto: Old Dane</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></span></figcaption>
+      <img src="works/mols-bjerge-begtrup-vig.jpg" alt="Gyldne kornmarker og Begtrup Vig set fra Trehøje i Nationalpark Mols Bjerge" width="960" height="497" loading="lazy">
+      <figcaption>Begtrup Vig set fra Trehøje<span class="credit">. <a href="https://commons.wikimedia.org/wiki/File:Begtrup_Vig_fra_Treh%C3%B8je.jpg" target="_blank" rel="noopener">Foto: Old Dane</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></span></figcaption>
     </figure>
     <figure class="pos-l3">
-      <img src="works/mols-bjerge-kvaeg.jpg" alt="Kvæg græsser i en lysning mellem træerne i Mols Bjerge" width="960" height="540" loading="lazy">
-      <figcaption>Kvæg i skovbrynet<span class="credit">. <a href="https://commons.wikimedia.org/wiki/File:Kv%C3%A6g_Mols_Bjerge.jpg" target="_blank" rel="noopener">Foto: Fugit hora</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></span></figcaption>
+      <img src="works/helgenaes-solnedgang.jpg" alt="Solnedgang over vandet bag nøgne træer ved Ørby på Helgenæs" width="960" height="540" loading="lazy">
+      <figcaption>Solnedgang ved Ørby, Helgenæs<span class="credit">. <a href="https://commons.wikimedia.org/wiki/File:Solnedgang_ved_%C3%98rby_p%C3%A5_Helgen%C3%A6s_2.jpg" target="_blank" rel="noopener">Foto: Carsten Wiehe</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a></span></figcaption>
     </figure>
   </aside>
 
@@ -410,14 +425,6 @@
         </div>
       </details>
 
-      <details>
-        <summary>Din underviser</summary>
-        <div class="answer">
-          <p>Jan-Ove Tuv (f. 1976) er norsk maler. Fra 1996 til 2002 var han assistent for Odd Nerdrum, og han har afholdt kurser i 16 år.</p>
-          <p>Han maler portrætter og figurer i olie, akvarel, tegning og grafik. Han har skrevet bøger om kitsch, været med i dokumentarserien «Jakten på Nerdrum» og står bag podcasten The Cave of Apelles.</p>
-          <p>Han underviser på norsk og engelsk.</p>
-        </div>
-      </details>
 
       <details>
         <summary>Sådan underviser han</summary>
@@ -475,12 +482,16 @@
       <details>
         <summary>Reservation og betaling</summary>
         <div class="answer">
-          <p>Reservér og betal med kort via knappen øverst på siden. Bagefter får du materialeliste og praktisk information fra Lasse.</p>
+          <p>Reservér og betal med kort via knappen herunder eller øverst på siden. Bagefter får du materialeliste og praktisk information fra Lasse.</p>
           <p>Du betaler hele beløbet ved tilmelding. Der er intet depositum. Bliver malerefugiet aflyst, får du alle pengene tilbage.</p>
           <p>Spørgsmål først? Skriv til <a href="mailto:lassetopbjerg@gmail.com">lassetopbjerg@gmail.com</a> eller ring på <a href="tel:+4531177506">+45 31 17 75 06</a>.</p>
         </div>
       </details>
 
+    </div>
+    <div class="action action-end">
+      <a class="button js-cta" href="mailto:lassetopbjerg@gmail.com">Få besked</a>
+      <p class="note js-note">Åbner en mail til Lasse.</p>
     </div>
   </section>
 
@@ -504,7 +515,7 @@
 
   <section aria-labelledby="title-en">
     <h1 id="title-en">A five-day classical painting course with Jan-Ove Tuv at <a href="https://nationalparkmolsbjerge.dk/" target="_blank" rel="noopener">Mols Bjerge National Park</a></h1>
-    <p class="lede">Enjoy the hills of Mols and the idyllic surroundings of <a href="https://jordenssang.dk/" target="_blank" rel="noopener">Rødegaard</a> while you learn classical, timeless painting techniques. For beginners and experienced painters alike.</p>
+    <p class="lede">At most ten painters, a live model and painting in the landscape around <a href="https://jordenssang.dk/" target="_blank" rel="noopener">Rødegaard</a>. For beginners and experienced painters alike.</p>
 
     <div class="facts">
       <div class="fact">
@@ -535,13 +546,13 @@
   </section>
 
   <section aria-labelledby="lesson-en">
-    <h2 id="lesson-en">Try a lesson first</h2>
-    <p class="lede">Jan-Ove Tuv is a former assistant to Odd Nerdrum, with a deep understanding of the fundamentals of painting, art history, myth and storytelling. He is an experienced teacher who adapts his teaching to everyone, from complete beginners to advanced artists.</p>
+    <h2 id="lesson-en">Meet your teacher</h2>
+    <p class="lede">Jan-Ove Tuv (b. 1976) is a Norwegian painter and was assistant to Odd Nerdrum from 1996 to 2002. He has a deep understanding of the fundamentals of painting, art history, myth and storytelling, has written books on kitsch and appeared in the documentary series «Jakten på Nerdrum» (The Hunt for Nerdrum).</p>
+    <p class="lede">He has been running courses for 16 years and adapts his teaching to everyone, from complete beginners to advanced artists. He teaches in Norwegian and English.</p>
     <p class="lede">In the video below he briefly explains the Apelles palette, which we also work with on the course.</p>
     <div class="video">
       <iframe src="https://www.youtube-nocookie.com/embed/s_7lLQkglj0" title="How to use the Apelles Palette, by Jan-Ove Tuv" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-    <p class="note">Video not playing? <a href="https://www.youtube.com/watch?v=s_7lLQkglj0" target="_blank" rel="noopener">Watch it on YouTube</a>.</p>
 
     <div class="links" aria-label="More about Jan-Ove">
       <a href="https://malekurstuv.no/arbeider/" target="_blank" rel="noopener"><span>Jan-Ove's work <span class="desc">— paintings, drawings and prints</span></span><span aria-hidden="true">↗</span></a>
@@ -568,12 +579,12 @@
       <figcaption>Mols Bjerge National Park, Trehøje<span class="credit">. <a href="https://commons.wikimedia.org/wiki/File:Treh%C3%B8je_Mols_Bjerge.jpg" target="_blank" rel="noopener">Photo: Mikkel Houmøller</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></span></figcaption>
     </figure>
     <figure class="pos-l2">
-      <img src="works/mols-bjerge-stabelhoeje.jpg" alt="Green hills with a view over the bay and fields from Stabelhøje" width="960" height="540" loading="lazy">
-      <figcaption>View from Stabelhøje<span class="credit">. <a href="https://commons.wikimedia.org/wiki/File:Stabelh%C3%B8je_Udsigt_2.JPG" target="_blank" rel="noopener">Photo: Old Dane</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></span></figcaption>
+      <img src="works/mols-bjerge-begtrup-vig.jpg" alt="Golden fields and Begtrup Vig seen from Trehøje in Mols Bjerge National Park" width="960" height="497" loading="lazy">
+      <figcaption>Begtrup Vig seen from Trehøje<span class="credit">. <a href="https://commons.wikimedia.org/wiki/File:Begtrup_Vig_fra_Treh%C3%B8je.jpg" target="_blank" rel="noopener">Photo: Old Dane</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></span></figcaption>
     </figure>
     <figure class="pos-l3">
-      <img src="works/mols-bjerge-kvaeg.jpg" alt="Cattle grazing in a clearing among trees in Mols Bjerge" width="960" height="540" loading="lazy">
-      <figcaption>Cattle at the forest edge<span class="credit">. <a href="https://commons.wikimedia.org/wiki/File:Kv%C3%A6g_Mols_Bjerge.jpg" target="_blank" rel="noopener">Photo: Fugit hora</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></span></figcaption>
+      <img src="works/helgenaes-solnedgang.jpg" alt="Sunset over the water behind bare trees at Ørby on Helgenæs" width="960" height="540" loading="lazy">
+      <figcaption>Sunset at Ørby, Helgenæs<span class="credit">. <a href="https://commons.wikimedia.org/wiki/File:Solnedgang_ved_%C3%98rby_p%C3%A5_Helgen%C3%A6s_2.jpg" target="_blank" rel="noopener">Photo: Carsten Wiehe</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a></span></figcaption>
     </figure>
   </aside>
 
@@ -594,14 +605,6 @@
         </div>
       </details>
 
-      <details>
-        <summary>Your teacher</summary>
-        <div class="answer">
-          <p>Jan-Ove Tuv (b. 1976) is a Norwegian painter. From 1996 to 2002 he was assistant to Odd Nerdrum, and he has been running courses for 16 years.</p>
-          <p>He paints portraits and figures in oil, watercolour, drawing and printmaking. He has written books on kitsch, appeared in the documentary series «Jakten på Nerdrum» (The Hunt for Nerdrum) and hosts the podcast The Cave of Apelles.</p>
-          <p>He teaches in English and Norwegian.</p>
-        </div>
-      </details>
 
       <details>
         <summary>How he teaches</summary>
@@ -659,20 +662,26 @@
       <details>
         <summary>Reserving and paying</summary>
         <div class="answer">
-          <p>Reserve and pay by card with the button at the top of the page. Afterwards Lasse sends you the materials list and practical information.</p>
+          <p>Reserve and pay by card with the button below or at the top of the page. Afterwards Lasse sends you the materials list and practical information.</p>
           <p>You pay the full amount when you sign up. There is no deposit. If the retreat is cancelled, you get all your money back.</p>
           <p>Questions first? Write to <a href="mailto:lassetopbjerg@gmail.com">lassetopbjerg@gmail.com</a> or call <a href="tel:+4531177506">+45 31 17 75 06</a>.</p>
         </div>
       </details>
 
     </div>
+    <div class="action action-end">
+      <a class="button js-cta" href="mailto:lassetopbjerg@gmail.com">Get notified</a>
+      <p class="note js-note">Opens an email to Lasse.</p>
+    </div>
   </section>
 
 </main>
 
 <footer>
-  <p class="credits" lang="da">Fotos fra Nationalpark Mols Bjerge: Mikkel Houmøller, Old Dane og Fugit hora, via <a href="https://commons.wikimedia.org/wiki/Category:Mols_Bjerge_National_Park" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. Malerier: Jan-Ove Tuv.</p>
-  <p class="credits" lang="en">Photos of Mols Bjerge National Park: Mikkel Houmøller, Old Dane and Fugit hora, via <a href="https://commons.wikimedia.org/wiki/Category:Mols_Bjerge_National_Park" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. Paintings: Jan-Ove Tuv.</p>
+  <p class="credits" lang="da">Fotos fra Nationalpark Mols Bjerge via Wikimedia Commons: Mikkel Houmøller og Old Dane (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>), Carsten Wiehe (<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>). Malerier: Jan-Ove Tuv.</p>
+  <p class="credits" lang="en">Photos of Mols Bjerge National Park via Wikimedia Commons: Mikkel Houmøller and Old Dane (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>), Carsten Wiehe (<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>). Paintings: Jan-Ove Tuv.</p>
+  <p class="organiser" lang="da">Arrangør: Lasse Topbjerg Storgaard · <a href="mailto:lassetopbjerg@gmail.com">lassetopbjerg@gmail.com</a> · <a href="tel:+4531177506">+45 31 17 75 06</a></p>
+  <p class="organiser" lang="en">Organiser: Lasse Topbjerg Storgaard · <a href="mailto:lassetopbjerg@gmail.com">lassetopbjerg@gmail.com</a> · <a href="tel:+4531177506">+45 31 17 75 06</a></p>
   <span>Rødegaard · Karlshøjvej 5 · 8420 Knebel</span>
   <a href="https://www.instagram.com/jan_ove_tuv/" target="_blank" rel="noopener">Instagram: @jan_ove_tuv</a>
 </footer>
@@ -735,8 +744,9 @@
       if (t.dates) main.querySelector(".js-dates").textContent = t.dates;
       main.querySelector(".js-places").textContent = s.places;
 
-      var cta = main.querySelector(".js-cta");
-      var note = main.querySelector(".js-note");
+      main.querySelectorAll(".action").forEach(function (box) {
+      var cta = box.querySelector(".js-cta");
+      var note = box.querySelector(".js-note");
       if (pay) {
         cta.textContent = t.pay.cta;
         cta.href = r.paymentLink;
@@ -751,6 +761,7 @@
         cta.href = "mailto:" + email + "?subject=" + encodeURIComponent(s.subject);
         note.textContent = s.note;
       }
+      });
 
       var dots = main.querySelector(".js-dots");
       dots.setAttribute("aria-label", status === "soon" ? t.dotsSoon : t.dotsTaken);
@@ -775,6 +786,7 @@
         e.preventDefault();
         var lang = a.getAttribute("lang");
         show(lang);
+        try { localStorage.setItem("lang", lang); } catch (err) {}
         history.replaceState(null, "", lang === "en" ? "#english" : location.pathname + location.search);
         window.scrollTo(0, 0);
       });
@@ -794,7 +806,7 @@
     var dlg = document.getElementById("zoom");
     if (!dlg.showModal) return;
     var big = dlg.querySelector("img"), cap = dlg.querySelector("figcaption");
-    document.querySelectorAll(".works img, .place-photo img").forEach(function (img) {
+    document.querySelectorAll(".works img").forEach(function (img) {
       img.tabIndex = 0;
       img.setAttribute("role", "button");
       function open() {

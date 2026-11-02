@@ -24,6 +24,14 @@ gh api -X POST repos/lassetopbjerg/retreat/pages -f "source[branch]=main" -f "so
 - Top: Smykkeskrinet as a full-height hero (whole figure visible, edges faded), with the name, "Sommer 2027 · Rødegaard" and Jan-Ove's motto over it.
 - The earlier light design is tagged `foer-moerkt-design`. To go back: `git checkout foer-moerkt-design -- index.html` (text changes made since then must be redone).
 
+## Built-in pieces (2 Nov 2026)
+
+- Language: `#english`/`#dansk` in the link wins, then the visitor's last flag choice (localStorage), then the browser language (da/nb/nn/no/sv get Danish, everyone else English).
+- Two booking buttons per language (top and after "Det praktiske"); the script fills every `.action` box.
+- Footer: organiser line (name, email, phone) per language, address, Jan-Ove's Instagram; on phones also the photo credits.
+- Share image `works/share.jpg` (1200x630) has the name, dates and place baked in: make a new one if any of those change. Tab icon: `favicon-32.png`, `apple-touch-icon.png`, `favicon.ico` (gold Cinzel M).
+- Pictures: Jan-Ove's Ego, Smykkeskrinet, Discovery on the right; Trehøje (Mikkel Houmøller, CC BY-SA 4.0), Begtrup Vig fra Trehøje (Old Dane, CC BY-SA 4.0) and Solnedgang ved Ørby, Helgenæs (Carsten Wiehe, CC BY-SA 3.0) on the left. Side margins from 1240px wide.
+
 ## Name
 
 The retreat is called **Malerefugium på Mols** (English: **Painting Retreat on Mols**), chosen by Lasse on 2 Nov 2026. It sits first in the line above the heading.
