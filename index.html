@@ -155,6 +155,13 @@
     .works figure:nth-of-type(3) { top: 1160px; }
     .works figure:nth-of-type(4) { top: 1700px; }
   }
+  .place-photo { margin: 0; }
+  .place-photo img { display: block; width: 100%; height: auto; }
+  .place-photo figcaption { margin-top: 6px; font-size: 13px; line-height: 1.4; color: var(--muted); }
+  .place-photo figcaption a { color: var(--muted); }
+  @media (min-width: 1340px) {
+    .place-photo { position: absolute; top: 40px; right: calc(100% + 56px); width: min(240px, calc((100vw - 760px) / 2 - 88px)); }
+  }
 </style>
 </head>
 <body>
@@ -183,6 +190,10 @@
 <main lang="da" data-lang="da">
 
   <section aria-labelledby="title-da">
+    <figure class="place-photo">
+      <img src="works/mols-bjerge-trehoeje.jpg" alt="Lyngklædte bakker og Trehøje i Nationalpark Mols Bjerge" width="960" height="636">
+      <figcaption>Nationalpark Mols Bjerge, Trehøje. <a href="https://commons.wikimedia.org/wiki/File:Treh%C3%B8je_Mols_Bjerge.jpg">Foto: Mikkel Houmøller</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
+    </figure>
     <p class="kicker">Malerophold · Sommer 2027 · Rødegaard, Mols</p>
     <h1 id="title-da">Fem dages klassisk maleri med Jan-Ove Tuv</h1>
     <p class="lede">Nyd Mols bjerge og de idylliske omgivelser ved Rødegaard, imens du lærer klassiske og tidsløse malerteknikker. For både nybegyndere og øvede malere.</p>
@@ -348,6 +359,10 @@
 <main lang="en" data-lang="en">
 
   <section aria-labelledby="title-en">
+    <figure class="place-photo">
+      <img src="works/mols-bjerge-trehoeje.jpg" alt="Heather-covered hills and Trehøje in Mols Bjerge National Park" width="960" height="636">
+      <figcaption>Mols Bjerge National Park, Trehøje. <a href="https://commons.wikimedia.org/wiki/File:Treh%C3%B8je_Mols_Bjerge.jpg">Photo: Mikkel Houmøller</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></figcaption>
+    </figure>
     <p class="kicker">Painting retreat · Summer 2027 · Rødegaard, Mols, Denmark</p>
     <h1 id="title-en">Five days of classical painting with Jan-Ove Tuv</h1>
     <p class="lede">Enjoy the hills of Mols and the idyllic surroundings of Rødegaard while you learn classical, timeless painting techniques. For beginners and experienced painters alike.</p>
