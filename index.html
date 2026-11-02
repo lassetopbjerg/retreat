@@ -133,6 +133,24 @@
   .schedule dd { margin: 0; }
   ul { margin: 0 0 12px; padding-left: 20px; }
   li { margin-bottom: 6px; }
+  /* Jan-Ove's work: a small grid on phones, in the side margins on wide screens */
+  .works { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 16px; align-items: start; }
+  .works-label { grid-column: 1 / -1; }
+  .works figure { margin: 0; }
+  .works img { display: block; width: 100%; height: auto; }
+  .works figcaption { margin-top: 6px; font-size: 13px; line-height: 1.4; color: var(--muted); }
+  @media (min-width: 1340px) {
+    main { position: relative; }
+    .works { display: contents; }
+    .works-label { display: none; }
+    .works figure { position: absolute; width: min(240px, calc((100vw - 760px) / 2 - 88px)); }
+    .works figure:nth-of-type(odd) { left: calc(100% + 56px); }
+    .works figure:nth-of-type(even) { right: calc(100% + 56px); }
+    .works figure:nth-of-type(1) { top: 40px; }
+    .works figure:nth-of-type(2) { top: 560px; }
+    .works figure:nth-of-type(3) { top: 1160px; }
+    .works figure:nth-of-type(4) { top: 1700px; }
+  }
 </style>
 </head>
 <body>
@@ -192,6 +210,26 @@
       <a href="https://malekurstuv.no/"><span>Malekurstuv.no <span class="desc">— hans egen side med kurser og værker</span></span><span aria-hidden="true">↗</span></a>
     </div>
   </section>
+
+  <aside class="works" aria-label="Værker af Jan-Ove Tuv">
+    <p class="note works-label">Værker af Jan-Ove Tuv</p>
+    <figure>
+      <img src="works/selvportraet-straahat.jpg" alt="Jan-Ove Tuv, selvportræt med stråhat, maleri" width="639" height="828" loading="lazy">
+      <figcaption>Selvportræt med stråhat</figcaption>
+    </figure>
+    <figure>
+      <img src="works/ghaiur-studie.jpg" alt="Jan-Ove Tuv, studie til maleriet Ghaiur" width="876" height="1200" loading="lazy">
+      <figcaption>Studie til «Ghaiur»</figcaption>
+    </figure>
+    <figure>
+      <img src="works/kranie.jpg" alt="Jan-Ove Tuv, tegning af et kranie i rødkridt" width="1200" height="1042" loading="lazy">
+      <figcaption>Kranie. Rødkridt, hvidkridt og blyant</figcaption>
+    </figure>
+    <figure>
+      <img src="works/gammel-kvinde.jpg" alt="Jan-Ove Tuv, maleri af en gammel kvinde" width="1200" height="728" loading="lazy">
+      <figcaption>Gammel kvinde</figcaption>
+    </figure>
+  </aside>
 
   <section aria-labelledby="details-da">
     <h2 id="details-da">Det praktiske</h2>
@@ -328,6 +366,26 @@
       <a href="https://malekurstuv.no/"><span>Malekurstuv.no <span class="desc">— his own site, courses and work</span></span><span aria-hidden="true">↗</span></a>
     </div>
   </section>
+
+  <aside class="works" aria-label="Work by Jan-Ove Tuv">
+    <p class="note works-label">Work by Jan-Ove Tuv</p>
+    <figure>
+      <img src="works/selvportraet-straahat.jpg" alt="Jan-Ove Tuv, self-portrait with straw hat, painting" width="639" height="828" loading="lazy">
+      <figcaption>Self-portrait with straw hat</figcaption>
+    </figure>
+    <figure>
+      <img src="works/ghaiur-studie.jpg" alt="Jan-Ove Tuv, study for the painting Ghaiur" width="876" height="1200" loading="lazy">
+      <figcaption>Study for «Ghaiur»</figcaption>
+    </figure>
+    <figure>
+      <img src="works/kranie.jpg" alt="Jan-Ove Tuv, red chalk drawing of a skull" width="1200" height="1042" loading="lazy">
+      <figcaption>Skull. Red chalk, white chalk and pencil</figcaption>
+    </figure>
+    <figure>
+      <img src="works/gammel-kvinde.jpg" alt="Jan-Ove Tuv, painting of an old woman" width="1200" height="728" loading="lazy">
+      <figcaption>Old woman</figcaption>
+    </figure>
+  </aside>
 
   <section aria-labelledby="details-en">
     <h2 id="details-en">Everything you need to know</h2>
