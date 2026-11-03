@@ -418,6 +418,22 @@
     .fact { align-items: baseline; text-align: left; }
     .facts .dots { justify-content: flex-start; }
   }
+
+  /* ===== One type system: Cinzel for names, headings and labels; Source Serif 4 for reading ===== */
+  /* labels: 13px, 0.2em, uppercase, gold */
+  .eyebrow, .fact .label, .quote-band cite { font-size: 13px; letter-spacing: 0.2em; }
+  .name { letter-spacing: 0.2em; }
+  /* headings: uppercase Cinzel, same spacing */
+  h1 { font-size: clamp(20px, 2.4vw, 26px); letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.4; color: var(--ink); }
+  .band h2 { letter-spacing: 0.08em; }
+  /* sub-headings and list titles: mixed-case Cinzel, 18px, 0.04em */
+  summary, .links a > span:first-child, .places-line { font-size: 18px; letter-spacing: 0.04em; }
+  .day h3 { font-size: 15px; letter-spacing: 0.12em; }
+  /* reading text: 18px body, 15px small, 13px captions */
+  .day p { font-size: 18px; }
+  .after-days, .note, .fact .sub { font-size: 15px; }
+  figcaption, .photo-credit { font-size: 13px; }
+  @media (max-width: 599px) { h1 { font-size: 16px; letter-spacing: 0.03em; } }
 </style>
 </head>
 <body>
