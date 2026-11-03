@@ -76,6 +76,27 @@ EXTRA = r"""
   .teach-more { border-top: 1px solid var(--rule); max-width: 720px; }
   @media (max-width: 799px) { .teacher figure { max-width: 240px; } }
   @media (max-width: 599px) { .quote-band blockquote p { font-size: 22px; } .video-facade .play-icon { width: 60px; height: 60px; } }
+
+  /* ===== Draft round 3: everything on one centre line ===== */
+  .inner > * { width: 100%; margin-left: auto; margin-right: auto; }
+  .inner > .eyebrow, .inner > h1, .inner > h2, .inner > .lede, .inner > .after-days, .inner > .video-intro, .inner > .photo-credit { max-width: 720px; text-align: center; }
+  .inner > .eyebrow { margin-bottom: -12px; }
+  .inner > .facts, .inner > .action, .inner > .faq, .inner > .video-facade, .inner > .video { max-width: 720px; }
+  .inner > .action { align-items: center; text-align: center; }
+  .fact { align-items: center; text-align: center; }
+  .facts .dots { justify-content: center; }
+  .day { text-align: center; }
+  .price-grid { grid-template-columns: 1fr; max-width: 720px; margin: 0 auto; gap: 24px; text-align: center; }
+  .price-grid > div { align-items: center; }
+  .price-grid .dots { justify-content: center; margin-top: -8px; }
+  .price-grid .action { align-items: center; }
+  .teach-more { max-width: 720px; }
+  .teacher { max-width: 1040px; margin-top: 8px; }
+  .teacher .text { padding-top: 4px; }
+  @media (max-width: 599px) {
+    .fact { align-items: baseline; text-align: left; }
+    .facts .dots { justify-content: flex-start; }
+  }
 """
 s = s.replace(":root {\n    --ground: #17120E;", ":root {\n    --ground: #17120E;\n    --band: #221A14;", 1)
 s = s.replace("</style>", CSS + EXTRA + "</style>", 1)
@@ -149,13 +170,13 @@ def main_block(L):
   <section class="band" aria-labelledby="lesson-{L}">
     <div class="inner">
       <p class="eyebrow">{T("Din underviser", "Your teacher")}</p>
+      <h2 id="lesson-{L}">Jan-Ove Tuv</h2>
       <div class="teacher">
         <figure>
           <img src="works/jan-ove-selvportraet.jpg" alt="{T("Jan-Ove Tuv, selvportræt", "Jan-Ove Tuv, self-portrait")}" width="900" height="900" loading="lazy">
           <figcaption>{T("Selvportræt", "Self-portrait")}</figcaption>
         </figure>
         <div class="text">
-          <h2 id="lesson-{L}">Jan-Ove Tuv</h2>
           {chr(10).join("          " + b for b in bio).strip()}
           {links}
         </div>
@@ -185,9 +206,6 @@ def main_block(L):
       <h2 id="place-{L}">Rødegaard</h2>
       <p class="lede">{T("Rødegaard ligger i Vistoft ved Nationalpark Mols Bjerge, med bakker, skov og hav tæt på. Her holder Jordens Sang til, og det er også dem, der laver maden.", "Rødegaard is in Vistoft, by Mols Bjerge National Park, with hills, woods and the sea close by. It is home to Jordens Sang, who also cook the food.")}</p>
       <figure class="place-hero"><img src="works/roedegaard-luftfoto.jpg" alt="{T("Rødegaard set fra luften, med haven, gårdens bygninger og bakkerne bagved", "Rødegaard from the air, with the garden, the farm buildings and the hills behind")}" width="2400" height="1598" loading="lazy"></figure>
-      <div class="works place-grid">
-{grid_html}
-      </div>
       <p class="photo-credit">{T("Fotos", "Photos")}: <a href="https://jordenssang.dk/" target="_blank" rel="noopener">Jordens Sang</a></p>
     </div>
   </section>
