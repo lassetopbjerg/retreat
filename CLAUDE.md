@@ -64,7 +64,7 @@ Look: see "Design" above (the original light look, off-white #F4F2EE with no dec
 - Days: 10–13 live model, 13–15 break (changed from 13–16 on 3 Nov 2026), from 15 optional plein air. The atelier is open all day and in the evening.
 - Terms (confirmed): full amount paid at sign-up, no deposit; if the retreat is cancelled, all money is returned.
 - Food: full board at Rødegaard 625 DKK/day, booked with Jordens Sang (kontakt@jordenssang.dk) (breakfast, lunch, dinner, tea/coffee, snacks; all vegetarian, mostly from the garden). Alternatively, a small kitchen in the atelier. No shops in Knebel; groceries in Vrinners/Ebeltoft, about 20 minutes by bus.
-- Lodging: tent in the Rødegaard garden (small fee), rooms at Rødegaard/Jordens Sang (kontakt@jordenssang.dk), Molsgaarden B&B https://hosmolsgaarden.dk/ (Kildevej 26, Knebel).
+- Lodging: tent in the Rødegaard garden (100 DKK per night, confirmed 3 Nov 2026), rooms at Rødegaard/Jordens Sang (kontakt@jordenssang.dk), Molsgaarden B&B https://hosmolsgaarden.dk/ (Kildevej 26, Knebel).
 - Getting there: Rødegaard, Karlshøjvej 5, 8420 Knebel, about 45 minutes from Aarhus. From Norway, the Larvik–Hirtshals ferry.
 - Jan-Ove Tuv, from malekurstuv.no: born 1976; Odd Nerdrum's assistant 1996–2002; has run courses for 16 years (confirmed by Lasse); books on kitsch; «Jakten på Nerdrum»; podcast The Cave of Apelles; motto «Enkle regler – enkelt forklart»; reduced palette; teaches in Norwegian and English.
 - Links: video https://www.youtube.com/watch?v=s_7lLQkglj0 (How to use the Apelles Palette), https://www.youtube.com/@caveofapelles, https://www.youtube.com/c/schoolofapelles, https://malekurstuv.no/
@@ -81,7 +81,7 @@ Look: see "Design" above (the original light look, off-white #F4F2EE with no dec
 - All prices on the page are written in DKK, in both languages (Danish: "6.000 DKK", English: "6,000 DKK").
 - Start time on day one and end time on day five: Lasse gives them later.
 - What happens if a participant cancels: not decided yet.
-- Tent price per night, canvas size, and the afternoon end time. These are worded generally on the page.
+- Canvas size and the afternoon end time. These are worded generally on the page.
 - Jan-Ove should approve his bio and the student quote (Edith Maier Kihle).
 - Ask Jordens Sang whether they are fine with being listed.
 - Photos: atelier, garden, Jan-Ove, and paintings. The page has no images yet; adding one strong hero image would help.
