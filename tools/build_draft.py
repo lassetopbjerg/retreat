@@ -102,6 +102,14 @@ EXTRA = r"""
     .teacher figcaption { text-align: center; }
   }
   .teacher .text { padding-top: 4px; }
+
+  /* Price band: centred heading, then a calm two-column card with left-aligned text */
+  .price-grid { grid-template-columns: 1fr 1fr; max-width: 880px; margin: 8px auto 0; gap: 48px; text-align: left;
+    padding: 40px; border: 1px solid var(--rule); background: rgba(238, 229, 214, 0.02); }
+  .price-grid > div { align-items: flex-start; }
+  .price-grid .dots { justify-content: flex-start; margin-top: -8px; }
+  .price-grid .action { align-items: flex-start; text-align: left; }
+  @media (max-width: 799px) { .price-grid { grid-template-columns: 1fr; gap: 28px; padding: 28px 20px; } }
   @media (max-width: 599px) {
     .fact { align-items: baseline; text-align: left; }
     .facts .dots { justify-content: flex-start; }
@@ -244,6 +252,7 @@ def main_block(L):
   <section class="band last" aria-labelledby="price-{L}">
     <div class="inner">
       <p class="eyebrow">{T("Pris og tilmelding", "Price and booking")}</p>
+      <h2>{T("Reservér din plads", "Reserve your place")}</h2>
       <div class="price-grid">
         <div>
           <p class="big" id="price-{L}">{T("6.000 DKK", "6,000 DKK")}</p>
