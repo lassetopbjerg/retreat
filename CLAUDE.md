@@ -60,7 +60,7 @@ Look: see "Design" above (the original light look, off-white #F4F2EE with no dec
 
 - Dates: 12–16 June 2027 (Sat–Wed). Sign-up is open. Max 10 painters.
 - Price: 6,000 DKK covering tuition and model. Lodging is not included.
-- Days: 10–13 live model, 13–16 break, from 16 optional plein air. The atelier is open all day and in the evening.
+- Days: 10–13 live model, 13–15 break (changed from 13–16 on 3 Nov 2026), from 15 optional plein air. The atelier is open all day and in the evening.
 - Terms (confirmed): full amount paid at sign-up, no deposit; if the retreat is cancelled, all money is returned.
 - Food: full board at Rødegaard 625 DKK/day, booked with Jordens Sang (kontakt@jordenssang.dk) (breakfast, lunch, dinner, tea/coffee, snacks; all vegetarian, mostly from the garden). Alternatively, a small kitchen in the atelier. No shops in Knebel; groceries in Vrinners/Ebeltoft, about 20 minutes by bus.
 - Lodging: tent in the Rødegaard garden (small fee), rooms at Rødegaard/Jordens Sang (kontakt@jordenssang.dk), Molsgaarden B&B https://hosmolsgaarden.dk/ (Kildevej 26, Knebel).
@@ -71,7 +71,7 @@ Look: see "Design" above (the original light look, off-white #F4F2EE with no dec
 
 ## Still open
 
-- Share image `works/share.jpg` still says "Rødegaard, Mols"; the page top now says "Rødegaard, Vistoft" (3 Nov 2026). Make a new share image with Vistoft when Lasse asks.
+- Share image `works/share.jpg` remade 3 Nov 2026 with "Rødegaard, Vistoft" (only the top line redrawn: Cinzel Regular 21.5px, tracking 4.5, colour (185,155,100), centred at x 848.5, baseline 190).
 - Price changed to 6,000 DKK on 3 Nov 2026, so it now matches the Stripe link. Stripe's public business name was "Art"; Lasse may want to fix that.
 - All prices on the page are written in DKK, in both languages (Danish: "6.000 DKK", English: "6,000 DKK").
 - Start time on day one and end time on day five: Lasse gives them later.
