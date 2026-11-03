@@ -440,6 +440,18 @@
   .included li { position: relative; margin: 0; padding-left: 22px; }
   .included li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 10px; height: 1px; background: var(--gold); }
   .not-included { font-size: 15px; color: var(--muted) !important; }
+
+  /* Section menu: stays at the top while scrolling; swipe sideways on phones */
+  .secnav { position: sticky; top: 0; z-index: 20; display: flex; justify-content: center; gap: 32px;
+    padding: 0 16px; background: rgba(23, 18, 14, 0.94); border-bottom: 1px solid var(--rule);
+    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); overflow-x: auto; scrollbar-width: none; }
+  .secnav::-webkit-scrollbar { display: none; }
+  .secnav a { flex: none; padding: 14px 0; min-height: 44px; font-family: var(--caps); font-size: 13px; letter-spacing: 0.16em;
+    text-transform: uppercase; text-decoration: none; color: var(--body); }
+  .secnav a:hover { color: var(--gold); }
+  html[data-show="da"] .secnav[lang="en"], html[data-show="en"] .secnav[lang="da"] { display: none; }
+  .band[id] { scroll-margin-top: 44px; }
+  @media (max-width: 599px) { .secnav { justify-content: space-between; gap: 12px; } .secnav a { font-size: 11px; letter-spacing: 0.06em; } }
 </style>
 </head>
 <body>
@@ -459,6 +471,13 @@
     <a class="flag-link" href="#english" lang="en" aria-label="English" title="English"><svg class="flag" width="32" height="16" aria-hidden="true"><use href="#flag-gb"/></svg></a>
   </nav>
 </header>
+
+<nav class="secnav" lang="da" aria-label="Indhold">
+  <a href="#dagene">Dagene</a><a href="#underviser">Underviser</a><a href="#stedet">Stedet</a><a href="#praktisk">Praktisk</a><a href="#tilmelding">Tilmelding</a>
+</nav>
+<nav class="secnav" lang="en" aria-label="Contents">
+  <a href="#the-days">The days</a><a href="#teacher">Teacher</a><a href="#the-place">The place</a><a href="#practical">Practical</a><a href="#booking">Booking</a>
+</nav>
 
 <!-- ================================================================
      DANSK
@@ -505,7 +524,7 @@
   </div>
   </section>
 
-  <section class="band alt" aria-labelledby="rhythm-da">
+  <section class="band alt" id="dagene" aria-labelledby="rhythm-da">
     <div class="inner">
       <p class="eyebrow">Dagene</p>
       <h2 id="rhythm-da"><span class="nowrap">Tid til læring –</span> <span class="nowrap">tid til fordybelse</span></h2>
@@ -524,7 +543,7 @@
     <figcaption>Nationalpark Mols Bjerge, Trehøje. <a href="https://commons.wikimedia.org/wiki/File:Treh%C3%B8je_Mols_Bjerge.jpg" target="_blank" rel="noopener">Foto: Mikkel Houmøller</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></figcaption>
   </figure>
 
-  <section class="band" aria-labelledby="lesson-da">
+  <section class="band" id="underviser" aria-labelledby="lesson-da">
     <div class="inner">
       <p class="eyebrow">Din underviser</p>
       <h2 id="lesson-da">Jan-Ove Tuv</h2>
@@ -587,7 +606,7 @@
     </div>
   </section>
 
-  <section class="band" aria-labelledby="place-da">
+  <section class="band" id="stedet" aria-labelledby="place-da">
     <div class="inner">
       <p class="eyebrow">Stedet</p>
       <h2 id="place-da">Rødegaard</h2>
@@ -597,7 +616,7 @@
     </div>
   </section>
 
-  <section class="band alt" aria-labelledby="details-da">
+  <section class="band alt" id="praktisk" aria-labelledby="details-da">
     <div class="inner">
       <p class="eyebrow">Det praktiske</p>
       <h2 id="details-da">Ophold, mad og rejse</h2>
@@ -638,7 +657,7 @@
     </div>
   </section>
 
-  <section class="band last" aria-labelledby="price-da">
+  <section class="band last" id="tilmelding" aria-labelledby="price-da">
     <div class="inner">
       <p class="eyebrow">Pris og tilmelding</p>
       <h2>Reservér din plads</h2>
@@ -712,7 +731,7 @@
   </div>
   </section>
 
-  <section class="band alt" aria-labelledby="rhythm-en">
+  <section class="band alt" id="the-days" aria-labelledby="rhythm-en">
     <div class="inner">
       <p class="eyebrow">The days</p>
       <h2 id="rhythm-en"><span class="nowrap">Time to learn –</span> <span class="nowrap">time to immerse yourself</span></h2>
@@ -731,7 +750,7 @@
     <figcaption>Mols Bjerge National Park, Trehøje. <a href="https://commons.wikimedia.org/wiki/File:Treh%C3%B8je_Mols_Bjerge.jpg" target="_blank" rel="noopener">Photo: Mikkel Houmøller</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></figcaption>
   </figure>
 
-  <section class="band" aria-labelledby="lesson-en">
+  <section class="band" id="teacher" aria-labelledby="lesson-en">
     <div class="inner">
       <p class="eyebrow">Your teacher</p>
       <h2 id="lesson-en">Jan-Ove Tuv</h2>
@@ -794,7 +813,7 @@
     </div>
   </section>
 
-  <section class="band" aria-labelledby="place-en">
+  <section class="band" id="the-place" aria-labelledby="place-en">
     <div class="inner">
       <p class="eyebrow">The place</p>
       <h2 id="place-en">Rødegaard</h2>
@@ -804,7 +823,7 @@
     </div>
   </section>
 
-  <section class="band alt" aria-labelledby="details-en">
+  <section class="band alt" id="practical" aria-labelledby="details-en">
     <div class="inner">
       <p class="eyebrow">Practical</p>
       <h2 id="details-en">Stay, food and travel</h2>
@@ -845,7 +864,7 @@
     </div>
   </section>
 
-  <section class="band last" aria-labelledby="price-en">
+  <section class="band last" id="booking" aria-labelledby="price-en">
     <div class="inner">
       <p class="eyebrow">Price and booking</p>
       <h2>Reserve your place</h2>
@@ -989,7 +1008,8 @@
       });
     });
     window.addEventListener("hashchange", function () {
-      show(location.hash === "#english" ? "en" : "da");
+      if (location.hash === "#english") show("en");
+      else if (location.hash === "#dansk") show("da");
     });
   })();
 </script>
