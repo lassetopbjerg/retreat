@@ -133,7 +133,17 @@ def main_block(L):
     </div>
   </section>
 
-  <section class="band alt" aria-labelledby="price-{L}">
+  <section class="band alt" aria-labelledby="details-{L}">
+    <div class="inner">
+      <p class="eyebrow">{T("Det praktiske", "Practical")}</p>
+      <h2 id="details-{L}">{T("Ophold, mad og rejse", "Stay, food and travel")}</h2>
+      <div class="faq">
+      {chr(10).join("      " + d for d in keep).strip()}
+      </div>
+    </div>
+  </section>
+
+  <section class="band last" aria-labelledby="price-{L}">
     <div class="inner wide">
       <p class="eyebrow">{T("Pris og tilmelding", "Price and booking")}</p>
       <div class="price-grid">
@@ -147,18 +157,6 @@ def main_block(L):
           <div class="action"><a class="button js-cta" href="mailto:lassetopbjerg@gmail.com">{T("Reservér og betal", "Reserve and pay")}</a><p class="note js-note"></p></div>
         </div>
       </div>
-    </div>
-  </section>
-
-
-  <section class="band last" aria-labelledby="details-{L}">
-    <div class="inner">
-      <p class="eyebrow">{T("Det praktiske", "Practical")}</p>
-      <h2 id="details-{L}">{T("Ophold, mad og rejse", "Stay, food and travel")}</h2>
-      <div class="faq">
-      {chr(10).join("      " + d for d in keep).strip()}
-      </div>
-      {end_action}
     </div>
   </section>
 
