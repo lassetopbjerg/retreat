@@ -52,32 +52,59 @@ CSS = r"""
     .photo-band img { height: 56vw; min-height: 220px; }
   }
 """
+EXTRA = r"""
+  /* ===== Draft round 2: one left edge, quote band, the place, quieter video ===== */
+  .inner, .inner.wide { max-width: 1040px; }
+  .inner > h1, .inner > h2, .inner > .lede, .inner > .facts, .inner > .action, .inner > .faq, .inner > .after-days, .inner > .video-intro, .inner > .video-facade, .inner > .video { max-width: 720px; }
+  .video-facade { display: block; position: relative; width: 100%; aspect-ratio: 16 / 9; text-decoration: none;
+    background: radial-gradient(ellipse at 50% 45%, #2A2019 0%, #120E0B 70%); box-shadow: 0 0 0 1px rgba(238, 229, 214, 0.08); }
+  .video-facade .play { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; color: var(--ink); text-align: center; padding: 16px; }
+  .video-facade .play-icon { width: 76px; height: 76px; border-radius: 50%; border: 1px solid var(--gold); display: grid; place-items: center; }
+  .video-facade .play-icon::after { content: ""; margin-left: 6px; border-left: 20px solid var(--gold); border-top: 12px solid transparent; border-bottom: 12px solid transparent; }
+  .video-facade:hover .play-icon { background: rgba(200, 163, 94, 0.12); }
+  .video-facade .play-title { font-family: var(--caps); font-size: clamp(18px, 2.4vw, 24px); letter-spacing: 0.1em; text-transform: uppercase; }
+  .video-facade .play-sub { font-size: 15px; color: var(--muted); }
+  .quote-band blockquote { margin: 0 auto; max-width: 860px; text-align: center; }
+  .quote-band blockquote p { margin: 0; font-size: clamp(24px, 3.4vw, 36px); line-height: 1.4; color: var(--ink); text-wrap: balance; }
+  .quote-band cite { display: block; margin-top: 24px; font-style: normal; font-family: var(--caps); font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+  .place-hero { margin: 8px 0 0; }
+  .place-hero img { display: block; width: 100%; height: clamp(240px, 42vw, 560px); object-fit: cover; }
+  .band .works.place-grid img { aspect-ratio: 4 / 3; }
+  .photo-credit { margin: 0; font-size: 13px; color: var(--muted); }
+  .places-line { margin: 0; font-family: var(--caps); font-size: 18px; letter-spacing: 0.06em; color: var(--ink); }
+  .price-grid .dots { margin-top: -8px; }
+  .teach-more { border-top: 1px solid var(--rule); max-width: 720px; }
+  @media (max-width: 799px) { .teacher figure { max-width: 240px; } }
+  @media (max-width: 599px) { .quote-band blockquote p { font-size: 22px; } .video-facade .play-icon { width: 60px; height: 60px; } }
+"""
 s = s.replace(":root {\n    --ground: #17120E;", ":root {\n    --ground: #17120E;\n    --band: #221A14;", 1)
-s = s.replace("</style>", CSS + "</style>", 1)
+s = s.replace("</style>", CSS + EXTRA + "</style>", 1)
 s = s.replace('<meta name="viewport"', '<meta name="robots" content="noindex">\n<meta name="viewport"', 1)
 
 def main_block(L):
     da = L == "da"
     T = lambda d, e: d if da else e
     trehoeje = T("Nationalpark Mols Bjerge, Trehøje", "Mols Bjerge National Park, Trehøje")
-    helg = T("Solnedgang ved Ørby, Helgenæs", "Sunset at Ørby, Helgenæs")
     foto = T("Foto", "Photo")
-    # pull the existing blocks we keep unchanged from the live page
     m = re.search(r'<main lang="%s" data-lang="%s">(.*?)</main>' % (L, L), s, re.S).group(1)
     intro = re.search(r'<section aria-labelledby="title-%s">(.*?)</section>' % L, m, re.S).group(1)
     teacher = re.search(r'<section aria-labelledby="lesson-%s">(.*?)</section>' % L, m, re.S).group(1)
     bio = re.findall(r'<p class="lede">.*?</p>', teacher, re.S)
-    video = re.search(r'<div class="video">.*?</div>', teacher, re.S).group(0)
+    bio[0] = bio[0].replace("Jan-Ove Tuv (f. 1976) er", "Jan-Ove (f. 1976) er").replace("Jan-Ove Tuv (b. 1976) is", "Jan-Ove (b. 1976) is")
+    video_intro = bio.pop(2).replace('class="lede"', 'class="lede video-intro"')
+    vtitle = re.search(r'<iframe[^>]*title="([^"]*)"', teacher).group(1)
     links = re.search(r'<div class="links".*?</div>', teacher, re.S).group(0)
     works = re.findall(r'<figure class="pos-r\d">.*?</figure>', m, re.S)
     works = [re.sub(r' class="pos-r\d"', "", w) for w in works]
-    rhythm = re.search(r'<section aria-labelledby="rhythm-%s">.*?<p class="lede">(.*?)</p>' % L, m, re.S).group(1)
     faq = re.search(r'<div class="faq">(.*?)</div>\s*<div class="action action-end">', m, re.S).group(1)
     details = re.findall(r'<details.*?</details>', faq, re.S)
-    keep = [d for d in details if not re.search(r'<summary>(Dagene|The days|Reservation og betaling|Reserving and paying)</summary>', d)]
-    pay = [d for d in details if re.search(r'<summary>(Reservation og betaling|Reserving and paying)</summary>', d)][0]
+    def has(d, *names): return re.search(r'<summary>(%s)</summary>' % "|".join(names), d)
+    teach = [d for d in details if has(d, "Sådan underviser han", "How he teaches")][0]
+    quote_m = re.search(r'\s*<p>[«“](.*?)[»”] — (.*?)</p>', teach, re.S)
+    teach = teach.replace(quote_m.group(0), "")
+    keep = [d for d in details if not has(d, "Dagene", "The days", "Reservation og betaling", "Reserving and paying", "Sådan underviser han", "How he teaches")]
+    pay = [d for d in details if has(d, "Reservation og betaling", "Reserving and paying")][0]
     pay_ps = re.findall(r'<p>.*?</p>', pay, re.S)
-    end_action = re.search(r'<div class="action action-end">.*?</div>', m, re.S).group(0)
 
     days = T(
         [("10–13", "Nøgenmodel", "Maleri efter levende nøgenmodel (akt): lys, skygge og farveblanding."),
@@ -86,8 +113,15 @@ def main_block(L):
         [("10–13", "Nude model", "Life painting from the nude model: light, shadow and colour mixing."),
          ("13–15", "Break", "Lunch, rest, a swim. The beach and the national park are right outside the door."),
          ("15–", "Outdoors, optional", "Paint in the national park, by the sea or in the Rødegaard garden.")])
-    days_html = "\n".join(
-        '        <div class="day"><p class="time">%s</p><h3>%s</h3><p>%s</p></div>' % d for d in days)
+    days_html = "\n".join('        <div class="day"><p class="time">%s</p><h3>%s</h3><p>%s</p></div>' % d for d in days)
+    rhythm = T("Formiddagen er undervisning, resten af dagen er din egen. Mols er kendt for sine unikke og smukke landskaber, og det er svært ikke at blive inspireret af naturen her.",
+               "Mornings are taught, the rest of the day is yours. Mols is known for its unique and beautiful landscapes, and it is hard not to feel inspired here.")
+    place_grid = [
+        ("works/roedegaard-maanesalen.jpg", 1400, 1179, T("Månesalen på Rødegaard, et lyst rum under det hvide loft", "The Moon Hall at Rødegaard, a bright room under the white rafters"), T("Månesalen", "The Moon Hall")),
+        ("works/roedegaard-indenfor.jpg", 1400, 1050, T("Lyst fællesrum med borde og store vinduer ud mod haven", "Bright common room with tables and large windows onto the garden"), T("Fællesrummet", "The common room")),
+        ("works/roedegaard-haven.jpg", 1400, 934, T("Morgenfruer foran det lyserøde hus på Rødegaard", "Marigolds in front of the pink house at Rødegaard"), T("Haven", "The garden")),
+    ]
+    grid_html = "\n".join('        <figure><img src="%s" alt="%s" width="%d" height="%d" loading="lazy"><figcaption>%s</figcaption></figure>' % (f, a, w, h, c) for f, w, h, a, c in place_grid)
 
     return f'''<main lang="{L}" data-lang="{L}">
 
@@ -96,7 +130,7 @@ def main_block(L):
   </section>
 
   <section class="band alt" aria-labelledby="rhythm-{L}">
-    <div class="inner wide">
+    <div class="inner">
       <p class="eyebrow">{T("Dagene", "The days")}</p>
       <h2 id="rhythm-{L}"><span class="nowrap">{T("Tid til læring –", "Time to learn –")}</span> <span class="nowrap">{T("tid til fordybelse", "time to immerse yourself")}</span></h2>
       <p class="lede">{rhythm}</p>
@@ -113,7 +147,7 @@ def main_block(L):
   </figure>
 
   <section class="band" aria-labelledby="lesson-{L}">
-    <div class="inner wide">
+    <div class="inner">
       <p class="eyebrow">{T("Din underviser", "Your teacher")}</p>
       <div class="teacher">
         <figure>
@@ -126,10 +160,35 @@ def main_block(L):
           {links}
         </div>
       </div>
-      {video}
+      {video_intro}
+      <a class="video-facade" href="https://www.youtube.com/watch?v=s_7lLQkglj0" target="_blank" rel="noopener" data-embed="https://www.youtube-nocookie.com/embed/s_7lLQkglj0?autoplay=1" data-title="{vtitle}">
+        <span class="play"><span class="play-icon" aria-hidden="true"></span><span class="play-title">{T("Apelles-paletten", "The Apelles palette")}</span><span class="play-sub">{T("Video med Jan-Ove Tuv · YouTube", "Video with Jan-Ove Tuv · YouTube")}</span></span>
+      </a>
       <aside class="works" aria-label="{T("Værker af Jan-Ove Tuv", "Work by Jan-Ove Tuv")}">
         {chr(10).join("        " + w for w in works).strip()}
       </aside>
+      <div class="faq teach-more">
+        {teach}
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt quote-band" aria-label="{T("Fra en tidligere elev", "From a former student")}">
+    <div class="inner">
+      <blockquote><p>{T("«", "“")}{quote_m.group(1)}{T("»", "”")}</p><cite>{quote_m.group(2)}</cite></blockquote>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="place-{L}">
+    <div class="inner">
+      <p class="eyebrow">{T("Stedet", "The place")}</p>
+      <h2 id="place-{L}">Rødegaard</h2>
+      <p class="lede">{T("Rødegaard ligger i Vistoft ved Nationalpark Mols Bjerge, med bakker, skov og hav tæt på. Her holder Jordens Sang til, og det er også dem, der laver maden.", "Rødegaard is in Vistoft, by Mols Bjerge National Park, with hills, woods and the sea close by. It is home to Jordens Sang, who also cook the food.")}</p>
+      <figure class="place-hero"><img src="works/roedegaard-luftfoto.jpg" alt="{T("Rødegaard set fra luften, med haven, gårdens bygninger og bakkerne bagved", "Rødegaard from the air, with the garden, the farm buildings and the hills behind")}" width="2400" height="1598" loading="lazy"></figure>
+      <div class="works place-grid">
+{grid_html}
+      </div>
+      <p class="photo-credit">{T("Fotos", "Photos")}: <a href="https://jordenssang.dk/" target="_blank" rel="noopener">Jordens Sang</a></p>
     </div>
   </section>
 
@@ -144,7 +203,7 @@ def main_block(L):
   </section>
 
   <section class="band last" aria-labelledby="price-{L}">
-    <div class="inner wide">
+    <div class="inner">
       <p class="eyebrow">{T("Pris og tilmelding", "Price and booking")}</p>
       <div class="price-grid">
         <div>
@@ -152,8 +211,10 @@ def main_block(L):
           <p>{T("Undervisning og model i alle fem dage. Overnatning og mad er ikke inkluderet.", "Tuition and model for all five days. Accommodation and food are not included.")}</p>
         </div>
         <div>
-          <h3>{T("Reservation og betaling", "Reserving and paying")}</h3>
-          {chr(10).join("          " + p for p in pay_ps[:2]).strip()}
+          <p class="places-line js-places2"></p>
+          <div class="dots js-dots2" aria-hidden="true"></div>
+          {pay_ps[1]}
+          <p>{T("Efter tilmelding får du materialeliste og praktisk information fra Lasse.", "After you sign up, Lasse will send you the materials list and practical information.")}</p>
           <div class="action"><a class="button js-cta" href="mailto:lassetopbjerg@gmail.com">{T("Reservér og betal", "Reserve and pay")}</a><p class="note js-note"></p></div>
         </div>
       </div>
@@ -165,8 +226,33 @@ def main_block(L):
 for L in ("da", "en"):
     s = re.sub(r'<main lang="%s" data-lang="%s">.*?</main>' % (L, L), lambda _: main_block(L), s, count=1, flags=re.S)
 
-# footer photo credits: Begtrup Vig (Old Dane) is no longer used
-s = re.sub(r"Mikkel Houmøller og Old Dane \((.*?)\), Carsten Wiehe \(.*?\)\.", r"Mikkel Houmøller (\1).", s)
-s = re.sub(r"Mikkel Houmøller and Old Dane \((.*?)\), Carsten Wiehe \(.*?\)\.", r"Mikkel Houmøller (\1).", s)
+# footer photo credits: only Trehøje from Wikimedia, plus Jordens Sang
+s = re.sub(r"Mikkel Houmøller og Old Dane \((.*?)\), Carsten Wiehe \(.*?\)\.", r"Mikkel Houmøller (\1). Fotos af Rødegaard: Jordens Sang.", s)
+s = re.sub(r"Mikkel Houmøller and Old Dane \((.*?)\), Carsten Wiehe \(.*?\)\.", r"Mikkel Houmøller (\1). Photos of Rødegaard: Jordens Sang.", s)
+
+SCRIPT = """<script>
+  (function () {
+    // Price band: repeat places left + dots from the facts row
+    document.querySelectorAll("main[data-lang]").forEach(function (main) {
+      var a = main.querySelector(".js-places"), b = main.querySelector(".js-places2");
+      if (a && b) b.textContent = a.textContent;
+      var d1 = main.querySelector(".js-dots"), d2 = main.querySelector(".js-dots2");
+      if (d1 && d2) d2.innerHTML = d1.innerHTML;
+    });
+    // Video: load YouTube only when clicked
+    document.querySelectorAll(".video-facade").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        var box = document.createElement("div"); box.className = "video";
+        var f = document.createElement("iframe");
+        f.src = a.getAttribute("data-embed"); f.title = a.getAttribute("data-title");
+        f.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"; f.allowFullscreen = true;
+        box.appendChild(f); a.replaceWith(box);
+      });
+    });
+  })();
+</script>
+</body>"""
+s = s.replace("</body>", SCRIPT, 1)
 open(out, "w", encoding="utf-8").write(s)
 print("ok")
