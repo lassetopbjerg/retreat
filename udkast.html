@@ -1,0 +1,899 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#17120E">
+<title>Malerefugium på Mols med Jan-Ove Tuv · Painting Retreat on Mols</title>
+<meta name="description" content="Malerefugium på Mols: fem dages klassisk malekursus med Jan-Ove Tuv ved Nationalpark Mols Bjerge, 12.–16. juni 2027. Maleri efter levende nøgenmodel, landskabsmaleri, højst ti malere. Painting Retreat on Mols: a five-day classical painting course with Jan-Ove Tuv, 12–16 June 2027.">
+<meta property="og:title" content="Malerefugium på Mols med Jan-Ove Tuv · Painting Retreat on Mols">
+<meta property="og:description" content="Fem dages klassisk malekursus med Jan-Ove Tuv ved Nationalpark Mols Bjerge, 12.–16. juni 2027. Højst ti malere.">
+<meta property="og:url" content="https://malerefugium.dk/">
+<meta property="og:image" content="https://malerefugium.dk/works/share.jpg?v=2">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Malerefugium på Mols, 12.–16. juni 2027, Rødegaard, Vistoft. Maleriet Smykkeskrinet af Jan-Ove Tuv.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400&display=swap" rel="stylesheet">
+<script>
+  // Language: #english in the link wins, then the visitor's own choice, then the browser language
+  // (Danish, Norwegian and Swedish readers get Danish, everyone else English).
+  (function () {
+    var lang = null;
+    if (location.hash === "#english") lang = "en";
+    else if (location.hash === "#dansk") lang = "da";
+    if (!lang) { try { lang = localStorage.getItem("lang"); } catch (e) {} }
+    if (lang !== "da" && lang !== "en") {
+      var langs = navigator.languages || [navigator.language || "da"];
+      lang = /^(da|nb|nn|no|sv)\b/i.test(langs[0] || "da") ? "da" : "en";
+    }
+    document.documentElement.setAttribute("data-show", lang);
+  })();
+</script>
+<script>
+  // ============================================================
+  // RET HER / EDIT HERE — the only part you normally need to change.
+  // ============================================================
+  window.RETREAT = {
+    // "open"  → Reservér en plads / Reserve a place
+    // "full"  → Venteliste / Join the waitlist
+    // "soon"  → Få besked / Get notified (use while dates are not set)
+    status: "open",
+    datesDa: "12.–16. juni 2027",          // fx "5.–9. juli 2027". Lad stå tom indtil besluttet.
+    datesEn: "12–16 June 2027",          // e.g. "5–9 July 2027"
+    placesTotal: 10,
+    placesTaken: 0,       // opdatér når folk tilmelder sig / update as people sign up
+    email: "lassetopbjerg@gmail.com",
+    // Betalingslink (Stripe). Bruges kun når status er "open". Lad stå tom for at reservere via mail.
+    // Payment link (Stripe). Only used while status is "open". Leave empty to reserve by email.
+    paymentLink: "https://buy.stripe.com/3cI7sKgGX4fWfIQgdY14406"
+  };
+</script>
+<style>
+  :root {
+    --ground: #17120E;
+    --band: #221A14;
+    --ink: #EEE5D6;
+    --body: #D8CCBA;
+    --muted: #A3957F;
+    --rule: #382E26;
+    --dark: #0F0C09;
+    --gold: #C8A35E;
+    --caps: "Cinzel", "Trajan Pro", Georgia, serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  a { color: var(--ink); text-underline-offset: 4px; }
+  a:hover { color: var(--muted); }
+  a:focus-visible, summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+  header, footer {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px 24px;
+    padding: 28px clamp(16px, 5vw, 48px);
+    font-size: 16px;
+  }
+  header { display: grid; grid-template-columns: 1fr auto 1fr; }
+  header nav { display: flex; gap: 24px; grid-column: 2; }
+  html[data-show="da"] main[lang="en"], html[data-show="en"] main[lang="da"],
+  html[data-show="da"] .hero[lang="en"], html[data-show="en"] .hero[lang="da"],
+  html[data-show] .language-break,
+  html[data-show="da"] .credits[lang="en"], html[data-show="en"] .credits[lang="da"],
+  html[data-show="da"] .organiser[lang="en"], html[data-show="en"] .organiser[lang="da"] { display: none; }
+  .organiser { margin: 0; flex-basis: 100%; }
+  html[data-show="da"] .flag-link[lang="en"] .flag, html[data-show="en"] .flag-link[lang="da"] .flag { opacity: 0.45; }
+  .credits { display: none; margin: 0; flex-basis: 100%; font-size: 13px; line-height: 1.5; }
+  header a { text-decoration: none; padding: 10px 0; }
+  .name { font-weight: 600; }
+  footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: 14px; }
+  footer a { color: var(--muted); }
+
+  main {
+    max-width: 760px; margin: 0 auto;
+    padding: clamp(24px, 6vw, 56px) 16px 120px;
+    display: flex; flex-direction: column; gap: 88px;
+  }
+  section { display: flex; flex-direction: column; gap: 24px; }
+
+  .language-break {
+    max-width: 760px; margin: 0 auto; padding: 0 16px;
+    display: flex; align-items: center; gap: 16px;
+    color: var(--muted); font-size: 15px; scroll-margin-top: 24px;
+  }
+  .language-break::before, .language-break::after { content: ""; flex: 1; border-top: 1px solid var(--rule); }
+  .language-break span { display: flex; align-items: center; gap: 8px; }
+  .flag { display: block; flex: none; box-shadow: 0 0 0 1px var(--rule); }
+  .flag-link { display: flex; align-items: center; }
+  .flag-link:hover .flag { opacity: 0.75; }
+
+  .kicker { margin: 0; font-size: 15px; color: var(--muted); }
+  h1 { margin: 0; font-size: clamp(32px, 6vw, 46px); font-weight: 600; line-height: 1.15; }
+  h2 { margin: 0; font-size: 26px; font-weight: 600; line-height: 1.25; }
+  .lede { margin: 0; color: var(--body); }
+  .note { margin: 0; font-size: 15px; color: var(--muted); }
+
+  .facts {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 20px 24px; padding: 24px 0;
+    border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  }
+  .fact { display: flex; flex-direction: column; gap: 2px; }
+  .fact .label { font-size: 14px; color: var(--muted); }
+  .fact .value { font-size: 19px; }
+  .fact .sub { font-size: 13px; color: var(--muted); }
+  .dots { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+  .dots span { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--ink); }
+  .dots span.taken { background: var(--ink); }
+
+  .action { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+  .button {
+    display: inline-block; background: var(--ink); color: var(--ground);
+    text-decoration: none; padding: 16px 32px; font-size: 17px; min-height: 44px;
+  }
+  .button:hover { background: var(--body); color: var(--ground); }
+
+  .video { position: relative; width: 100%; aspect-ratio: 16 / 9; background: var(--dark); }
+  .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+  .links { display: flex; flex-direction: column; border-top: 1px solid var(--rule); }
+  .links a {
+    display: flex; justify-content: space-between; gap: 16px;
+    padding: 16px 0; border-bottom: 1px solid var(--rule); text-decoration: none;
+  }
+  .links .desc { color: var(--muted); }
+
+  .faq { border-top: 1px solid var(--rule); }
+  details { border-bottom: 1px solid var(--rule); }
+  summary {
+    list-style: none; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    padding: 22px 0; font-size: 19px; min-height: 44px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-size: 24px; color: var(--muted); line-height: 1; }
+  details[open] summary::after { content: "–"; }
+  .answer { padding: 0 0 24px; color: var(--body); }
+  .answer p { margin: 0 0 12px; }
+  .answer p:last-child { margin: 0; }
+  .schedule { display: grid; grid-template-columns: 76px 1fr; gap: 8px 16px; margin: 0 0 12px; }
+  .schedule dt { font-variant-numeric: tabular-nums; color: var(--muted); }
+  .schedule dd { margin: 0; }
+  ul { margin: 0 0 12px; padding-left: 20px; }
+  li { margin-bottom: 6px; }
+  /* Pictures: a swipeable row on phones, a grid on tablets, the side margins on wide screens */
+  .works { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 16px; align-items: start; }
+  .works figure { margin: 0; }
+  .works img { display: block; width: 100%; height: auto; }
+  .works figcaption { margin-top: 6px; font-size: 13px; line-height: 1.4; color: var(--muted); }
+  .works figcaption a { color: var(--muted); }
+  @media (min-width: 1240px) {
+    main { position: relative; }
+    .works { display: contents; }
+    .works figure { position: absolute; width: min(240px, calc((100vw - 760px) / 2 - 72px)); }
+    .works .pos-r1, .works .pos-r2, .works .pos-r3 { left: calc(100% + 48px); }
+    .works .pos-l1, .works .pos-l2, .works .pos-l3 { right: calc(100% + 48px); }
+    .works .pos-r1, .works .pos-l1 { top: 40px; }
+    .works .pos-r2, .works .pos-l2 { top: 600px; }
+    .works .pos-r3, .works .pos-l3 { top: 1160px; }
+  }
+  /* Click a picture to see it large */
+  .works img { cursor: zoom-in; }
+  .zoom { padding: 0; border: 0; background: transparent; max-width: 100vw; max-height: 100vh; overflow: visible; }
+  .zoom::backdrop { background: rgba(27, 26, 24, 0.9); }
+  .zoom figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; cursor: zoom-out; }
+  .zoom img { display: block; max-width: 94vw; max-height: 86vh; width: auto; height: auto; }
+  .zoom figcaption { color: #F4F2EE; font-size: 15px; text-align: center; padding: 0 16px; }
+  .zoom button {
+    position: fixed; top: 12px; right: 12px; min-width: 44px; min-height: 44px;
+    background: none; border: 0; color: #F4F2EE; font: inherit; font-size: 28px; line-height: 1; cursor: pointer;
+  }
+  /* Phones: tighter and calmer */
+  @media (max-width: 599px) {
+    header { grid-template-columns: 1fr auto; padding: 12px 16px; }
+    header nav { grid-column: 2; gap: 16px; }
+    main { padding-top: 8px; padding-bottom: 72px; gap: 56px; }
+    section { gap: 20px; }
+    h1 { font-size: 20px; line-height: 1.4; }
+    .facts { grid-template-columns: 1fr; gap: 16px; padding: 20px 0; }
+    .fact { display: grid; grid-template-columns: 92px 1fr; column-gap: 12px; align-items: baseline; }
+    .fact .label { grid-row: 1 / span 3; }
+    .fact .value { font-size: 21px; }
+    .links .desc { display: none; }
+    .links a { padding: 14px 0; }
+    .credit { display: none; }
+    .credits { display: block; }
+    .works {
+      display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
+      margin: 0 -16px; padding: 0 16px 4px; scroll-padding: 0 16px;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    }
+    .works::-webkit-scrollbar { display: none; }
+    .works figure { flex: none; width: 62%; scroll-snap-align: start; }
+    .works img { aspect-ratio: 4 / 5; object-fit: cover; }
+  }
+
+  /* ===== Dark, candlelit look (inspired by nerdrum.com) ===== */
+  a { text-decoration-color: rgba(200, 163, 94, 0.6); }
+  a:hover { color: var(--gold); }
+  header { font-family: var(--caps); }
+  .name { font-weight: 400; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .flag { box-shadow: 0 0 0 1px rgba(238, 229, 214, 0.25); }
+
+  .hero {
+    position: relative; overflow: hidden;
+    min-height: min(90vh, 940px);
+    display: flex; align-items: flex-end; justify-content: center;
+  }
+  .hero-img {
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    height: 108%; width: auto; max-width: none;
+    filter: brightness(0.6) saturate(0.9);
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent 100%);
+  }
+  .hero::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, var(--ground) 0%, rgba(23, 18, 14, 0) 16%, rgba(23, 18, 14, 0.75) 72%, var(--ground) 100%);
+  }
+  .hero-text { position: relative; z-index: 1; max-width: 760px; padding: 0 16px 48px; text-align: center; }
+  .hero-kicker {
+    margin: 0 0 16px; font-family: var(--caps); font-size: 16px;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold);
+  }
+  .hero-kicker a { color: var(--gold); text-decoration: none; }
+  .hero-name {
+    margin: 0; font-family: var(--caps); font-weight: 400;
+    font-size: clamp(30px, 7vw, 66px); line-height: 1.12; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink); text-wrap: balance;
+  }
+  .hero-line { margin: 18px 0 0; font-family: var(--caps); font-size: 18px; letter-spacing: 0.04em; color: var(--body); }
+  .hero-line { text-wrap: balance; }
+  .hero-line span { font-size: 14px; color: var(--muted); white-space: nowrap; }
+
+  /* Two typefaces only: Cinzel for everything that names or labels, Source Serif 4 for running text */
+  h1 { font-family: var(--caps); font-weight: 400; font-size: clamp(21px, 2.6vw, 28px); line-height: 1.35; letter-spacing: 0.03em; color: var(--body); }
+  summary { font-family: var(--caps); font-size: 18px; letter-spacing: 0.04em; }
+  .fact .value { font-family: var(--caps); }
+  .links a > span:first-child { font-family: var(--caps); letter-spacing: 0.03em; }
+  .links .desc { font-family: "Source Serif 4", Georgia, serif; letter-spacing: 0; }
+  strong { font-weight: 400; color: var(--ink); }
+  .nowrap { white-space: nowrap; }
+  h2 { font-family: var(--caps); font-weight: 400; font-size: 22px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .fact .label { font-family: var(--caps); font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+  .fact .value { font-size: 23px; line-height: 1.35; }
+  .fact .sub { font-size: 15px; }
+  .dots span { width: 16px; height: 16px; }
+  .dots span { border-color: var(--muted); }
+  .dots span.taken { background: var(--gold); border-color: var(--gold); }
+  .button {
+    background: var(--gold); color: var(--ground);
+    font-family: var(--caps); font-weight: 600; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .button:hover { background: #D9B97A; color: var(--ground); }
+  .links a span[aria-hidden] { color: var(--gold); }
+  summary::after { color: var(--gold); }
+  .schedule dt { color: var(--gold); }
+  .zoom::backdrop { background: rgba(10, 8, 6, 0.94); }
+  .works img { box-shadow: 0 0 0 1px rgba(238, 229, 214, 0.08); }
+
+  @media (max-width: 599px) {
+    .hero { min-height: min(80svh, 700px); }
+    .hero-text { padding-bottom: 32px; }
+    .hero-line { font-size: 16px; }
+    .hero-line span { display: block; margin-top: 4px; }
+    .hero-kicker { font-size: 14px; letter-spacing: 0.14em; text-wrap: balance; }
+    .hero[lang="en"] .hero-name { font-size: clamp(22px, 6.6vw, 30px); }
+    main { padding-top: 24px; }
+    h2 { font-size: 19px; }
+  }
+
+  /* ===== Draft: full-width bands that break the page into clear parts ===== */
+  main { max-width: none; padding: 0; display: block; gap: 0; }
+  .band { padding: 96px 16px; }
+  .band.alt { background: var(--band); }
+  .band.first { padding-top: clamp(24px, 6vw, 56px); }
+  .band.last { padding-bottom: 120px; }
+  .inner { width: 100%; max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+  .inner.wide { max-width: 1040px; }
+  .eyebrow { margin: 0 0 -12px; font-family: var(--caps); font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+  .band h2 { font-size: clamp(22px, 3vw, 30px); letter-spacing: 0.08em; color: var(--ink); }
+  .days { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 16px; }
+  .day { border-top: 1px solid var(--rule); padding-top: 20px; }
+  .day .time { margin: 0 0 10px; font-family: var(--caps); font-size: 34px; line-height: 1; color: var(--gold); font-variant-numeric: lining-nums; }
+  .day h3 { margin: 0 0 8px; font-family: var(--caps); font-weight: 400; font-size: 16px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
+  .day p { margin: 0; color: var(--body); font-size: 17px; }
+  .after-days { margin: 8px 0 0; color: var(--muted); font-size: 16px; }
+  .photo-band { margin: 0; position: relative; }
+  .photo-band img { display: block; width: 100%; height: clamp(260px, 48vw, 620px); object-fit: cover; filter: brightness(0.82) saturate(0.85); }
+  .photo-band figcaption { max-width: 1040px; margin: 0 auto; padding: 10px 16px 0; font-size: 13px; color: var(--muted); }
+  .photo-band figcaption a { color: var(--muted); }
+  .teacher { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 48px; align-items: start; }
+  .teacher figure { margin: 0; }
+  .teacher figure img { display: block; width: 100%; height: auto; box-shadow: 0 0 0 1px rgba(238, 229, 214, 0.08); }
+  .teacher figcaption { margin-top: 8px; font-size: 13px; color: var(--muted); }
+  .teacher .text { display: flex; flex-direction: column; gap: 20px; }
+  .teacher .lede { margin: 0; }
+  .band .works { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; position: static; }
+  .band .works figure { position: static; width: auto; }
+  .band .works img { aspect-ratio: 4 / 5; object-fit: cover; }
+  .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .price-grid > div { display: flex; flex-direction: column; gap: 16px; }
+  .big { margin: 0; font-family: var(--caps); font-size: clamp(40px, 6vw, 58px); line-height: 1; color: var(--ink); }
+  .price-grid p { margin: 0; color: var(--body); }
+  .price-grid > div:first-child { padding-top: 0; }
+  .price-grid h3 { min-height: 0; margin: 0; font-family: var(--caps); font-weight: 400; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+  @media (max-width: 799px) {
+    .days, .teacher, .price-grid { grid-template-columns: 1fr; gap: 28px; }
+    .teacher figure { max-width: 360px; }
+  }
+  @media (max-width: 599px) {
+    .band { padding: 64px 16px; }
+    .band.first { padding-top: 24px; }
+    .day .time { font-size: 28px; }
+    .band .works { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 -16px; padding: 0 16px 4px; scrollbar-width: none; }
+    .band .works figure { flex: none; width: 62%; scroll-snap-align: start; }
+    .photo-band img { height: 56vw; min-height: 220px; }
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <clipPath id="gb-s"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+    <clipPath id="gb-t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+    <symbol id="flag-dk" viewBox="0 0 37 28"><rect width="37" height="28" fill="#C8102E"/><rect x="12" width="4" height="28" fill="#fff"/><rect y="12" width="37" height="4" fill="#fff"/></symbol>
+    <symbol id="flag-gb" viewBox="0 0 60 30"><g clip-path="url(#gb-s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#gb-t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></symbol>
+  </defs>
+</svg>
+
+<header>
+  <a class="name" href="https://lassetopbjerg.github.io/Lassetopbjerg/" target="_blank" rel="noopener">Lasse Topbjerg Storgaard</a>
+  <nav>
+    <a class="flag-link" href="#dansk" lang="da" aria-label="Dansk" title="Dansk"><svg class="flag" width="21" height="16" aria-hidden="true"><use href="#flag-dk"/></svg></a>
+    <a class="flag-link" href="#english" lang="en" aria-label="English" title="English"><svg class="flag" width="32" height="16" aria-hidden="true"><use href="#flag-gb"/></svg></a>
+  </nav>
+</header>
+
+<!-- ================================================================
+     DANSK
+     ================================================================ -->
+<p class="language-break" id="dansk" lang="da"><span><svg class="flag" width="21" height="16" aria-hidden="true"><use href="#flag-dk"/></svg>Dansk</span></p>
+
+<div class="hero" lang="da">
+  <img class="hero-img" src="works/smykkeskrinet.jpg" alt="" width="963" height="1176">
+  <div class="hero-text">
+    <p class="hero-kicker"><span class="js-hero-dates">12.–16. juni 2027</span> · <a href="https://jordenssang.dk/" target="_blank" rel="noopener">Rødegaard</a>, Vistoft</p>
+    <p class="hero-name">Malerefugium<br>på Mols</p>
+    <p class="hero-line">«Enkle regler – enkelt forklart» <span>— Jan-Ove Tuv</span></p>
+  </div>
+</div>
+
+<main lang="da" data-lang="da">
+
+  <section class="band first" aria-labelledby="title-da">
+    <div class="inner">
+    <h1 id="title-da">Fem dages klassisk malekursus med Jan-Ove Tuv ved <a href="https://nationalparkmolsbjerge.dk/" target="_blank" rel="noopener">Nationalpark Mols Bjerge</a></h1>
+    <p class="lede">Mal efter en levende nøgenmodel og fordyb dig i landskabsmaleri i og omkring Mols Bjerge. For både nybegyndere og øvede malere.</p>
+
+    <div class="facts">
+      <div class="fact">
+        <span class="label">Datoer</span>
+        <span class="value js-dates">Kommer snart</span>
+      </div>
+      <div class="fact">
+        <span class="label">Pris</span>
+        <span class="value">6.000 DKK</span>
+        <span class="sub">Undervisning og model</span>
+      </div>
+      <div class="fact">
+        <span class="label">Pladser</span>
+        <span class="value js-places">10 malere</span>
+        <div class="dots js-dots" role="img" aria-label="10 pladser"></div>
+      </div>
+    </div>
+
+    <div class="action">
+      <a class="button js-cta" href="mailto:lassetopbjerg@gmail.com?subject=Malerefugium%202027%20%E2%80%93%20giv%20mig%20besked">Få besked</a>
+      <p class="note js-note">Åbner en mail til Lasse. Du hører fra os, så snart datoerne er på plads.</p>
+    </div>
+  </div>
+  </section>
+
+  <section class="band alt" aria-labelledby="rhythm-da">
+    <div class="inner wide">
+      <p class="eyebrow">Dagene</p>
+      <h2 id="rhythm-da"><span class="nowrap">Tid til læring –</span> <span class="nowrap">tid til fordybelse</span></h2>
+      <p class="lede">Hver formiddag er der undervisning i maleri efter levende nøgenmodel (akt). Resten af dagen er din egen: mal videre i atelieret, som er åbent hele dagen og om aftenen, eller tag staffeliet med ud i nationalparken, til havet eller i haven. Mols er kendt for sine unikke og smukke landskaber, og det er svært ikke at blive inspireret af naturen her.</p>
+      <div class="days">
+        <div class="day"><p class="time">10–13</p><h3>Nøgenmodel</h3><p>Maleri efter levende nøgenmodel (akt): lys, skygge og farveblanding.</p></div>
+        <div class="day"><p class="time">13–15</p><h3>Pause</h3><p>Frokost, hvil, en dukkert. Stranden og nationalparken ligger lige uden for døren.</p></div>
+        <div class="day"><p class="time">15–</p><h3>Udendørs, valgfrit</h3><p>Mal i nationalparken, ved havet eller i haven på Rødegaard.</p></div>
+      </div>
+      <p class="after-days">Atelieret er åbent hele dagen og om aftenen.</p>
+    </div>
+  </section>
+
+  <figure class="photo-band">
+    <img src="works/mols-bjerge-trehoeje-wide.jpg" alt="Lyngklædte bakker og Trehøje i Nationalpark Mols Bjerge" width="2400" height="1591" loading="lazy">
+    <figcaption>Nationalpark Mols Bjerge, Trehøje. <a href="https://commons.wikimedia.org/wiki/File:Treh%C3%B8je_Mols_Bjerge.jpg" target="_blank" rel="noopener">Foto: Mikkel Houmøller</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></figcaption>
+  </figure>
+
+  <section class="band" aria-labelledby="lesson-da">
+    <div class="inner wide">
+      <p class="eyebrow">Din underviser</p>
+      <div class="teacher">
+        <figure>
+          <img src="works/jan-ove-selvportraet.jpg" alt="Jan-Ove Tuv, selvportræt" width="900" height="900" loading="lazy">
+          <figcaption>Selvportræt</figcaption>
+        </figure>
+        <div class="text">
+          <h2 id="lesson-da">Jan-Ove Tuv</h2>
+          <p class="lede">Jan-Ove Tuv (f. 1976) er norsk maler og var assistent for Odd Nerdrum fra 1996 til 2002. Han har en dyb forståelse for maleriets grundprincipper, kunsthistorie, myter og fortællinger, har skrevet bøger om kitsch og medvirket i dokumentarserien <a href="https://nerdrum.com/nb/produkt/jakten-paa-nerdrum-2018/" target="_blank" rel="noopener">«Jakten på Nerdrum»</a>.</p>
+          <p class="lede">Han har afholdt kurser i 16 år og tilpasser undervisningen til alle, fra komplette nybegyndere til øvede kunstnere. Han underviser på norsk og engelsk.</p>
+          <p class="lede">I videoen herunder forklarer han kort Apelles-paletten, som vi også arbejder med på kurset.</p>
+          <div class="links" aria-label="Mere om Jan-Ove">
+      <a href="https://malekurstuv.no/arbeider/" target="_blank" rel="noopener"><span>Jan-Oves værker <span class="desc">— malerier, tegninger og tryk</span></span><span aria-hidden="true">↗</span></a>
+      <a href="https://www.youtube.com/@caveofapelles" target="_blank" rel="noopener"><span>The Cave of Apelles <span class="desc">— hans podcast om maleri, myter og kultur, på YouTube</span></span><span aria-hidden="true">↗</span></a>
+      <a href="https://www.youtube.com/c/schoolofapelles" target="_blank" rel="noopener"><span>School of Apelles <span class="desc">— maledemonstrationer på YouTube</span></span><span aria-hidden="true">↗</span></a>
+    </div>
+        </div>
+      </div>
+      <div class="video">
+      <iframe src="https://www.youtube-nocookie.com/embed/s_7lLQkglj0" title="Sådan bruger du Apelles-paletten, med Jan-Ove Tuv" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+      <aside class="works" aria-label="Værker af Jan-Ove Tuv">
+        <figure>
+      <img src="works/ego.jpg" alt="Jan-Ove Tuv, Ego: en maler med lyst hår holder hånden for munden og en pensel i hånden" width="1100" height="1200" loading="lazy">
+      <figcaption>Ego</figcaption>
+    </figure>
+        <figure>
+      <img src="works/smykkeskrinet.jpg" alt="Jan-Ove Tuv, Smykkeskrinet: en kvinde i profil med hånden på et skrin og et kranie i den anden hånd" width="963" height="1176" loading="lazy">
+      <figcaption>Smykkeskrinet</figcaption>
+    </figure>
+        <figure>
+      <img src="works/discovery.jpg" alt="Jan-Ove Tuv, Discovery: nøgne skikkelser omkring en lanterne i mørket" width="1200" height="1046" loading="lazy">
+      <figcaption>Discovery</figcaption>
+    </figure>
+      </aside>
+    </div>
+  </section>
+
+  <section class="band alt" aria-labelledby="price-da">
+    <div class="inner wide">
+      <p class="eyebrow">Pris og tilmelding</p>
+      <div class="price-grid">
+        <div>
+          <p class="big" id="price-da">6.000 DKK</p>
+          <p>Undervisning og model i alle fem dage. Overnatning og mad er ikke inkluderet.</p>
+        </div>
+        <div>
+          <h3>Reservation og betaling</h3>
+          <p>Reservér og betal med kort via knappen herunder eller øverst på siden. Bagefter får du materialeliste og praktisk information fra Lasse.</p>
+          <p>Du betaler hele beløbet ved tilmelding. Der er intet depositum. Bliver malerefugiet aflyst, får du alle pengene tilbage.</p>
+          <div class="action"><a class="button js-cta" href="mailto:lassetopbjerg@gmail.com">Reservér og betal</a><p class="note js-note"></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <figure class="photo-band">
+    <img src="works/helgenaes-solnedgang-wide.jpg" alt="Solnedgang over vandet bag nøgne træer ved Ørby på Helgenæs" width="2400" height="1350" loading="lazy">
+    <figcaption>Solnedgang ved Ørby, Helgenæs. <a href="https://commons.wikimedia.org/wiki/File:Solnedgang_ved_%C3%98rby_p%C3%A5_Helgen%C3%A6s_2.jpg" target="_blank" rel="noopener">Foto: Carsten Wiehe</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a></figcaption>
+  </figure>
+
+  <section class="band last" aria-labelledby="details-da">
+    <div class="inner">
+      <p class="eyebrow">Det praktiske</p>
+      <h2 id="details-da">Ophold, mad og rejse</h2>
+      <div class="faq">
+      <details>
+        <summary>Sådan underviser han</summary>
+        <div class="answer">
+          <p>Hans motto er «Enkle regler – enkelt forklart». Du lærer at male naturtro med en reduceret palet med få farver, og han tilpasser målene til den enkelte elev, uanset niveau.</p>
+          <p>Det eneste, du skal have med af forkundskaber, er lysten til at lære.</p>
+          <p>«Han har en evne til at formidle budskabet med grundighed og ro.» — Edith Maier Kihle, tidligere elev</p>
+          <p>Se, hvordan der arbejdes, i videoer fra School of Apelles (på engelsk):</p>
+          <ul>
+            <li><a href="https://www.youtube.com/watch?v=Eb43yfXk8Po" target="_blank" rel="noopener">Forbered et lærred som de gamle mestre</a> (Jan-Ove Tuv)</li>
+            <li><a href="https://www.youtube.com/watch?v=HUqjfBS-V9A" target="_blank" rel="noopener">Den udvidede Apelles-palet</a></li>
+            <li><a href="https://www.youtube.com/watch?v=1cZGHxIdjXY" target="_blank" rel="noopener">Mal et sommerlandskab uden blå og grøn, med Apelles-paletten udendørs</a></li>
+            <li><a href="https://www.youtube.com/watch?v=W4SUaVkUfM8" target="_blank" rel="noopener">Læg de store former an efter levende model</a> (William Heimdal)</li>
+            <li><a href="https://www.youtube.com/watch?v=CQ_2qCZ5r6s" target="_blank" rel="noopener">Malemedier og «fedt over magert» uden opløsningsmidler</a></li>
+            <li><a href="https://www.youtube.com/watch?v=BkGZVm_Ao5I" target="_blank" rel="noopener">Brug sandpapir på et maleri</a> (Jan-Ove Tuv)</li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>Overnatning</summary>
+        <div class="answer">
+          <p>Overnatning er ikke inkluderet.</p>
+          <ul>
+            <li>Tag et telt med og slå det op i haven på Rødegaard mod et mindre beløb pr. nat</li>
+            <li>Et værelse på Rødegaard / Jordens Sang: <a href="mailto:kontakt@jordenssang.dk">kontakt@jordenssang.dk</a></li>
+            <li><a href="https://hosmolsgaarden.dk/" target="_blank" rel="noopener">Molsgaarden B&amp;B</a>, Kildevej 26, Knebel</li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>Mad</summary>
+        <div class="answer">
+          <p><strong>Fuld forplejning på Rødegaard: 625 DKK pr. dag.</strong> Morgenmad, frokost og aftensmad samt te, kaffe og snacks. Alt er vegetarisk og hovedsageligt lavet med grøntsager fra haven. Bestil hos Jordens Sang: <a href="mailto:kontakt@jordenssang.dk">kontakt@jordenssang.dk</a></p>
+          <p>Vil du hellere klare dig selv, er der et lille køkken i atelieret. Der er ingen butikker i Knebel. Dagligvarer kan købes i Vrinners eller Ebeltoft, ca. 20 minutter med bus.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Sådan kommer du hertil</summary>
+        <div class="answer">
+          <p>Rødegaard, Karlshøjvej 5, 8420 Knebel. Ca. 45 minutter i bil fra Aarhus.</p>
+          <p>Fra Norge er færgen Larvik–Hirtshals den nemmeste vej.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Det skal du medbringe</summary>
+        <div class="answer">
+          <p>En samlet materialeliste bliver tilsendt efter tilmelding.</p>
+        </div>
+      </details>
+      </div>
+      <div class="action action-end">
+      <a class="button js-cta" href="mailto:lassetopbjerg@gmail.com">Få besked</a>
+      <p class="note js-note">Åbner en mail til Lasse.</p>
+    </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================================================================
+     ENGLISH
+     ================================================================ -->
+<p class="language-break" id="english" lang="en"><span><svg class="flag" width="32" height="16" aria-hidden="true"><use href="#flag-gb"/></svg>English</span></p>
+
+<div class="hero" lang="en">
+  <img class="hero-img" src="works/smykkeskrinet.jpg" alt="" width="963" height="1176">
+  <div class="hero-text">
+    <p class="hero-kicker"><span class="js-hero-dates">12–16 June 2027</span> · <a href="https://jordenssang.dk/" target="_blank" rel="noopener">Rødegaard</a>, Vistoft</p>
+    <p class="hero-name">Painting Retreat<br>on Mols</p>
+    <p class="hero-line">“Simple rules, simply explained” <span>— Jan-Ove Tuv</span></p>
+  </div>
+</div>
+
+<main lang="en" data-lang="en">
+
+  <section class="band first" aria-labelledby="title-en">
+    <div class="inner">
+    <h1 id="title-en">A five-day classical painting course with Jan-Ove Tuv at <a href="https://nationalparkmolsbjerge.dk/" target="_blank" rel="noopener">Mols Bjerge National Park</a></h1>
+    <p class="lede">Paint from a nude model and immerse yourself in landscape painting in and around Mols Bjerge. For beginners and experienced painters alike.</p>
+
+    <div class="facts">
+      <div class="fact">
+        <span class="label">Dates</span>
+        <span class="value js-dates">Announced soon</span>
+      </div>
+      <div class="fact">
+        <span class="label">Price</span>
+        <span class="value">6,000 DKK</span>
+        <span class="sub">Tuition and model included</span>
+      </div>
+      <div class="fact">
+        <span class="label">Places</span>
+        <span class="value js-places">10 painters</span>
+        <div class="dots js-dots" role="img" aria-label="10 places"></div>
+      </div>
+    </div>
+
+    <div class="action">
+      <a class="button js-cta" href="mailto:lassetopbjerg@gmail.com?subject=Retreat%202027%20%E2%80%93%20notify%20me">Get notified</a>
+      <p class="note js-note">Opens an email to Lasse. We will let you know as soon as the dates are set.</p>
+    </div>
+  </div>
+  </section>
+
+  <section class="band alt" aria-labelledby="rhythm-en">
+    <div class="inner wide">
+      <p class="eyebrow">The days</p>
+      <h2 id="rhythm-en"><span class="nowrap">Time to learn –</span> <span class="nowrap">time to immerse yourself</span></h2>
+      <p class="lede">Every morning is a taught life-painting session with a nude model. The rest of the day is yours: keep painting in the studio, which is open all day and into the evening, or take your easel out into the national park, down to the sea or into the garden. Mols is known for its unique and beautiful landscapes, and it is hard not to feel inspired here.</p>
+      <div class="days">
+        <div class="day"><p class="time">10–13</p><h3>Nude model</h3><p>Life painting from the nude model: light, shadow and colour mixing.</p></div>
+        <div class="day"><p class="time">13–15</p><h3>Break</h3><p>Lunch, rest, a swim. The beach and the national park are right outside the door.</p></div>
+        <div class="day"><p class="time">15–</p><h3>Outdoors, optional</h3><p>Paint in the national park, by the sea or in the Rødegaard garden.</p></div>
+      </div>
+      <p class="after-days">The studio is open all day and into the evening.</p>
+    </div>
+  </section>
+
+  <figure class="photo-band">
+    <img src="works/mols-bjerge-trehoeje-wide.jpg" alt="Heather-covered hills and Trehøje in Mols Bjerge National Park" width="2400" height="1591" loading="lazy">
+    <figcaption>Mols Bjerge National Park, Trehøje. <a href="https://commons.wikimedia.org/wiki/File:Treh%C3%B8je_Mols_Bjerge.jpg" target="_blank" rel="noopener">Photo: Mikkel Houmøller</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></figcaption>
+  </figure>
+
+  <section class="band" aria-labelledby="lesson-en">
+    <div class="inner wide">
+      <p class="eyebrow">Your teacher</p>
+      <div class="teacher">
+        <figure>
+          <img src="works/jan-ove-selvportraet.jpg" alt="Jan-Ove Tuv, self-portrait" width="900" height="900" loading="lazy">
+          <figcaption>Self-portrait</figcaption>
+        </figure>
+        <div class="text">
+          <h2 id="lesson-en">Jan-Ove Tuv</h2>
+          <p class="lede">Jan-Ove Tuv (b. 1976) is a Norwegian painter who worked as Odd Nerdrum’s assistant from 1996 to 2002. He has a deep understanding of the fundamentals of painting, art history, myth and storytelling. He has written books on kitsch and appeared in the documentary series <a href="https://nerdrum.com/movies/the-hunt-of-odd-nerdrum-2018/" target="_blank" rel="noopener">“Jakten på Nerdrum” (The Hunt for Nerdrum)</a>.</p>
+          <p class="lede">He has been teaching courses for 16 years and tailors his teaching to each student, from complete beginners to advanced artists. He teaches in Norwegian and English.</p>
+          <p class="lede">In the video below, he gives a short introduction to the Apelles palette, which we will use during the course.</p>
+          <div class="links" aria-label="More about Jan-Ove">
+      <a href="https://malekurstuv.no/arbeider/" target="_blank" rel="noopener"><span>Jan-Ove's work <span class="desc">— paintings, drawings and prints</span></span><span aria-hidden="true">↗</span></a>
+      <a href="https://www.youtube.com/@caveofapelles" target="_blank" rel="noopener"><span>The Cave of Apelles <span class="desc">— his podcast on painting, myth and culture, on YouTube</span></span><span aria-hidden="true">↗</span></a>
+      <a href="https://www.youtube.com/c/schoolofapelles" target="_blank" rel="noopener"><span>School of Apelles <span class="desc">— painting demonstrations on YouTube</span></span><span aria-hidden="true">↗</span></a>
+    </div>
+        </div>
+      </div>
+      <div class="video">
+      <iframe src="https://www.youtube-nocookie.com/embed/s_7lLQkglj0" title="How to use the Apelles Palette, by Jan-Ove Tuv" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+      <aside class="works" aria-label="Work by Jan-Ove Tuv">
+        <figure>
+      <img src="works/ego.jpg" alt="Jan-Ove Tuv, Ego: a fair-haired painter with a hand over his mouth, holding a brush" width="1100" height="1200" loading="lazy">
+      <figcaption>Ego</figcaption>
+    </figure>
+        <figure>
+      <img src="works/smykkeskrinet.jpg" alt="Jan-Ove Tuv, The Box of Jewellery: a woman in profile, one hand on a box and a skull in the other" width="963" height="1176" loading="lazy">
+      <figcaption>The Box of Jewellery</figcaption>
+    </figure>
+        <figure>
+      <img src="works/discovery.jpg" alt="Jan-Ove Tuv, Discovery: nude figures gathered around a lantern in the dark" width="1200" height="1046" loading="lazy">
+      <figcaption>Discovery</figcaption>
+    </figure>
+      </aside>
+    </div>
+  </section>
+
+  <section class="band alt" aria-labelledby="price-en">
+    <div class="inner wide">
+      <p class="eyebrow">Price and booking</p>
+      <div class="price-grid">
+        <div>
+          <p class="big" id="price-en">6,000 DKK</p>
+          <p>Tuition and model for all five days. Accommodation and food are not included.</p>
+        </div>
+        <div>
+          <h3>Reserving and paying</h3>
+          <p>Reserve and pay by card with the button below or at the top of the page. Afterwards, Lasse will send you the materials list and practical information.</p>
+          <p>The full amount is paid when you sign up; there is no deposit. If the retreat is cancelled, you will get a full refund.</p>
+          <div class="action"><a class="button js-cta" href="mailto:lassetopbjerg@gmail.com">Reserve and pay</a><p class="note js-note"></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <figure class="photo-band">
+    <img src="works/helgenaes-solnedgang-wide.jpg" alt="Sunset over the water behind bare trees at Ørby on Helgenæs" width="2400" height="1350" loading="lazy">
+    <figcaption>Sunset at Ørby, Helgenæs. <a href="https://commons.wikimedia.org/wiki/File:Solnedgang_ved_%C3%98rby_p%C3%A5_Helgen%C3%A6s_2.jpg" target="_blank" rel="noopener">Photo: Carsten Wiehe</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a></figcaption>
+  </figure>
+
+  <section class="band last" aria-labelledby="details-en">
+    <div class="inner">
+      <p class="eyebrow">Practical</p>
+      <h2 id="details-en">Stay, food and travel</h2>
+      <div class="faq">
+      <details>
+        <summary>How he teaches</summary>
+        <div class="answer">
+          <p>His motto is “Simple rules, simply explained.” You learn to paint naturalistically with a limited palette of just a few colours, and he sets individual goals for each student, whatever their level.</p>
+          <p>No previous experience is needed, only the desire to learn.</p>
+          <p>“He has a gift for explaining things thoroughly and calmly.” — Edith Maier Kihle, former student</p>
+          <p>See how it’s done in these videos from School of Apelles:</p>
+          <ul>
+            <li><a href="https://www.youtube.com/watch?v=Eb43yfXk8Po" target="_blank" rel="noopener">Preparing a canvas like the Old Masters</a> (Jan-Ove Tuv)</li>
+            <li><a href="https://www.youtube.com/watch?v=HUqjfBS-V9A" target="_blank" rel="noopener">The extended Apelles palette</a></li>
+            <li><a href="https://www.youtube.com/watch?v=1cZGHxIdjXY" target="_blank" rel="noopener">Painting a summer landscape outdoors without blue or green, using the Apelles palette</a></li>
+            <li><a href="https://www.youtube.com/watch?v=W4SUaVkUfM8" target="_blank" rel="noopener">Blocking in the big forms from a live model</a> (William Heimdal)</li>
+            <li><a href="https://www.youtube.com/watch?v=CQ_2qCZ5r6s" target="_blank" rel="noopener">Painting mediums and “fat over lean” without solvents</a></li>
+            <li><a href="https://www.youtube.com/watch?v=BkGZVm_Ao5I" target="_blank" rel="noopener">Using sandpaper on a painting</a> (Jan-Ove Tuv)</li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>Where to stay</summary>
+        <div class="answer">
+          <p>Accommodation is not included.</p>
+          <ul>
+            <li>Bring a tent and camp in the Rødegaard garden for a small nightly fee</li>
+            <li>A room at Rødegaard / Jordens Sang: <a href="mailto:kontakt@jordenssang.dk">kontakt@jordenssang.dk</a></li>
+            <li><a href="https://hosmolsgaarden.dk/" target="_blank" rel="noopener">Molsgaarden B&amp;B</a>, Kildevej 26, Knebel</li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>Food</summary>
+        <div class="answer">
+          <p><strong>Full board at Rødegaard: 625 DKK per day.</strong> Breakfast, lunch and dinner, plus tea, coffee and snacks. Everything is vegetarian and made mostly from what grows in the garden. Book with Jordens Sang: <a href="mailto:kontakt@jordenssang.dk">kontakt@jordenssang.dk</a></p>
+          <p>Prefer to cater for yourself? There is a small kitchen in the studio. There are no shops in Knebel; the nearest groceries are in Vrinners and Ebeltoft, about 20 minutes away by bus.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Getting there</summary>
+        <div class="answer">
+          <p>Rødegaard, Karlshøjvej 5, 8420 Knebel, Denmark. About 45 minutes by car from Aarhus.</p>
+          <p>From Norway, the Larvik–Hirtshals ferry is the easiest route.</p>
+        </div>
+      </details>
+      <details>
+        <summary>What to bring</summary>
+        <div class="answer">
+          <p>You will receive a complete materials list after you sign up.</p>
+        </div>
+      </details>
+      </div>
+      <div class="action action-end">
+      <a class="button js-cta" href="mailto:lassetopbjerg@gmail.com">Get notified</a>
+      <p class="note js-note">Opens an email to Lasse.</p>
+    </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="credits" lang="da">Fotos fra Nationalpark Mols Bjerge via Wikimedia Commons: Mikkel Houmøller (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>), Carsten Wiehe (<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>). Malerier: Jan-Ove Tuv.</p>
+  <p class="credits" lang="en">Photos of Mols Bjerge National Park via Wikimedia Commons: Mikkel Houmøller (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>), Carsten Wiehe (<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>). Paintings: Jan-Ove Tuv.</p>
+  <p class="organiser" lang="da">Arrangør: Lasse Topbjerg Storgaard · <a href="mailto:lassetopbjerg@gmail.com">lassetopbjerg@gmail.com</a> · <a href="tel:+4531177506">+45 31 17 75 06</a></p>
+  <p class="organiser" lang="en">Organiser: Lasse Topbjerg Storgaard · <a href="mailto:lassetopbjerg@gmail.com">lassetopbjerg@gmail.com</a> · <a href="tel:+4531177506">+45 31 17 75 06</a></p>
+  <span>Rødegaard · Karlshøjvej 5 · 8420 Knebel</span>
+  <a href="https://www.instagram.com/jan_ove_tuv/" target="_blank" rel="noopener">Instagram: @jan_ove_tuv</a>
+</footer>
+
+<script>
+  (function () {
+    var r = window.RETREAT || {};
+    var total = r.placesTotal || 10;
+    var taken = Math.max(0, Math.min(total, r.placesTaken || 0));
+    var status = r.status || "soon";
+    if (status === "open" && taken >= total) status = "full";
+    var email = r.email || "lassetopbjerg@gmail.com";
+    var pay = status === "open" && r.paymentLink;
+    var left = total - taken;
+
+    var text = {
+      da: {
+        dates: r.datesDa,
+        pay: { cta: "Reservér og betal", note: "Sikker betaling med kort via Stripe. Spørgsmål først? ",
+               mail: "Skriv til Lasse" },
+        open: { cta: "Reservér en plads", subject: "Malerefugium 2027 – reservation",
+                note: "Åbner en mail til Lasse. Du får betalingsoplysninger og materialeliste som svar.",
+                places: left + " af " + total + " ledige" },
+        full: { cta: "Skriv dig på ventelisten", subject: "Malerefugium 2027 – venteliste",
+                note: "Alle pladser er taget. Skriv til Lasse, så hører du først, hvis en plads bliver ledig.",
+                places: "Fuldt booket" },
+        soon: { cta: "Få besked", subject: "Malerefugium 2027 – giv mig besked",
+                note: "Åbner en mail til Lasse. Du hører fra os, så snart datoerne er på plads.",
+                places: total + " malere" },
+        dotsSoon: total + " pladser",
+        dotsTaken: taken + " af " + total + " pladser taget"
+      },
+      en: {
+        dates: r.datesEn,
+        pay: { cta: "Reserve and pay", note: "Secure card payment via Stripe. Questions first? ",
+               mail: "Write to Lasse" },
+        open: { cta: "Reserve a place", subject: "Retreat 2027 – reservation",
+                note: "Opens an email to Lasse. You will receive payment details and the materials list in reply.",
+                places: left + " of " + total + " left" },
+        full: { cta: "Join the waitlist", subject: "Retreat 2027 – waitlist",
+                note: "All places are taken. Write to Lasse and you will be the first to hear if a place opens up.",
+                places: "Fully booked" },
+        soon: { cta: "Get notified", subject: "Retreat 2027 – notify me",
+                note: "Opens an email to Lasse. We will let you know as soon as the dates are set.",
+                places: total + " painters" },
+        dotsSoon: total + " places",
+        dotsTaken: taken + " of " + total + " places taken"
+      }
+    };
+
+    document.querySelectorAll(".hero[lang]").forEach(function (hero) {
+      var t = text[hero.getAttribute("lang")];
+      if (t && t.dates) hero.querySelector(".js-hero-dates").textContent = t.dates;
+    });
+
+    document.querySelectorAll("main[data-lang]").forEach(function (main) {
+      var t = text[main.getAttribute("data-lang")];
+      var s = t[status] || t.soon;
+
+      if (t.dates) main.querySelector(".js-dates").textContent = t.dates;
+      main.querySelector(".js-places").textContent = s.places;
+
+      main.querySelectorAll(".action").forEach(function (box) {
+      var cta = box.querySelector(".js-cta");
+      var note = box.querySelector(".js-note");
+      if (pay) {
+        cta.textContent = t.pay.cta;
+        cta.href = r.paymentLink;
+        note.textContent = t.pay.note;
+        var a = document.createElement("a");
+        a.href = "mailto:" + email + "?subject=" + encodeURIComponent(s.subject);
+        a.textContent = t.pay.mail;
+        note.appendChild(a);
+        note.appendChild(document.createTextNode("."));
+      } else {
+        cta.textContent = s.cta;
+        cta.href = "mailto:" + email + "?subject=" + encodeURIComponent(s.subject);
+        note.textContent = s.note;
+      }
+      });
+
+      var dots = main.querySelector(".js-dots");
+      dots.setAttribute("aria-label", status === "soon" ? t.dotsSoon : t.dotsTaken);
+      for (var i = 0; i < total; i++) {
+        var d = document.createElement("span");
+        if (status !== "soon" && i < taken) d.className = "taken";
+        dots.appendChild(d);
+      }
+    });
+  })();
+</script>
+<script>
+  (function () {
+    var root = document.documentElement;
+    function show(lang) {
+      root.setAttribute("data-show", lang);
+      root.lang = lang;
+    }
+    show(root.getAttribute("data-show") || "da");
+    document.querySelectorAll(".flag-link").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        var lang = a.getAttribute("lang");
+        show(lang);
+        try { localStorage.setItem("lang", lang); } catch (err) {}
+        history.replaceState(null, "", lang === "en" ? "#english" : location.pathname + location.search);
+        window.scrollTo(0, 0);
+      });
+    });
+    window.addEventListener("hashchange", function () {
+      show(location.hash === "#english" ? "en" : "da");
+    });
+  })();
+</script>
+
+<dialog class="zoom" id="zoom">
+  <button type="button" aria-label="Luk / Close">×</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+</dialog>
+<script>
+  (function () {
+    var dlg = document.getElementById("zoom");
+    if (!dlg.showModal) return;
+    var big = dlg.querySelector("img"), cap = dlg.querySelector("figcaption");
+    document.querySelectorAll(".works img").forEach(function (img) {
+      img.tabIndex = 0;
+      img.setAttribute("role", "button");
+      function open() {
+        var fc = img.closest("figure").querySelector("figcaption");
+        big.src = img.src;
+        big.alt = img.alt;
+        cap.textContent = fc ? fc.textContent : "";
+        dlg.showModal();
+      }
+      img.addEventListener("click", open);
+      img.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
+      });
+    });
+    dlg.addEventListener("click", function () { dlg.close(); });
+  })();
+</script>
+</body>
+</html>

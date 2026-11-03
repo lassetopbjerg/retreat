@@ -70,6 +70,10 @@ Look: see "Design" above (the original light look, off-white #F4F2EE with no dec
 - Links: video https://www.youtube.com/watch?v=s_7lLQkglj0 (How to use the Apelles Palette), https://www.youtube.com/@caveofapelles, https://www.youtube.com/c/schoolofapelles, https://malekurstuv.no/
 - Contact: lassetopbjerg@gmail.com, +45 31 17 75 06. Instagram on the page: Jan-Ove's @jan_ove_tuv (Lasse's own @lasse.topbjerg is not active)
 
+## Draft redesign (3 Nov 2026)
+
+`udkast.html` (noindex, not linked) is a draft with full-width bands like the old Squarespace retreat page: gold eyebrow labels, the days as three columns, wide Mols photos (Trehøje, Helgenæs, larger copies `*-wide.jpg`), Jan-Ove's self-portrait (`works/jan-ove-selvportraet.jpg`, from his YouTube profile picture) beside his bio, his three paintings in a row, a price/booking band, and fold-outs only for the details. It is generated from index.html by `tools/build_draft.py index.html udkast.html`. If Lasse approves: rename udkast.html to index.html (remove the noindex line). Begtrup Vig photo is not used in the draft.
+
 ## Still open
 
 - Share image `works/share.jpg` remade 3 Nov 2026 with "Rødegaard, Vistoft" (only the top line redrawn: Cinzel Regular 21.5px, tracking 4.5, colour (185,155,100), centred at x 848.5, baseline 190).
