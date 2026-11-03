@@ -7,7 +7,7 @@ Lasse writes in Danish or English, so answer in the language he uses.
 ## Status (2 Nov 2026)
 
 - **Live** at https://lassetopbjerg.github.io/retreat/ (repo `lassetopbjerg/retreat`, Pages from `main`, folder `/`). Pushing to `main` updates the site.
-- Custom domain **malerefugium.dk** (bought at one.com, 3 Nov 2026) is NOT connected yet: GitHub's DNS check failed ("record could not be retrieved"), likely because the new .dk registration still needs approval at Punktum dk. It was removed again so the github.io link works. To connect once http://malerefugium.dk resolves to GitHub: add a `CNAME` file containing `malerefugium.dk`, set og:url/og:image to https://malerefugium.dk/, then tick Enforce HTTPS in Settings → Pages. DNS at one.com: four A records to 185.199.108-111.153 and `www` CNAME to lassetopbjerg.github.io.
+- Custom domain **malerefugium.dk** (bought at one.com, 3 Nov 2026) connected 3 Nov 2026: `CNAME` file in the repo, og:url/og:image point to https://malerefugium.dk/. DNS at one.com: four A records for the root to 185.199.108-111.153 and `www` CNAME to lassetopbjerg.github.io; one.com's standard A records are switched off (MX left on). The old https://lassetopbjerg.github.io/retreat/ address forwards to the domain.
 - Next steps:
   4. Lasse's new site (repo `lassetopbjerg/Lassetopbjerg`) is at https://lassetopbjerg.github.io/Lassetopbjerg/ and links here. The name in this page's header links to it (since 3 Nov 2026); change that link to https://lassetopbjerg.com once his domain points to the new site.
 
