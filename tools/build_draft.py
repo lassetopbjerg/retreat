@@ -95,7 +95,8 @@ EXTRA = r"""
   .teacher { margin-top: 8px; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); gap: 40px; align-items: center; }
   .inner > .teacher-works { margin-top: 24px; }
   .inner > .video-intro { margin-top: 32px; }
-  .teach-more .links { margin-bottom: 20px; }
+  .inner > .teach-links { max-width: 720px; margin-top: -24px; }
+  .teach-links .links { border-top: 0; }
   @media (max-width: 799px) {
     .teacher { grid-template-columns: 1fr; gap: 24px; justify-items: center; }
     .teacher figure { max-width: 240px; width: 100%; }
@@ -145,9 +146,9 @@ def main_block(L):
     vids_intro = [x for x in teach_ps if "School of Apelles" in x][0]
     vids = re.search(r'<ul>.*?</ul>', teach, re.S).group(0)
     more = f'''<details>
-          <summary>{T("Mere om Jan-Ove", "More about Jan-Ove")}</summary>
+          <summary>{T("Sådan underviser han", "How he teaches")}</summary>
           <div class="answer">
-            {links}
+            {teach_ps[0]}
             {vids_intro}
             {vids}
           </div>
@@ -207,7 +208,6 @@ def main_block(L):
         </figure>
         <div class="text">
           {chr(10).join("          " + b for b in bio).strip()}
-          {motto}
         </div>
       </div>
       <aside class="works teacher-works" aria-label="{T("Værker af Jan-Ove Tuv", "Work by Jan-Ove Tuv")}">
@@ -220,6 +220,7 @@ def main_block(L):
       <div class="faq teach-more">
         {more}
       </div>
+      <div class="teach-links">{links}</div>
     </div>
   </section>
 
