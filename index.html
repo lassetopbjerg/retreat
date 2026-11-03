@@ -434,6 +434,12 @@
   .after-days, .note, .fact .sub { font-size: 15px; }
   figcaption, .photo-credit { font-size: 13px; }
   @media (max-width: 599px) { h1 { font-size: 16px; letter-spacing: 0.03em; } }
+
+  /* What you get, in the price card */
+  .included { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; color: var(--body); }
+  .included li { position: relative; margin: 0; padding-left: 22px; }
+  .included li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 10px; height: 1px; background: var(--gold); }
+  .not-included { font-size: 15px; color: var(--muted) !important; }
 </style>
 </head>
 <body>
@@ -639,7 +645,14 @@
       <div class="price-grid">
         <div>
           <p class="big" id="price-da">6.000 DKK</p>
-          <p>Undervisning og model i alle fem dage. Overnatning og mad er ikke inkluderet.</p>
+          <ul class="included" aria-label="Det får du">
+            <li>5 dage med undervisning af Jan-Ove Tuv, 12.–16. juni 2027</li>
+            <li>Levende nøgenmodel hver formiddag <span class="nowrap">kl. 10–13</span></li>
+            <li>God tid til feedback og respons fra Jan-Ove</li>
+            <li>Åbent atelier at arbejde i, hele dagen og om aftenen</li>
+            <li>Undervisningsvideoer fra Jan-Ove før kurset, så du kan forberede dig</li>
+          </ul>
+          <p class="not-included">Overnatning og mad er ikke inkluderet, men kan bestilles på Rødegaard.</p>
         </div>
         <div>
           <p class="places-line js-places2"></p>
@@ -839,7 +852,14 @@
       <div class="price-grid">
         <div>
           <p class="big" id="price-en">6,000 DKK</p>
-          <p>Tuition and model for all five days. Accommodation and food are not included.</p>
+          <ul class="included" aria-label="What you get">
+            <li>Five days of teaching with Jan-Ove Tuv, 12–16 June 2027</li>
+            <li>A live nude model every morning, <span class="nowrap">10–13</span></li>
+            <li>Plenty of time for feedback and critique from Jan-Ove</li>
+            <li>An open studio to work in, all day and into the evening</li>
+            <li>Teaching videos from Jan-Ove before the course, so you can prepare</li>
+          </ul>
+          <p class="not-included">Accommodation and food are not included, but can be booked at Rødegaard.</p>
         </div>
         <div>
           <p class="places-line js-places2"></p>
