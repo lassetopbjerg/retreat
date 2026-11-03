@@ -72,7 +72,7 @@ Look: see "Design" above (the original light look, off-white #F4F2EE with no dec
 
 ## Draft redesign (3 Nov 2026)
 
-`udkast.html` (noindex, not linked) is a draft with full-width bands like the old Squarespace retreat page: gold eyebrow labels, the days as three columns, wide Mols photos (Trehøje, Helgenæs, larger copies `*-wide.jpg`), Jan-Ove's self-portrait (`works/jan-ove-selvportraet.jpg`, from his YouTube profile picture) beside his bio, his three paintings in a row, a price/booking band, and fold-outs only for the details. It is generated from index.html by `tools/build_draft.py index.html udkast.html`. If Lasse approves: rename udkast.html to index.html (remove the noindex line). Begtrup Vig photo is not used in the draft.
+`udkast.html` (noindex, not linked) is a draft with full-width bands like the old Squarespace retreat page: gold eyebrow labels, the days as three columns, one wide Mols photo (Trehøje, larger copy `works/mols-bjerge-trehoeje-wide.jpg`; the Helgenæs band was removed at Lasse's request), Jan-Ove's self-portrait (`works/jan-ove-selvportraet.jpg`, from his YouTube profile picture) beside his bio, his three paintings in a row, a price/booking band, and fold-outs only for the details. It is generated from index.html by `tools/build_draft.py index.html udkast.html`. If Lasse approves: rename udkast.html to index.html (remove the noindex line). Begtrup Vig photo is not used in the draft.
 
 ## Still open
 

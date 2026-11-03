@@ -149,10 +149,6 @@ def main_block(L):
     </div>
   </section>
 
-  <figure class="photo-band">
-    <img src="works/helgenaes-solnedgang-wide.jpg" alt="{T("Solnedgang over vandet bag nøgne træer ved Ørby på Helgenæs", "Sunset over the water behind bare trees at Ørby on Helgenæs")}" width="2400" height="1350" loading="lazy">
-    <figcaption>{helg}. <a href="https://commons.wikimedia.org/wiki/File:Solnedgang_ved_%C3%98rby_p%C3%A5_Helgen%C3%A6s_2.jpg" target="_blank" rel="noopener">{foto}: Carsten Wiehe</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a></figcaption>
-  </figure>
 
   <section class="band last" aria-labelledby="details-{L}">
     <div class="inner">
@@ -171,7 +167,7 @@ for L in ("da", "en"):
     s = re.sub(r'<main lang="%s" data-lang="%s">.*?</main>' % (L, L), lambda _: main_block(L), s, count=1, flags=re.S)
 
 # footer photo credits: Begtrup Vig (Old Dane) is no longer used
-s = s.replace("Mikkel Houmøller og Old Dane (", "Mikkel Houmøller (")
-s = s.replace("Mikkel Houmøller and Old Dane (", "Mikkel Houmøller (")
+s = re.sub(r"Mikkel Houmøller og Old Dane \((.*?)\), Carsten Wiehe \(.*?\)\.", r"Mikkel Houmøller (\1).", s)
+s = re.sub(r"Mikkel Houmøller and Old Dane \((.*?)\), Carsten Wiehe \(.*?\)\.", r"Mikkel Houmøller (\1).", s)
 open(out, "w", encoding="utf-8").write(s)
 print("ok")
