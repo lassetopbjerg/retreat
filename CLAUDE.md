@@ -6,10 +6,10 @@ Lasse writes in Danish or English, so answer in the language he uses.
 
 ## Status (2 Nov 2026)
 
-- **Live** at https://malerefugium.dk (custom domain since 3 Nov 2026, bought at one.com; the `CNAME` file in the repo holds it; DNS at one.com: four A records to 185.199.108-111.153 and `www` CNAME to lassetopbjerg.github.io). The old https://lassetopbjerg.github.io/retreat/ forwards there. Repo `lassetopbjerg/retreat`, Pages from `main`, folder `/`. Pushing to `main` updates the site.
+- **Live** at https://lassetopbjerg.github.io/retreat/ (repo `lassetopbjerg/retreat`, Pages from `main`, folder `/`). Pushing to `main` updates the site.
+- Custom domain **malerefugium.dk** (bought at one.com, 3 Nov 2026) is NOT connected yet: GitHub's DNS check failed ("record could not be retrieved"), likely because the new .dk registration still needs approval at Punktum dk. It was removed again so the github.io link works. To connect once http://malerefugium.dk resolves to GitHub: add a `CNAME` file containing `malerefugium.dk`, set og:url/og:image to https://malerefugium.dk/, then tick Enforce HTTPS in Settings → Pages. DNS at one.com: four A records to 185.199.108-111.153 and `www` CNAME to lassetopbjerg.github.io.
 - Next steps:
-  4. Point the Retreat link on lassetopbjerg.com to https://malerefugium.dk
-  5. In GitHub Settings → Pages: check the DNS check is green and tick "Enforce HTTPS" once the certificate is ready.
+  4. Point the Retreat link on lassetopbjerg.com to the retreat page (malerefugium.dk once connected).
 
 Deploy commands:
 
