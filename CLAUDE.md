@@ -71,6 +71,7 @@ Look: see "Design" above (the original light look, off-white #F4F2EE with no dec
 
 ## Still open
 
+- Share image `works/share.jpg` still says "Rødegaard, Mols"; the page top now says "Rødegaard, Vistoft" (3 Nov 2026). Make a new share image with Vistoft when Lasse asks.
 - Price changed to 6,000 DKK on 3 Nov 2026, so it now matches the Stripe link. Stripe's public business name was "Art"; Lasse may want to fix that.
 - All prices on the page are written in DKK, in both languages (Danish: "6.000 DKK", English: "6,000 DKK").
 - Start time on day one and end time on day five: Lasse gives them later.
