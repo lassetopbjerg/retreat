@@ -285,6 +285,12 @@
   }
   .button:hover { background: #D9B97A; color: var(--ground); }
   .links a span[aria-hidden] { color: var(--gold); }
+  .map-button {
+    display: inline-block; margin-top: 4px; padding: 12px 24px; min-height: 44px;
+    border: 1px solid var(--gold); color: var(--gold); text-decoration: none;
+    font-family: var(--caps); font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .map-button:hover { background: var(--gold); color: var(--ground); }
   summary::after { color: var(--gold); }
   .schedule dt { color: var(--gold); }
   .zoom::backdrop { background: rgba(10, 8, 6, 0.94); }
@@ -537,6 +543,7 @@
         <div class="answer">
           <p>Rødegaard, Karlshøjvej 5, 8420 Knebel. Ca. 45 minutter i bil fra Aarhus.</p>
           <p>Fra Norge er færgen Larvik–Hirtshals den nemmeste vej.</p>
+          <p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=R%C3%B8degaard%2C+Karlsh%C3%B8jvej+5%2C+8420+Knebel" target="_blank" rel="noopener">Åbn i Maps <span aria-hidden="true">↗</span></a></p>
         </div>
       </details>
       <details>
@@ -723,6 +730,7 @@
         <div class="answer">
           <p>Rødegaard, Karlshøjvej 5, 8420 Knebel, Denmark. About 45 minutes by car from Aarhus.</p>
           <p>From Norway, the Larvik–Hirtshals ferry is the easiest route.</p>
+          <p><a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=R%C3%B8degaard%2C+Karlsh%C3%B8jvej+5%2C+8420+Knebel" target="_blank" rel="noopener">Open in Maps <span aria-hidden="true">↗</span></a></p>
         </div>
       </details>
       <details>
