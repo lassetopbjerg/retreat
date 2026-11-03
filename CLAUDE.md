@@ -60,6 +60,7 @@ Look: see "Design" above (the original light look, off-white #F4F2EE with no dec
 
 - Dates: 12–16 June 2027 (Sat–Wed). Sign-up is open. Max 10 painters.
 - Price: 6,000 DKK covering tuition and model. Lodging is not included.
+- The model sessions are nude (akt), stated on the page since 3 Nov 2026.
 - Days: 10–13 live model, 13–15 break (changed from 13–16 on 3 Nov 2026), from 15 optional plein air. The atelier is open all day and in the evening.
 - Terms (confirmed): full amount paid at sign-up, no deposit; if the retreat is cancelled, all money is returned.
 - Food: full board at Rødegaard 625 DKK/day, booked with Jordens Sang (kontakt@jordenssang.dk) (breakfast, lunch, dinner, tea/coffee, snacks; all vegetarian, mostly from the garden). Alternatively, a small kitchen in the atelier. No shops in Knebel; groceries in Vrinners/Ebeltoft, about 20 minutes by bus.
