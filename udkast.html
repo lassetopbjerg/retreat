@@ -382,13 +382,15 @@
 
   /* ===== Draft round 3: everything on one centre line ===== */
   .inner > * { width: 100%; margin-left: auto; margin-right: auto; }
-  .inner > .eyebrow, .inner > h1, .inner > h2, .inner > .lede, .inner > .after-days, .inner > .video-intro, .inner > .photo-credit { max-width: 720px; text-align: center; }
+  .inner > .eyebrow, .inner > h1, .inner > h2 { max-width: 720px; text-align: center; }
+  .inner > .lede, .inner > .after-days, .inner > .video-intro, .inner > .photo-credit { max-width: 720px; text-align: left; }
   .inner > .eyebrow { margin-bottom: -12px; }
   .inner > .facts, .inner > .action, .inner > .faq, .inner > .video-facade, .inner > .video { max-width: 720px; }
-  .inner > .action { align-items: center; text-align: center; }
-  .fact { align-items: center; text-align: center; }
-  .facts .dots { justify-content: center; }
-  .day { text-align: center; }
+  .inner > .action { align-items: flex-start; text-align: left; }
+  .fact { align-items: flex-start; text-align: left; }
+  .facts .dots { justify-content: flex-start; }
+  .day { text-align: left; }
+  .inner > .days { max-width: 720px; gap: 28px; }
   .price-grid { grid-template-columns: 1fr; max-width: 720px; margin: 0 auto; gap: 24px; text-align: center; }
   .price-grid > div { align-items: center; }
   .price-grid .dots { justify-content: center; margin-top: -8px; }
