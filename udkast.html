@@ -394,7 +394,16 @@
   .price-grid .dots { justify-content: center; margin-top: -8px; }
   .price-grid .action { align-items: center; }
   .teach-more { max-width: 720px; }
-  .teacher { max-width: 1040px; margin-top: 8px; }
+  .teacher, .inner > .teacher-works { max-width: 880px; }
+  .teacher { margin-top: 8px; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); gap: 40px; align-items: center; }
+  .inner > .teacher-works { margin-top: 24px; }
+  .inner > .video-intro { margin-top: 32px; }
+  .teach-more .links { margin-bottom: 20px; }
+  @media (max-width: 799px) {
+    .teacher { grid-template-columns: 1fr; gap: 24px; justify-items: center; }
+    .teacher figure { max-width: 240px; width: 100%; }
+    .teacher figcaption { text-align: center; }
+  }
   .teacher .text { padding-top: 4px; }
   @media (max-width: 599px) {
     .fact { align-items: baseline; text-align: left; }
@@ -496,18 +505,10 @@
         <div class="text">
           <p class="lede">Jan-Ove (f. 1976) er norsk maler og var assistent for Odd Nerdrum fra 1996 til 2002. Han har en dyb forståelse for maleriets grundprincipper, kunsthistorie, myter og fortællinger, har skrevet bøger om kitsch og medvirket i dokumentarserien <a href="https://nerdrum.com/nb/produkt/jakten-paa-nerdrum-2018/" target="_blank" rel="noopener">«Jakten på Nerdrum»</a>.</p>
           <p class="lede">Han har afholdt kurser i 16 år og tilpasser undervisningen til alle, fra komplette nybegyndere til øvede kunstnere. Han underviser på norsk og engelsk.</p>
-          <div class="links" aria-label="Mere om Jan-Ove">
-      <a href="https://malekurstuv.no/arbeider/" target="_blank" rel="noopener"><span>Jan-Oves værker <span class="desc">— malerier, tegninger og tryk</span></span><span aria-hidden="true">↗</span></a>
-      <a href="https://www.youtube.com/@caveofapelles" target="_blank" rel="noopener"><span>The Cave of Apelles <span class="desc">— hans podcast om maleri, myter og kultur, på YouTube</span></span><span aria-hidden="true">↗</span></a>
-      <a href="https://www.youtube.com/c/schoolofapelles" target="_blank" rel="noopener"><span>School of Apelles <span class="desc">— maledemonstrationer på YouTube</span></span><span aria-hidden="true">↗</span></a>
-    </div>
+          <p class="lede">Hans motto er «Enkle regler – enkelt forklart». Du lærer at male naturtro med en reduceret palet med få farver, og han tilpasser målene til den enkelte elev, uanset niveau.</p>
         </div>
       </div>
-      <p class="lede video-intro">I videoen herunder forklarer han kort Apelles-paletten, som vi også arbejder med på kurset.</p>
-      <a class="video-facade" href="https://www.youtube.com/watch?v=s_7lLQkglj0" target="_blank" rel="noopener" data-embed="https://www.youtube-nocookie.com/embed/s_7lLQkglj0?autoplay=1" data-title="Sådan bruger du Apelles-paletten, med Jan-Ove Tuv">
-        <span class="play"><span class="play-icon" aria-hidden="true"></span><span class="play-title">Apelles-paletten</span><span class="play-sub">Video med Jan-Ove Tuv · YouTube</span></span>
-      </a>
-      <aside class="works" aria-label="Værker af Jan-Ove Tuv">
+      <aside class="works teacher-works" aria-label="Værker af Jan-Ove Tuv">
         <figure>
       <img src="works/ego.jpg" alt="Jan-Ove Tuv, Ego: en maler med lyst hår holder hånden for munden og en pensel i hånden" width="1100" height="1200" loading="lazy">
       <figcaption>Ego</figcaption>
@@ -521,13 +522,21 @@
       <figcaption>Discovery</figcaption>
     </figure>
       </aside>
+      <p class="lede video-intro">I videoen herunder forklarer han kort Apelles-paletten, som vi også arbejder med på kurset.</p>
+      <a class="video-facade" href="https://www.youtube.com/watch?v=s_7lLQkglj0" target="_blank" rel="noopener" data-embed="https://www.youtube-nocookie.com/embed/s_7lLQkglj0?autoplay=1" data-title="Sådan bruger du Apelles-paletten, med Jan-Ove Tuv">
+        <span class="play"><span class="play-icon" aria-hidden="true"></span><span class="play-title">Apelles-paletten</span><span class="play-sub">Video med Jan-Ove Tuv · YouTube</span></span>
+      </a>
       <div class="faq teach-more">
         <details>
-        <summary>Sådan underviser han</summary>
-        <div class="answer">
-          <p>Hans motto er «Enkle regler – enkelt forklart». Du lærer at male naturtro med en reduceret palet med få farver, og han tilpasser målene til den enkelte elev, uanset niveau.</p>
-          <p>Se, hvordan der arbejdes, i videoer fra School of Apelles (på engelsk):</p>
-          <ul>
+          <summary>Mere om Jan-Ove</summary>
+          <div class="answer">
+            <div class="links" aria-label="Mere om Jan-Ove">
+      <a href="https://malekurstuv.no/arbeider/" target="_blank" rel="noopener"><span>Jan-Oves værker <span class="desc">— malerier, tegninger og tryk</span></span><span aria-hidden="true">↗</span></a>
+      <a href="https://www.youtube.com/@caveofapelles" target="_blank" rel="noopener"><span>The Cave of Apelles <span class="desc">— hans podcast om maleri, myter og kultur, på YouTube</span></span><span aria-hidden="true">↗</span></a>
+      <a href="https://www.youtube.com/c/schoolofapelles" target="_blank" rel="noopener"><span>School of Apelles <span class="desc">— maledemonstrationer på YouTube</span></span><span aria-hidden="true">↗</span></a>
+    </div>
+            <p>Se, hvordan der arbejdes, i videoer fra School of Apelles (på engelsk):</p>
+            <ul>
             <li><a href="https://www.youtube.com/watch?v=Eb43yfXk8Po" target="_blank" rel="noopener">Forbered et lærred som de gamle mestre</a> (Jan-Ove Tuv)</li>
             <li><a href="https://www.youtube.com/watch?v=HUqjfBS-V9A" target="_blank" rel="noopener">Den udvidede Apelles-palet</a></li>
             <li><a href="https://www.youtube.com/watch?v=1cZGHxIdjXY" target="_blank" rel="noopener">Mal et sommerlandskab uden blå og grøn, med Apelles-paletten udendørs</a></li>
@@ -535,8 +544,8 @@
             <li><a href="https://www.youtube.com/watch?v=CQ_2qCZ5r6s" target="_blank" rel="noopener">Malemedier og «fedt over magert» uden opløsningsmidler</a></li>
             <li><a href="https://www.youtube.com/watch?v=BkGZVm_Ao5I" target="_blank" rel="noopener">Brug sandpapir på et maleri</a> (Jan-Ove Tuv)</li>
           </ul>
-        </div>
-      </details>
+          </div>
+        </details>
       </div>
     </div>
   </section>
@@ -695,18 +704,10 @@
         <div class="text">
           <p class="lede">Jan-Ove (b. 1976) is a Norwegian painter who worked as Odd Nerdrum’s assistant from 1996 to 2002. He has a deep understanding of the fundamentals of painting, art history, myth and storytelling. He has written books on kitsch and appeared in the documentary series <a href="https://nerdrum.com/movies/the-hunt-of-odd-nerdrum-2018/" target="_blank" rel="noopener">“Jakten på Nerdrum” (The Hunt for Nerdrum)</a>.</p>
           <p class="lede">He has been teaching courses for 16 years and tailors his teaching to each student, from complete beginners to advanced artists. He teaches in Norwegian and English.</p>
-          <div class="links" aria-label="More about Jan-Ove">
-      <a href="https://malekurstuv.no/arbeider/" target="_blank" rel="noopener"><span>Jan-Ove's work <span class="desc">— paintings, drawings and prints</span></span><span aria-hidden="true">↗</span></a>
-      <a href="https://www.youtube.com/@caveofapelles" target="_blank" rel="noopener"><span>The Cave of Apelles <span class="desc">— his podcast on painting, myth and culture, on YouTube</span></span><span aria-hidden="true">↗</span></a>
-      <a href="https://www.youtube.com/c/schoolofapelles" target="_blank" rel="noopener"><span>School of Apelles <span class="desc">— painting demonstrations on YouTube</span></span><span aria-hidden="true">↗</span></a>
-    </div>
+          <p class="lede">His motto is “Simple rules, simply explained.” You learn to paint naturalistically with a limited palette of just a few colours, and he sets individual goals for each student, whatever their level.</p>
         </div>
       </div>
-      <p class="lede video-intro">In the video below, he gives a short introduction to the Apelles palette, which we will use during the course.</p>
-      <a class="video-facade" href="https://www.youtube.com/watch?v=s_7lLQkglj0" target="_blank" rel="noopener" data-embed="https://www.youtube-nocookie.com/embed/s_7lLQkglj0?autoplay=1" data-title="How to use the Apelles Palette, by Jan-Ove Tuv">
-        <span class="play"><span class="play-icon" aria-hidden="true"></span><span class="play-title">The Apelles palette</span><span class="play-sub">Video with Jan-Ove Tuv · YouTube</span></span>
-      </a>
-      <aside class="works" aria-label="Work by Jan-Ove Tuv">
+      <aside class="works teacher-works" aria-label="Work by Jan-Ove Tuv">
         <figure>
       <img src="works/ego.jpg" alt="Jan-Ove Tuv, Ego: a fair-haired painter with a hand over his mouth, holding a brush" width="1100" height="1200" loading="lazy">
       <figcaption>Ego</figcaption>
@@ -720,13 +721,21 @@
       <figcaption>Discovery</figcaption>
     </figure>
       </aside>
+      <p class="lede video-intro">In the video below, he gives a short introduction to the Apelles palette, which we will use during the course.</p>
+      <a class="video-facade" href="https://www.youtube.com/watch?v=s_7lLQkglj0" target="_blank" rel="noopener" data-embed="https://www.youtube-nocookie.com/embed/s_7lLQkglj0?autoplay=1" data-title="How to use the Apelles Palette, by Jan-Ove Tuv">
+        <span class="play"><span class="play-icon" aria-hidden="true"></span><span class="play-title">The Apelles palette</span><span class="play-sub">Video with Jan-Ove Tuv · YouTube</span></span>
+      </a>
       <div class="faq teach-more">
         <details>
-        <summary>How he teaches</summary>
-        <div class="answer">
-          <p>His motto is “Simple rules, simply explained.” You learn to paint naturalistically with a limited palette of just a few colours, and he sets individual goals for each student, whatever their level.</p>
-          <p>See how it’s done in these videos from School of Apelles:</p>
-          <ul>
+          <summary>More about Jan-Ove</summary>
+          <div class="answer">
+            <div class="links" aria-label="More about Jan-Ove">
+      <a href="https://malekurstuv.no/arbeider/" target="_blank" rel="noopener"><span>Jan-Ove's work <span class="desc">— paintings, drawings and prints</span></span><span aria-hidden="true">↗</span></a>
+      <a href="https://www.youtube.com/@caveofapelles" target="_blank" rel="noopener"><span>The Cave of Apelles <span class="desc">— his podcast on painting, myth and culture, on YouTube</span></span><span aria-hidden="true">↗</span></a>
+      <a href="https://www.youtube.com/c/schoolofapelles" target="_blank" rel="noopener"><span>School of Apelles <span class="desc">— painting demonstrations on YouTube</span></span><span aria-hidden="true">↗</span></a>
+    </div>
+            <p>See how it’s done in these videos from School of Apelles:</p>
+            <ul>
             <li><a href="https://www.youtube.com/watch?v=Eb43yfXk8Po" target="_blank" rel="noopener">Preparing a canvas like the Old Masters</a> (Jan-Ove Tuv)</li>
             <li><a href="https://www.youtube.com/watch?v=HUqjfBS-V9A" target="_blank" rel="noopener">The extended Apelles palette</a></li>
             <li><a href="https://www.youtube.com/watch?v=1cZGHxIdjXY" target="_blank" rel="noopener">Painting a summer landscape outdoors without blue or green, using the Apelles palette</a></li>
@@ -734,8 +743,8 @@
             <li><a href="https://www.youtube.com/watch?v=CQ_2qCZ5r6s" target="_blank" rel="noopener">Painting mediums and “fat over lean” without solvents</a></li>
             <li><a href="https://www.youtube.com/watch?v=BkGZVm_Ao5I" target="_blank" rel="noopener">Using sandpaper on a painting</a> (Jan-Ove Tuv)</li>
           </ul>
-        </div>
-      </details>
+          </div>
+        </details>
       </div>
     </div>
   </section>

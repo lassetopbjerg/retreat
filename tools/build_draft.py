@@ -91,7 +91,16 @@ EXTRA = r"""
   .price-grid .dots { justify-content: center; margin-top: -8px; }
   .price-grid .action { align-items: center; }
   .teach-more { max-width: 720px; }
-  .teacher { max-width: 1040px; margin-top: 8px; }
+  .teacher, .inner > .teacher-works { max-width: 880px; }
+  .teacher { margin-top: 8px; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); gap: 40px; align-items: center; }
+  .inner > .teacher-works { margin-top: 24px; }
+  .inner > .video-intro { margin-top: 32px; }
+  .teach-more .links { margin-bottom: 20px; }
+  @media (max-width: 799px) {
+    .teacher { grid-template-columns: 1fr; gap: 24px; justify-items: center; }
+    .teacher figure { max-width: 240px; width: 100%; }
+    .teacher figcaption { text-align: center; }
+  }
   .teacher .text { padding-top: 4px; }
   @media (max-width: 599px) {
     .fact { align-items: baseline; text-align: left; }
@@ -123,6 +132,18 @@ def main_block(L):
     teach = [d for d in details if has(d, "Sådan underviser han", "How he teaches")][0]
     quote_m = re.search(r'\s*<p>[«“](.*?)[»”] — (.*?)</p>', teach, re.S)
     teach = teach.replace(quote_m.group(0), "")
+    teach_ps = re.findall(r'<p>.*?</p>', teach, re.S)
+    motto = teach_ps[0].replace("<p>", '<p class="lede">')
+    vids_intro = [x for x in teach_ps if "School of Apelles" in x][0]
+    vids = re.search(r'<ul>.*?</ul>', teach, re.S).group(0)
+    more = f'''<details>
+          <summary>{T("Mere om Jan-Ove", "More about Jan-Ove")}</summary>
+          <div class="answer">
+            {links}
+            {vids_intro}
+            {vids}
+          </div>
+        </details>'''
     keep = [d for d in details if not has(d, "Dagene", "The days", "Reservation og betaling", "Reserving and paying", "Sådan underviser han", "How he teaches")]
     pay = [d for d in details if has(d, "Reservation og betaling", "Reserving and paying")][0]
     pay_ps = re.findall(r'<p>.*?</p>', pay, re.S)
@@ -178,18 +199,18 @@ def main_block(L):
         </figure>
         <div class="text">
           {chr(10).join("          " + b for b in bio).strip()}
-          {links}
+          {motto}
         </div>
       </div>
+      <aside class="works teacher-works" aria-label="{T("Værker af Jan-Ove Tuv", "Work by Jan-Ove Tuv")}">
+        {chr(10).join("        " + w for w in works).strip()}
+      </aside>
       {video_intro}
       <a class="video-facade" href="https://www.youtube.com/watch?v=s_7lLQkglj0" target="_blank" rel="noopener" data-embed="https://www.youtube-nocookie.com/embed/s_7lLQkglj0?autoplay=1" data-title="{vtitle}">
         <span class="play"><span class="play-icon" aria-hidden="true"></span><span class="play-title">{T("Apelles-paletten", "The Apelles palette")}</span><span class="play-sub">{T("Video med Jan-Ove Tuv · YouTube", "Video with Jan-Ove Tuv · YouTube")}</span></span>
       </a>
-      <aside class="works" aria-label="{T("Værker af Jan-Ove Tuv", "Work by Jan-Ove Tuv")}">
-        {chr(10).join("        " + w for w in works).strip()}
-      </aside>
       <div class="faq teach-more">
-        {teach}
+        {more}
       </div>
     </div>
   </section>
