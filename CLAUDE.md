@@ -6,10 +6,10 @@ Lasse writes in Danish or English, so answer in the language he uses.
 
 ## Status (2 Nov 2026)
 
-- **Live** at https://lassetopbjerg.github.io/retreat/ (repo `lassetopbjerg/retreat`, Pages from `main`, folder `/`). Pushing to `main` updates the site.
+- **Live** at https://malerefugium.dk (custom domain since 3 Nov 2026, bought at one.com; the `CNAME` file in the repo holds it; DNS at one.com: four A records to 185.199.108-111.153 and `www` CNAME to lassetopbjerg.github.io). The old https://lassetopbjerg.github.io/retreat/ forwards there. Repo `lassetopbjerg/retreat`, Pages from `main`, folder `/`. Pushing to `main` updates the site.
 - Next steps:
-  4. Point the Retreat link on lassetopbjerg.com to it.
-  5. Optional: custom domain retreat.lassetopbjerg.com (add a CNAME file plus a DNS CNAME record at Squarespace/the domain host).
+  4. Point the Retreat link on lassetopbjerg.com to https://malerefugium.dk
+  5. In GitHub Settings → Pages: check the DNS check is green and tick "Enforce HTTPS" once the certificate is ready.
 
 Deploy commands:
 
