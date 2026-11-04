@@ -454,6 +454,19 @@
   @media (max-width: 599px) { .secnav { justify-content: space-between; gap: 12px; } .secnav a { font-size: 11px; letter-spacing: 0.06em; } }
   .area-faq { margin-top: 32px; }
   .area-label { font-family: var(--caps); font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin: 20px 0 6px !important; }
+  /* Jan-Ove's works: a sliding row on every screen, each picture shown whole */
+  .band .works.teacher-works { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
+  .band .works.teacher-works::-webkit-scrollbar { display: none; }
+  .band .works.teacher-works figure { flex: none; width: auto; scroll-snap-align: start; }
+  .band .works.teacher-works img { height: 360px; width: auto; aspect-ratio: auto; object-fit: contain; }
+  .works-nav { display: flex; justify-content: center; gap: 24px; margin-top: 12px; }
+  .works-nav button { background: none; border: 1px solid var(--rule); color: var(--gold); font-family: var(--caps); font-size: 22px; line-height: 1; width: 44px; height: 44px; cursor: pointer; }
+  .works-nav button:hover { border-color: var(--gold); }
+  @media (max-width: 599px) {
+    .band .works.teacher-works { margin: 0 -16px; padding: 0 16px 4px; gap: 12px; }
+    .band .works.teacher-works img { height: 280px; }
+    .works-nav { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -573,7 +586,24 @@
       <img src="works/discovery.jpg" alt="Jan-Ove Tuv, Discovery: nøgne skikkelser omkring en lanterne i mørket" width="1200" height="1046" loading="lazy">
       <figcaption>Discovery</figcaption>
     </figure>
+        <figure>
+      <img src="works/selvportraet-straahat.jpg" alt="Jan-Ove Tuv, Selvportræt med stråhat: et ansigt under en flettet stråhat, i rødt" width="639" height="828" loading="lazy">
+      <figcaption>Selvportræt med stråhat</figcaption>
+    </figure>
+        <figure>
+      <img src="works/ghaiur-studie.jpg" alt="Jan-Ove Tuv, studie til Ghaiur: tegning af en skægget mand, der ser opad" width="876" height="1200" loading="lazy">
+      <figcaption>Studie til «Ghaiur»</figcaption>
+    </figure>
+        <figure>
+      <img src="works/kranie.jpg" alt="Jan-Ove Tuv, tegning af et kranie i rødkridt" width="1200" height="1042" loading="lazy">
+      <figcaption>Kranie. Rødkridt, hvidkridt og blyant</figcaption>
+    </figure>
+        <figure>
+      <img src="works/gammel-kvinde.jpg" alt="Jan-Ove Tuv, Gammel kvinde: en udtæret skikkelse, der ligger på jorden" width="1200" height="728" loading="lazy">
+      <figcaption>Gammel kvinde</figcaption>
+    </figure>
       </aside>
+      <div class="works-nav" aria-hidden="true"><button type="button" class="works-prev" tabindex="-1">‹</button><button type="button" class="works-next" tabindex="-1">›</button></div>
       <p class="lede video-intro">I videoen herunder forklarer han kort Apelles-paletten, som vi også arbejder med på kurset.</p>
       <a class="video-facade" href="https://www.youtube.com/watch?v=s_7lLQkglj0" target="_blank" rel="noopener" data-embed="https://www.youtube-nocookie.com/embed/s_7lLQkglj0?autoplay=1" data-title="Sådan bruger du Apelles-paletten, med Jan-Ove Tuv">
         <span class="play"><span class="play-icon" aria-hidden="true"></span><span class="play-title">Apelles-paletten</span><span class="play-sub">Video med Jan-Ove Tuv · YouTube</span></span>
@@ -816,7 +846,24 @@
       <img src="works/discovery.jpg" alt="Jan-Ove Tuv, Discovery: nude figures gathered around a lantern in the dark" width="1200" height="1046" loading="lazy">
       <figcaption>Discovery</figcaption>
     </figure>
+        <figure>
+      <img src="works/selvportraet-straahat.jpg" alt="Jan-Ove Tuv, Self-portrait with straw hat: a face under a woven straw hat, in red" width="639" height="828" loading="lazy">
+      <figcaption>Self-portrait with straw hat</figcaption>
+    </figure>
+        <figure>
+      <img src="works/ghaiur-studie.jpg" alt="Jan-Ove Tuv, study for Ghaiur: drawing of a bearded man looking upwards" width="876" height="1200" loading="lazy">
+      <figcaption>Study for «Ghaiur»</figcaption>
+    </figure>
+        <figure>
+      <img src="works/kranie.jpg" alt="Jan-Ove Tuv, red chalk drawing of a skull" width="1200" height="1042" loading="lazy">
+      <figcaption>Skull. Red chalk, white chalk and pencil</figcaption>
+    </figure>
+        <figure>
+      <img src="works/gammel-kvinde.jpg" alt="Jan-Ove Tuv, Old woman: an emaciated figure lying on the ground" width="1200" height="728" loading="lazy">
+      <figcaption>Old woman</figcaption>
+    </figure>
       </aside>
+      <div class="works-nav" aria-hidden="true"><button type="button" class="works-prev" tabindex="-1">‹</button><button type="button" class="works-next" tabindex="-1">›</button></div>
       <p class="lede video-intro">In the video below, he gives a short introduction to the Apelles palette, which we will use during the course.</p>
       <a class="video-facade" href="https://www.youtube.com/watch?v=s_7lLQkglj0" target="_blank" rel="noopener" data-embed="https://www.youtube-nocookie.com/embed/s_7lLQkglj0?autoplay=1" data-title="How to use the Apelles Palette, by Jan-Ove Tuv">
         <span class="play"><span class="play-icon" aria-hidden="true"></span><span class="play-title">The Apelles palette</span><span class="play-sub">Video with Jan-Ove Tuv · YouTube</span></span>
@@ -1136,6 +1183,14 @@
       });
     });
   })();
+</script>
+<script>
+  document.querySelectorAll(".works-nav").forEach(function (nav) {
+    var row = nav.previousElementSibling;
+    if (!row) return;
+    nav.querySelector(".works-prev").addEventListener("click", function () { row.scrollBy({ left: -row.clientWidth * 0.8, behavior: "smooth" }); });
+    nav.querySelector(".works-next").addEventListener("click", function () { row.scrollBy({ left: row.clientWidth * 0.8, behavior: "smooth" }); });
+  });
 </script>
 </body>
 </html>

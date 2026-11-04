@@ -19,7 +19,7 @@ Lasse writes in Danish or English, so answer in the language he uses.
   2. Intro, facts and the first booking button.
   3. Dagene: three time slots.
   4. Trehøje photo band.
-  5. Din underviser: self-portrait, bio and motto, three paintings (Ego, Smykkeskrinet, Discovery), a quiet video facade that loads YouTube on click, and one fold-out "Mere om Jan-Ove" with links and videos.
+  5. Din underviser: self-portrait, bio and motto, seven works in a sliding row (Ego, Smykkeskrinet, Discovery, Selvportræt med stråhat, Studie til «Ghaiur», Kranie, Gammel kvinde; the last four restored 4 Nov 2026 from commit c4eda9e^ at Lasse's wish for more works), shown whole at a fixed height (360px, 280px on phones) with ‹ › buttons from 600px (`.works-nav`), then a quiet video facade that loads YouTube on click, and one fold-out "Mere om Jan-Ove" with links and videos.
   6. Edith's quote band.
   7. Stedet / Rødegaard: aerial photo from jordenssang.dk (Lasse knows the owners, use is OK; Månesalen is not used for the retreat). Below it, one fold-out "Oplev Mols og Helgenæs / Explore Mols and Helgenæs" (added 4 Nov 2026): things to see and do, grouped as Nationalpark Mols Bjerge, Helgenæs, Ebeltoft og Kalø (`.area-label` headings), facts from nationalparkmolsbjerge.dk and Wikipedia. Every place name links to a Google Maps search (photos and directions); a "Læs mere / Read more" line links the national park site and Wikipedia for Helgenæs and Ebeltoft. Official sites of single places (Glasmuseet, Fregatten Jylland, Sletterhage Fyr) could not be verified from the cloud session; add them if Lasse confirms the addresses.
   8. Det praktiske: fold-outs.
