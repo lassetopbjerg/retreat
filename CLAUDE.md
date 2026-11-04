@@ -70,7 +70,13 @@ Attention and clarity first; what is left out matters as much as what is in. Whi
   - tent in the Rødegaard garden, 100 DKK per night
   - rooms at Rødegaard / Jordens Sang (kontakt@jordenssang.dk)
   - Molsgaarden B&B, https://hosmolsgaarden.dk/ (Kildevej 26, Knebel)
-- **Getting there:** Rødegaard, Karlshøjvej 5, 8420 Knebel, about 45 minutes from Aarhus. From Norway, the Larvik–Hirtshals ferry.
+- **Getting there** (fold-out "Sådan kommer du hertil / Getting there"): Rødegaard, Karlshøjvej 5, 8420 Knebel, about 45 minutes from Aarhus. A "Fra Norge / From Norway" part (added 4 Nov 2026, Lasse wants it there, not in a separate fold-out):
+  - ferry Kristiansand–Hirtshals (Fjord Line, Color Line) from about 2½ h
+  - ferry Larvik–Hirtshals (Color Line) from about 3¾ h
+  - Hirtshals to Rødegaard about 2½ h by car
+  - with a car it is easy to bring easel and canvases, and people can share the car; or fly to Aarhus, Billund or Copenhagen and go on by train or bus
+  - the price is in DKK and card payment converts it
+- **Norwegian participants** are a main audience (Lasse, 4 Nov 2026): make it easy for them to say yes. The intro says the teaching is in Norwegian and English, and the place section says Ebeltoft is about 20 minutes away.
 - **Jan-Ove Tuv** (from malekurstuv.no):
   - born 1976
   - Odd Nerdrum's assistant 1996–2002
