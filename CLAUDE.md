@@ -97,6 +97,7 @@ Attention and clarity first; what is left out matters as much as what is in. Whi
 
 ## Still open
 
+- Teacher bio: the English page has a paragraph after the first bio paragraph ("His knowledge of art runs wide and deep … a fresh perspective on painting", 4 Nov 2026). The Danish version is NOT on the page yet: Lasse is rewriting the Danish text himself. Add it in the same place in the Danish section when he sends it.
 - **Payment:** should participants pay Jan-Ove directly, so he reports the income in Norway? Lasse was to discuss this with Jan-Ove (3 Nov 2026). If it changes:
   - the payment link
   - a line saying who receives the money
