@@ -69,7 +69,7 @@ Attention and clarity first; what is left out matters as much as what is in. Whi
 - **Food:** full board at Rødegaard 625 DKK/day, booked with Jordens Sang (kontakt@jordenssang.dk): breakfast, lunch, dinner, tea/coffee and snacks, all vegetarian, mostly from the garden. Alternatively, a small kitchen in the atelier. No shops in Knebel; groceries in Vrinners/Ebeltoft, about 20 minutes by bus.
 - **Lodging:**
   - tent in the Rødegaard garden, 100 DKK per night
-  - rooms at Rødegaard / Jordens Sang (kontakt@jordenssang.dk)
+  - rooms at Rødegaard, private bathroom and toilet: single 650 DKK, double 1,000 DKK per night (confirmed by Lasse 5 Nov 2026); booked with Jordens Sang (kontakt@jordenssang.dk)
   - Molsgaarden B&B, https://hosmolsgaarden.dk/ (Kildevej 26, Knebel)
 - **Getting there** (fold-out "Sådan kommer du hertil / Getting there"): Rødegaard, Karlshøjvej 5, 8420 Knebel, about 45 minutes from Aarhus. A "Fra Norge / From Norway" part (added 4 Nov 2026, Lasse wants it there, not in a separate fold-out):
   - ferry Kristiansand–Hirtshals (Fjord Line, Color Line) from about 2½ h
