@@ -15,7 +15,7 @@ Lasse writes in Danish or English, so answer in the language he uses.
 
 - Dark, candlelit look inspired by nerdrum.com (Jan-Ove was Nerdrum's assistant; Lasse wants a touch of the kitsch spirit): warm umber ground #17120E, ivory text #EEE5D6, muted gold accent #C8A35E. Two typefaces only: Cinzel for everything that names or labels, Source Serif 4 regular for running text. No italics or bold.
 - **Band design** (live since 3 Nov 2026): full-width bands, top to bottom:
-  1. Hero: Smykkeskrinet (whole figure visible, edges faded), with "12.–16. juni 2027 · Rødegaard, Vistoft", the name and Jan-Ove's motto.
+  1. Hero: Smykkeskrinet (whole figure visible, edges faded), with "9.–13. juni 2027 · Rødegaard, Vistoft", the name and Jan-Ove's motto.
   2. Intro, facts and the first booking button.
   3. Dagene: three time slots.
   4. Trehøje photo band.
@@ -48,7 +48,7 @@ Lasse writes in Danish or English, so answer in the language he uses.
 - Fold-out sections use native `<details>`.
 - **External dependencies:** Google Fonts (Cinzel, Source Serif 4; Georgia fallback) and YouTube (youtube-nocookie, loaded on click).
 - **Footer:** organiser line (name, email, phone) per language, address, and Jan-Ove's Instagram; on phones also the photo credits.
-- **Share image** `works/share.jpg` (1200x630) has the name, dates and "Rødegaard, Vistoft" baked in; make a new one if any of those change. Remade 3 Nov 2026: only the top line was redrawn (Cinzel Regular 21.5px, tracking 4.5, colour (185,155,100), centred at x 848.5, baseline 190).
+- **Share image** `works/share.jpg` (1200x630) has the name, dates and "Rødegaard, Vistoft" baked in; make a new one if any of those change, and bump the `?v=` on the og:image URL so Facebook refetches it. Top line redrawn 3 Nov and 6 Nov 2026 (new dates); Cinzel can be fetched from npm (`@fontsource/cinzel`, convert the woff2 to TTF with fonttools). The line is drawn (Cinzel Regular 21.5px, tracking 4.5, colour (185,155,100), centred at x 848.5, baseline 190).
 - **Tab icon:** `favicon-32.png`, `apple-touch-icon.png`, `favicon.ico` (gold Cinzel M).
 - **Photo credits:** Trehøje by Mikkel Houmøller (CC BY-SA 4.0); the Rødegaard aerial photo comes from jordenssang.dk.
 - A Pages CMS / content.json version was rejected by Lasse and reverted. Keep it a single file.
@@ -59,7 +59,7 @@ Attention and clarity first; what is left out matters as much as what is in. Whi
 
 ## Content facts (confirmed by Lasse)
 
-- **Dates:** 12–16 June 2027 (Sat–Wed). Sign-up is open. Max 10 painters.
+- **Dates:** 9–13 June 2027 (Wed–Sun; changed from 12–16 June on 6 Nov 2026). Sign-up is open. Max 10 painters.
 - **Price:** 6,000 DKK covering tuition and model (changed from 6,500 on 3 Nov 2026, matches the Stripe link). Lodging is not included.
 - **Model:** the model sessions are nude (akt), stated plainly on the page.
 - **What to bring** (fold-out, added 4 Nov 2026, short beginner version of Jan-Ove's PDF "Materialliste 2024" from his email of 14 Oct 2026): oil paint in white, yellow ochre, red and black; medium (linseed oil + turpentine or odourless thinner); palette and cup; a handful of flat brushes, stiff and soft; one or two canvases up to 50 × 70 cm; an easel that can go outdoors; rags, charcoal, a small hand mirror. Says the nearest art supply shops are in Aarhus, so bring materials from home. Ends with: a more detailed list with brands is sent after sign-up (Jan-Ove sends it).
