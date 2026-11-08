@@ -50,7 +50,7 @@ Lasse writes in Danish or English, so answer in the language he uses.
 - **Footer:** organiser line (name, email, phone) per language, address, and Jan-Ove's Instagram; on phones also the photo credits.
 - **Share image** `works/share.jpg` (1200x630) has the name, dates and "Rødegaard, Vistoft" baked in; make a new one if any of those change, and bump the `?v=` on the og:image URL so Facebook refetches it. Top line redrawn 3 Nov and 6 Nov 2026 (new dates); Cinzel can be fetched from npm (`@fontsource/cinzel`, convert the woff2 to TTF with fonttools). The line is drawn (Cinzel Regular 21.5px, tracking 4.5, colour (185,155,100), centred at x 848.5, baseline 190).
 - **Tab icon:** `favicon-32.png`, `apple-touch-icon.png`, `favicon.ico` (gold Cinzel M).
-- **Photo credits:** Trehøje by Mikkel Houmøller (CC BY-SA 4.0); the Rødegaard aerial photo comes from jordenssang.dk.
+- **Photo credits:** Trehøje by Mikkel Houmøller (CC BY-SA 4.0); the Rødegaard aerial photo comes from jordenssang.dk. The two room photos in the lodging fold-out (`works/roedegaard-vaerelse-1.jpg`, `-2.jpg`, 600x600, added 8 Nov 2026) come from https://roedegaard-mols.dk/overnatning/; use approved by Lasse.
 - A Pages CMS / content.json version was rejected by Lasse and reverted. Keep it a single file.
 
 ## Design principles (Lasse's own, follow them)
@@ -111,3 +111,4 @@ Attention and clarity first; what is left out matters as much as what is in. Whi
 - Jan-Ove should approve his bio and the student quote (Edith Maier Kihle), and his paintings' use in marketing.
 - Ask Jordens Sang whether they are fine with being listed, and to confirm full board for up to 10 people.
 - Lasse's own photos of the atelier, the garden and a painting set-up would strengthen the page.
+- Check with Rødegaard: the page says rooms have a private bathroom, but roedegaard-mols.dk says only some do and others share. That site also gives kontakt@roedegaard-mols.dk, while the page uses kontakt@jordenssang.dk.
