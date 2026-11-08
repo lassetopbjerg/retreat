@@ -25,7 +25,7 @@ Lasse writes in Danish or English, so answer in the language he uses.
   8. Det praktiske: fold-outs.
   9. Price card at the bottom, with places left and the second booking button.
 - **Sticky section menu** under the header (`.secnav`, one per language): Dagene · Underviser · Stedet · Praktisk · Tilmelding / The days · Teacher · The place · Practical · Booking, linking to #dagene #underviser #stedet #praktisk #tilmelding (#the-days #teacher #the-place #practical #booking). Only #english / #dansk change the language.
-- **Layout rule from Lasse:** headings centred, informative text left-aligned in one 720px column.
+- **Layout rule from Lasse:** headings centred, informative text left-aligned in one 720px column. Wider blocks (teacher, works row, aerial photo, price card) share one width, 880px; captions align with what they belong to. All fold-out lists use the gold dashes of the price card.
 - **Type system** (block at the end of the CSS), keep to these sizes:
   - labels: Cinzel 13px, 0.2em, uppercase, gold
   - headings (h1, h2): Cinzel, uppercase, 0.08em

@@ -470,6 +470,27 @@
     .band .works.teacher-works img { height: 280px; }
     .works-nav { display: none; }
   }
+
+  /* Small corrections, 8 Nov 2026 */
+  /* Top section fits the screen, so the title and motto are never cut off (147px = header + menu) */
+  @media (min-width: 600px) {
+    .hero { min-height: min(calc(100vh - 147px), 940px); min-height: min(calc(100svh - 147px), 940px); }
+  }
+  /* Flags to the right, as on phones */
+  header { grid-template-columns: 1fr auto; }
+  header nav { grid-column: 2; }
+  /* Jan-Ove's portrait starts level with his text */
+  .teacher { align-items: start; }
+  /* Rødegaard photos settle into the dark page, like the Trehøje band */
+  .place-hero img { filter: brightness(0.82) saturate(0.85); }
+  .room-photos img { filter: brightness(0.9) saturate(0.9); }
+  /* Two content widths: 720px text, 880px for the wider blocks. Captions follow what they belong to */
+  .inner > .place-hero, .inner > .place-hero + .photo-credit { max-width: 880px; }
+  .photo-band figcaption { max-width: 752px; }
+  /* One list style: gold dashes, as in the price card */
+  details ul { list-style: none; padding-left: 0; }
+  details ul li { position: relative; padding-left: 22px; }
+  details ul li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 10px; height: 1px; background: var(--gold); }
 </style>
 </head>
 <body>
@@ -743,7 +764,7 @@
       <details>
         <summary>Spørgsmål?</summary>
         <div class="answer">
-          <p>Du er velkommen til at kontakte mig, hvis du har spørgsmål.</p>
+          <p>Du er velkommen til at kontakte Lasse, hvis du har spørgsmål.</p>
           <ul>
             <li>Email: <a href="mailto:lassetopbjerg@gmail.com">lassetopbjerg@gmail.com</a></li>
             <li>Telefon: <a href="tel:+4531177506">+45 31 17 75 06</a></li>
@@ -1031,7 +1052,7 @@
       <details>
         <summary>Questions?</summary>
         <div class="answer">
-          <p>You are welcome to contact me if you have any questions.</p>
+          <p>You are welcome to contact Lasse if you have any questions.</p>
           <ul>
             <li>Email: <a href="mailto:lassetopbjerg@gmail.com">lassetopbjerg@gmail.com</a></li>
             <li>Phone: <a href="tel:+4531177506">+45 31 17 75 06</a></li>
