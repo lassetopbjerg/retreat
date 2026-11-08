@@ -92,7 +92,7 @@ Attention and clarity first; what is left out matters as much as what is in. Whi
   - https://www.youtube.com/@caveofapelles
   - https://www.youtube.com/c/schoolofapelles
   - https://malekurstuv.no/
-- **Contact:** lassetopbjerg@gmail.com, +45 31 17 75 06. Instagram on the page is Jan-Ove's @jan_ove_tuv; Lasse's own @lasse.topbjerg is not active.
+- **Contact:** lassetopbjerg@gmail.com, +45 31 17 75 06, shown in the footer and in the last fold-out of Det praktiske, "Spørgsmål? / Questions?" (added 8 Nov 2026). Instagram on the page is Jan-Ove's @jan_ove_tuv; Lasse's own @lasse.topbjerg is not active.
 - **Marketing:** the marketing plan is a Claude Doc, "Marketing plan: Malerefugium på Mols" (https://claude.ai/artifact/LPd1JVyaEzFHsiZZg7aCK8).
 
 ## Still open
