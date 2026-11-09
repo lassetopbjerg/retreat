@@ -49,9 +49,6 @@
     placesTotal: 10,
     placesTaken: 0,       // opdatér når folk tilmelder sig / update as people sign up
     email: "lassetopbjerg@gmail.com",
-    // Betalingslink (Stripe). Bruges kun når status er "open". Lad stå tom for at reservere via mail.
-    // Payment link (Stripe). Only used while status is "open". Leave empty to reserve by email.
-    paymentLink: "https://buy.stripe.com/3cI7sKgGX4fWfIQgdY14406"
   };
 </script>
 <style>
@@ -797,9 +794,8 @@
         <div>
           <p class="places-line js-places2"></p>
           <div class="dots js-dots2" aria-hidden="true"></div>
-          <p>Du betaler hele beløbet ved tilmelding. Der er intet depositum. Bliver malerefugiet aflyst, får du alle pengene tilbage.</p>
-          <p>Efter tilmelding får du materialeliste og praktisk information fra Lasse.</p>
-          <div class="action"><a class="button js-cta" href="mailto:lassetopbjerg@gmail.com">Reservér og betal</a><p class="note js-note"></p></div>
+          <p>Du betaler hele beløbet ved bankoverførsel direkte til Jan-Ove Tuv. Der er intet depositum. Bliver malerefugiet aflyst, får du alle pengene tilbage.</p>
+          <div class="action"><a class="button js-cta" href="mailto:lassetopbjerg@gmail.com">Reservér en plads</a><p class="note js-note"></p></div>
         </div>
       </div>
     </div>
@@ -1086,9 +1082,8 @@
         <div>
           <p class="places-line js-places2"></p>
           <div class="dots js-dots2" aria-hidden="true"></div>
-          <p>The full amount is paid when you sign up; there is no deposit. If the retreat is cancelled, you will get a full refund.</p>
-          <p>After you sign up, Lasse will send you the materials list and practical information.</p>
-          <div class="action"><a class="button js-cta" href="mailto:lassetopbjerg@gmail.com">Reserve and pay</a><p class="note js-note"></p></div>
+          <p>You pay the full amount by bank transfer directly to Jan-Ove Tuv; there is no deposit. If the retreat is cancelled, you will get a full refund.</p>
+          <div class="action"><a class="button js-cta" href="mailto:lassetopbjerg@gmail.com">Reserve a place</a><p class="note js-note"></p></div>
         </div>
       </div>
     </div>
@@ -1113,16 +1108,13 @@
     var status = r.status || "soon";
     if (status === "open" && taken >= total) status = "full";
     var email = r.email || "lassetopbjerg@gmail.com";
-    var pay = status === "open" && r.paymentLink;
     var left = total - taken;
 
     var text = {
       da: {
         dates: r.datesDa,
-        pay: { cta: "Reservér og betal", note: "Sikker betaling med kort via Stripe. Spørgsmål først? ",
-               mail: "Skriv til Lasse" },
         open: { cta: "Reservér en plads", subject: "Malerefugium 2027 – reservation",
-                note: "Åbner en mail til Lasse. Du får betalingsoplysninger og materialeliste som svar.",
+                note: "Åbner en mail til Lasse. Som svar får du bankoplysninger, materialeliste og praktisk information.",
                 places: left + " af " + total + " ledige" },
         full: { cta: "Skriv dig på ventelisten", subject: "Malerefugium 2027 – venteliste",
                 note: "Alle pladser er taget. Skriv til Lasse, så hører du først, hvis en plads bliver ledig.",
@@ -1135,10 +1127,8 @@
       },
       en: {
         dates: r.datesEn,
-        pay: { cta: "Reserve and pay", note: "Secure card payment via Stripe. Questions first? ",
-               mail: "Write to Lasse" },
         open: { cta: "Reserve a place", subject: "Retreat 2027 – reservation",
-                note: "Opens an email to Lasse. You will receive payment details and the materials list in reply.",
+                note: "Opens an email to Lasse. In reply, you will receive the bank details, materials list and practical information.",
                 places: left + " of " + total + " left" },
         full: { cta: "Join the waitlist", subject: "Retreat 2027 – waitlist",
                 note: "All places are taken. Write to Lasse and you will be the first to hear if a place opens up.",
@@ -1166,20 +1156,9 @@
       main.querySelectorAll(".action").forEach(function (box) {
       var cta = box.querySelector(".js-cta");
       var note = box.querySelector(".js-note");
-      if (pay) {
-        cta.textContent = t.pay.cta;
-        cta.href = r.paymentLink;
-        note.textContent = t.pay.note;
-        var a = document.createElement("a");
-        a.href = "mailto:" + email + "?subject=" + encodeURIComponent(s.subject);
-        a.textContent = t.pay.mail;
-        note.appendChild(a);
-        note.appendChild(document.createTextNode("."));
-      } else {
-        cta.textContent = s.cta;
-        cta.href = "mailto:" + email + "?subject=" + encodeURIComponent(s.subject);
-        note.textContent = s.note;
-      }
+      cta.textContent = s.cta;
+      cta.href = "mailto:" + email + "?subject=" + encodeURIComponent(s.subject);
+      note.textContent = s.note;
       });
 
       var dots = main.querySelector(".js-dots");

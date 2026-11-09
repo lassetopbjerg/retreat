@@ -40,9 +40,9 @@ Lasse writes in Danish or English, so answer in the language he uses.
 - **Phones (< 600px) are the main audience.** Works at 390px with no horizontal scroll.
 - **Settings** live in the `window.RETREAT` block at the top of `index.html`:
   - `status`: `"open"` gives Reserve a place, `"full"` gives Join the waitlist, `"soon"` gives Get notified.
-  - `datesDa` / `datesEn`, `placesTotal`, `placesTaken`, `email`, `paymentLink` (Stripe).
+  - `datesDa` / `datesEn`, `placesTotal`, `placesTaken`, `email`.
   - When `placesTaken` reaches `placesTotal`, the page switches to waitlist by itself.
-- **Booking:** two `.action` boxes per language (after the intro, and in the price card); the script fills both. While `status` is `"open"` and `paymentLink` is set, the button is "Reservér og betal / Reserve and pay" and goes to Stripe (same tab); the note under it has a small email link. Otherwise the button opens an email to Lasse with a prefilled subject. There is no form and no backend.
+- **Booking:** two `.action` boxes per language (after the intro, and in the price card); the script fills both. The button opens an email to Lasse with a prefilled subject; Lasse replies with Jan-Ove's bank details, the materials list and practical information, and updates `placesTaken` by hand. Participants pay by bank transfer directly to Jan-Ove (decided 9 Nov 2026; Stripe removed). Never put the bank details on the page. There is no form and no backend.
 - **Links:** every external link gets `target="_blank" rel="noopener"`. "Getting there" has a button that opens Rødegaard in Maps.
 - **Prices** are always written in DKK, in both languages: Danish "6.000 DKK", English "6,000 DKK".
 - Fold-out sections use native `<details>`.
@@ -60,9 +60,9 @@ Attention and clarity first; what is left out matters as much as what is in. Whi
 ## Content facts (confirmed by Lasse)
 
 - **Dates:** 9–13 June 2027 (Wed–Sun; changed from 12–16 June on 6 Nov 2026). Sign-up is open. Max 10 painters.
-- **Price:** 6,000 DKK covering tuition and model (changed from 6,500 on 3 Nov 2026, matches the Stripe link). Lodging is not included.
+- **Price:** 6,000 DKK covering tuition and model (changed from 6,500 on 3 Nov 2026). Lodging is not included.
 - **Model:** the model sessions are nude (akt), stated plainly on the page.
-- **What to bring** (fold-out, added 4 Nov 2026, short beginner version of Jan-Ove's PDF "Materialliste 2024" from his email of 14 Oct 2026): oil paint in white, yellow ochre, red and black; medium (linseed oil + turpentine or odourless thinner); palette and cup; a handful of flat brushes, stiff and soft; one or two canvases up to 50 × 70 cm; an easel that can go outdoors; rags, charcoal, a small hand mirror. Names two shops (added 9 Nov 2026): Jotun in Ebeltoft (https://share.google/1XVjx1B1FF61naydR), a 20-minute drive from Rødegaard, with a limited range of oil paint, mediums, canvas, canvas boards and brushes; and Aart de Vos in Aarhus (https://aartdevos.dk/) for anything more specific. Ends with: a more detailed list with brands is sent after sign-up (Jan-Ove sends it).
+- **What to bring** (fold-out, added 4 Nov 2026, short beginner version of Jan-Ove's PDF "Materialliste 2024" from his email of 14 Oct 2026): oil paint in white, yellow ochre, red and black; medium (linseed oil + turpentine or odourless thinner); palette and cup; a handful of flat brushes, stiff and soft; one or two canvases up to 50 × 70 cm; an easel that can go outdoors; rags, charcoal, a small hand mirror. Names two shops (added 9 Nov 2026): Jotun in Ebeltoft (https://share.google/1XVjx1B1FF61naydR), a 20-minute drive from Rødegaard, with a limited range of oil paint, mediums, canvas, canvas boards and brushes; and Aart de Vos in Aarhus (https://aartdevos.dk/) for anything more specific. Ends with: a more detailed list with brands is sent after sign-up (Lasse forwards it with the bank details).
 - **Included** (price card list): 5 days of teaching with Jan-Ove; live nude model every morning 10–13; plenty of time for feedback from Jan-Ove; open studio all day and evening; teaching videos from Jan-Ove before the course to prepare; plenty of time to enjoy the area; a creative community where we learn from one another (last two added by Lasse 8 Nov 2026). Do not list the materials list there.
 - **Days:** 10–13 live model, 13–15 break, from 15 optional plein air. The atelier is open all day and in the evening. Participants may bring their own creative projects to work on in the afternoons and evenings (line under the time slots, added 4 Nov 2026).
 - **Terms:** full amount paid at sign-up, no deposit; if the retreat is cancelled, all money is returned.
@@ -97,13 +97,12 @@ Attention and clarity first; what is left out matters as much as what is in. Whi
 
 ## Still open
 
-- **Payment:** should participants pay Jan-Ove directly, so he reports the income in Norway? Lasse was to discuss this with Jan-Ove (3 Nov 2026). If it changes:
-  - the payment link
-  - a line saying who receives the money
+- **Payment details still to settle:**
   - who refunds if the retreat is cancelled
   - currency
   - how Lasse's costs (model, marketing) are covered
-- Stripe's public business name is "Art"; Lasse may want to change it.
+  - when a place counts as secured: at the email or at payment
+  - deactivate the old Stripe payment link in Stripe
 - Start time on day one and end time on day five: Lasse gives them later.
 - What happens if a participant cancels: not decided yet.
 - The afternoon end time; worded generally on the page.
