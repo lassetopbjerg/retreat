@@ -54,6 +54,8 @@ Lasse writes in Danish or English, so answer in the language he uses.
 - **Photo credits:** Trehøje by Mikkel Houmøller (CC BY-SA 4.0); the Rødegaard aerial photo comes from jordenssang.dk. The two room photos in the lodging fold-out (`works/roedegaard-vaerelse-1.jpg`, `-2.jpg`, 600x600, added 8 Nov 2026) come from https://roedegaard-mols.dk/overnatning/; use approved by Lasse.
 - A Pages CMS / content.json version was rejected by Lasse and reverted. Keep it a single file.
 
+- **Shops in "What to bring"** (9 Nov 2026): Jotun (Ebeltoft, Google Maps link) and Aart de Vos (Aarhus, aartdevos.dk) each get their own line (`.shops` / `.shop` / `.shop-name`, Cinzel 18px gold, like link titles) with place and what they sell, so they are easy to spot.
+
 ## Design principles (Lasse's own, follow them)
 
 Attention and clarity first; what is left out matters as much as what is in. Whitespace isolates the one main action. Few choices at once, and details are revealed progressively (fold-outs). Recognition over recall. Honest status: places left, open or full, with graceful fallbacks. Every element must justify its existence, so never show placeholder brackets; hide unknowns or phrase them generally instead.

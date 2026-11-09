@@ -499,6 +499,11 @@
   details ul { list-style: none; padding-left: 0; }
   details ul li { position: relative; padding-left: 22px; }
   details ul li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 10px; height: 1px; background: var(--gold); }
+  .shops { display: flex; flex-direction: column; gap: 4px; margin: 4px 0 20px; border-top: 1px solid var(--rule); }
+  .shop { display: flex; flex-direction: column; gap: 2px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  .shop-name { font-family: var(--caps); font-size: 18px; letter-spacing: 0.04em; color: var(--gold); text-decoration: none; align-self: flex-start; padding: 2px 0; }
+  .shop-name:hover { color: var(--ink); }
+  .shop-where { font-size: 15px; color: var(--muted); }
 </style>
 </head>
 <body>
@@ -768,7 +773,11 @@
             <li>Småting: klude, kul og et lille håndspejl</li>
           </ul>
           <p>Du kan sagtens starte med det, du allerede har, og du behøver ikke købe noget dyrt.</p>
-          <p>Mangler du noget, har <a href="https://maps.app.goo.gl/79JL4d9Cj398v71AA" target="_blank" rel="noopener">Jotun</a> i Ebeltoft, kun 20 minutters kørsel fra Rødegaard, et mindre udvalg af oliemaling, malemedier, lærred, lærredsplader og pensler. Skal du bruge noget mere specifikt, må du til <a href="https://aartdevos.dk/" target="_blank" rel="noopener">Aart de Vos</a> i Aarhus.</p>
+          <p>Mangler du noget, kan du købe det her:</p>
+          <div class="shops">
+            <div class="shop"><a class="shop-name" href="https://maps.app.goo.gl/79JL4d9Cj398v71AA" target="_blank" rel="noopener">Jotun <span aria-hidden="true">↗</span></a><span class="shop-where">Ebeltoft · 20 minutters kørsel fra Rødegaard</span><span>Et mindre udvalg af oliemaling, malemedier, lærred, lærredsplader og pensler</span></div>
+            <div class="shop"><a class="shop-name" href="https://aartdevos.dk/" target="_blank" rel="noopener">Aart de Vos <span aria-hidden="true">↗</span></a><span class="shop-where">Aarhus</span><span>Til alt, der er mere specifikt</span></div>
+          </div>
           <p>En mere udførlig liste med anbefalede mærker bliver sendt, når du har tilmeldt dig.</p>
         </div>
       </details>
@@ -1060,7 +1069,11 @@
             <li>Small things: rags, charcoal and a small hand mirror</li>
           </ul>
           <p>You can start with what you already have, and you don't need to buy anything expensive.</p>
-          <p>If you're missing something, <a href="https://maps.app.goo.gl/79JL4d9Cj398v71AA" target="_blank" rel="noopener">Jotun</a> in Ebeltoft, only a 20-minute drive from Rødegaard, has a limited range of oil paint, mediums, canvas, canvas boards and brushes. For anything more specific, you'll need to go to <a href="https://aartdevos.dk/" target="_blank" rel="noopener">Aart de Vos</a> in Aarhus.</p>
+          <p>If you're missing something, you can buy it here:</p>
+          <div class="shops">
+            <div class="shop"><a class="shop-name" href="https://maps.app.goo.gl/79JL4d9Cj398v71AA" target="_blank" rel="noopener">Jotun <span aria-hidden="true">↗</span></a><span class="shop-where">Ebeltoft · a 20-minute drive from Rødegaard</span><span>A limited range of oil paint, mediums, canvas, canvas boards and brushes</span></div>
+            <div class="shop"><a class="shop-name" href="https://aartdevos.dk/" target="_blank" rel="noopener">Aart de Vos <span aria-hidden="true">↗</span></a><span class="shop-where">Aarhus</span><span>For anything more specific</span></div>
+          </div>
           <p>A more detailed list with recommended brands will be sent once you've signed up.</p>
         </div>
       </details>
