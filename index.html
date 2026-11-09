@@ -49,6 +49,7 @@
     placesTotal: 10,
     placesTaken: 0,       // opdatér når folk tilmelder sig / update as people sign up
     email: "lassetopbjerg@gmail.com",
+    priceDkk: 7020,       // bruges til omregning til NOK; ret også prisen i teksten / used for the NOK conversion; also change the price in the text
   };
 </script>
 <style>
@@ -287,6 +288,14 @@
     font-family: var(--caps); font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase;
   }
   .map-button:hover { background: var(--gold); color: var(--ground); }
+  .currency-button {
+    padding: 10px 18px; min-height: 44px; background: transparent; cursor: pointer;
+    border: 1px solid var(--gold); color: var(--gold);
+    font-family: var(--caps); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .currency-button:hover { background: var(--gold); color: var(--ground); }
+  .currency-button:disabled { opacity: 0.6; cursor: wait; }
+  .price-grid .currency-note { font-size: 15px; color: var(--muted); }
   summary::after { color: var(--gold); }
   .schedule dt { color: var(--gold); }
   .zoom::backdrop { background: rgba(10, 8, 6, 0.94); }
@@ -543,7 +552,7 @@
       </div>
       <div class="fact">
         <span class="label">Pris</span>
-        <span class="value">6.000 DKK</span>
+        <span class="value js-price" data-price-lang="da">7.020 DKK</span>
         <span class="sub">Undervisning og model</span>
       </div>
       <div class="fact">
@@ -779,7 +788,9 @@
       <h2>Reservér din plads</h2>
       <div class="price-grid">
         <div>
-          <p class="big" id="price-da">6.000 DKK</p>
+          <p class="big js-price" id="price-da" data-price-lang="da">7.020 DKK</p>
+          <button type="button" class="currency-button js-currency" data-price-lang="da">Vis i norske kroner</button>
+          <p class="currency-note js-currency-note" data-price-lang="da" aria-live="polite" hidden></p>
           <ul class="included" aria-label="Det får du">
             <li>5 dage med undervisning af Jan-Ove Tuv, 9.–13. juni 2027</li>
             <li>Levende nøgenmodel hver formiddag <span class="nowrap">kl. 10–13</span></li>
@@ -831,7 +842,7 @@
       </div>
       <div class="fact">
         <span class="label">Price</span>
-        <span class="value">6,000 DKK</span>
+        <span class="value js-price" data-price-lang="en">7,020 DKK</span>
         <span class="sub">Tuition and model included</span>
       </div>
       <div class="fact">
@@ -1067,7 +1078,9 @@
       <h2>Reserve your place</h2>
       <div class="price-grid">
         <div>
-          <p class="big" id="price-en">6,000 DKK</p>
+          <p class="big js-price" id="price-en" data-price-lang="en">7,020 DKK</p>
+          <button type="button" class="currency-button js-currency" data-price-lang="en">Show in Norwegian kroner</button>
+          <p class="currency-note js-currency-note" data-price-lang="en" aria-live="polite" hidden></p>
           <ul class="included" aria-label="What you get">
             <li>Five days of teaching with Jan-Ove Tuv, 9–13 June 2027</li>
             <li>A live nude model every morning, <span class="nowrap">10–13</span></li>
@@ -1168,6 +1181,85 @@
         if (status !== "soon" && i < taken) d.className = "taken";
         dots.appendChild(d);
       }
+    });
+  })();
+</script>
+<script>
+  // DKK/NOK switch. The rate is fetched each time someone switches to NOK; if it can't be fetched, the price stays in DKK.
+  (function () {
+    var dkk = (window.RETREAT || {}).priceDkk || 7020;
+    var locale = { da: "da-DK", en: "en-GB" };
+    var text = {
+      da: {
+        toNok: "Vis i norske kroner", toDkk: "Vis i danske kroner", loading: "Henter kurs …",
+        failed: "Kursen kan ikke hentes lige nu. Prøv igen om lidt.",
+        rate: function (date, rate) { return "Omregnet med kursen fra " + date + ": 1 DKK = " + rate + " NOK."; }
+      },
+      en: {
+        toNok: "Show in Norwegian kroner", toDkk: "Show in Danish kroner", loading: "Fetching rate …",
+        failed: "The rate can't be fetched right now. Please try again shortly.",
+        rate: function (date, rate) { return "Converted at the rate from " + date + ": 1 DKK = " + rate + " NOK."; }
+      }
+    };
+    var sources = [
+      { url: "https://api.frankfurter.dev/v1/latest?base=DKK&symbols=NOK",
+        date: function (j) { var p = j.date.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); } },
+      { url: "https://open.er-api.com/v6/latest/DKK",
+        date: function (j) { return new Date(j.time_last_update_unix * 1000); } }
+    ];
+    var prices = document.querySelectorAll(".js-price");
+    var buttons = document.querySelectorAll(".js-currency");
+    var notes = document.querySelectorAll(".js-currency-note");
+    var showingNok = false;
+
+    function number(n, lang, digits) {
+      return n.toLocaleString(locale[lang], { minimumFractionDigits: digits, maximumFractionDigits: digits });
+    }
+    function eachFor(list, fn) {
+      list.forEach(function (el) { var lang = el.getAttribute("data-price-lang"); fn(el, lang, text[lang]); });
+    }
+    function setButtons(key, disabled) {
+      eachFor(buttons, function (b, lang, t) { b.textContent = t[key]; b.disabled = disabled; });
+    }
+    function setNotes(fn) {
+      eachFor(notes, function (n, lang, t) { var s = fn ? fn(lang, t) : ""; n.textContent = s; n.hidden = !s; });
+    }
+    function showDkk() {
+      showingNok = false;
+      eachFor(prices, function (p, lang) { p.textContent = number(dkk, lang, 0) + " DKK"; });
+      setButtons("toNok", false);
+    }
+    function fetchRate(i) {
+      if (i >= sources.length) return Promise.reject(new Error("no rate"));
+      var controller = new AbortController();
+      var timer = setTimeout(function () { controller.abort(); }, 8000);
+      return fetch(sources[i].url, { signal: controller.signal, cache: "no-store" })
+        .then(function (res) { if (!res.ok) throw new Error("HTTP " + res.status); return res.json(); })
+        .then(function (j) {
+          var rate = j.rates && j.rates.NOK;
+          if (!(rate > 0)) throw new Error("bad rate");
+          return { rate: rate, date: sources[i].date(j) };
+        })
+        .finally(function () { clearTimeout(timer); })
+        .catch(function () { return fetchRate(i + 1); });
+    }
+
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        if (showingNok) { setNotes(null); showDkk(); return; }
+        setButtons("loading", true);
+        fetchRate(0).then(function (result) {
+          showingNok = true;
+          eachFor(prices, function (p, lang) { p.textContent = "≈ " + number(Math.round(dkk * result.rate), lang, 0) + " NOK"; });
+          setButtons("toDkk", false);
+          setNotes(function (lang, t) {
+            return t.rate(result.date.toLocaleDateString(locale[lang], { day: "numeric", month: "long", year: "numeric" }), number(result.rate, lang, 4));
+          });
+        }).catch(function () {
+          showDkk();
+          setNotes(function (lang, t) { return t.failed; });
+        });
+      });
     });
   })();
 </script>

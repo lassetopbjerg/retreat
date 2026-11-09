@@ -40,11 +40,12 @@ Lasse writes in Danish or English, so answer in the language he uses.
 - **Phones (< 600px) are the main audience.** Works at 390px with no horizontal scroll.
 - **Settings** live in the `window.RETREAT` block at the top of `index.html`:
   - `status`: `"open"` gives Reserve a place, `"full"` gives Join the waitlist, `"soon"` gives Get notified.
-  - `datesDa` / `datesEn`, `placesTotal`, `placesTaken`, `email`.
+  - `datesDa` / `datesEn`, `placesTotal`, `placesTaken`, `email`, `priceDkk` (used for the NOK conversion; the price in the text must be changed by hand too).
   - When `placesTaken` reaches `placesTotal`, the page switches to waitlist by itself.
 - **Booking:** two `.action` boxes per language (after the intro, and in the price card); the script fills both. The button opens an email to Lasse with a prefilled subject; Lasse replies with Jan-Ove's bank details, the materials list and practical information, and updates `placesTaken` by hand. Participants pay by bank transfer directly to Jan-Ove (decided 9 Nov 2026; Stripe removed). Never put the bank details on the page. There is no form and no backend.
 - **Links:** every external link gets `target="_blank" rel="noopener"`. "Getting there" has a button that opens Rødegaard in Maps.
-- **Prices** are always written in DKK, in both languages: Danish "6.000 DKK", English "6,000 DKK".
+- **Prices** are always written in DKK, in both languages: Danish "7.020 DKK", English "7,020 DKK".
+- **Currency button** (added 9 Nov 2026): under the price in the price card, switches the retreat price (price card and hero fact) between DKK and approximate NOK. Fetches the rate on each switch from api.frankfurter.dev (ECB, updated once per working day), with open.er-api.com as backup; no API key. If both fail, the price stays in DKK and a short message shows. Lodging and food prices stay in DKK.
 - Fold-out sections use native `<details>`.
 - **External dependencies:** Google Fonts (Cinzel, Source Serif 4; Georgia fallback) and YouTube (youtube-nocookie, loaded on click).
 - **Footer:** organiser line (name, email, phone) per language, address, and Jan-Ove's Instagram; on phones also the photo credits.
@@ -60,7 +61,7 @@ Attention and clarity first; what is left out matters as much as what is in. Whi
 ## Content facts (confirmed by Lasse)
 
 - **Dates:** 9–13 June 2027 (Wed–Sun; changed from 12–16 June on 6 Nov 2026). Sign-up is open. Max 10 painters.
-- **Price:** 6,000 DKK covering tuition and model (changed from 6,500 on 3 Nov 2026). Lodging is not included.
+- **Price:** 7,020 DKK covering tuition and model (changed from 6,000 on 9 Nov 2026). Lodging is not included.
 - **Model:** the model sessions are nude (akt), stated plainly on the page.
 - **What to bring** (fold-out, added 4 Nov 2026, short beginner version of Jan-Ove's PDF "Materialliste 2024" from his email of 14 Oct 2026): oil paint in white, yellow ochre, red and black; medium (linseed oil + turpentine or odourless thinner); palette and cup; a handful of flat brushes, stiff and soft; one or two canvases up to 50 × 70 cm; an easel that can go outdoors; rags, charcoal, a small hand mirror. Names two shops (added 9 Nov 2026): Jotun in Ebeltoft (https://maps.app.goo.gl/79JL4d9Cj398v71AA), a 20-minute drive from Rødegaard, with a limited range of oil paint, mediums, canvas, canvas boards and brushes; and Aart de Vos in Aarhus (https://aartdevos.dk/) for anything more specific. Ends with: a more detailed list with brands is sent after sign-up (Lasse forwards it with the bank details).
 - **Included** (price card list): 5 days of teaching with Jan-Ove; live nude model every morning 10–13; plenty of time for feedback from Jan-Ove; open studio all day and evening; teaching videos from Jan-Ove before the course to prepare; plenty of time to enjoy the area; a creative community where we learn from one another (last two added by Lasse 8 Nov 2026). Do not list the materials list there.
