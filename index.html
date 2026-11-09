@@ -296,6 +296,8 @@
   .currency-button:hover { background: var(--gold); color: var(--ground); }
   .currency-button:disabled { opacity: 0.6; cursor: wait; }
   .price-grid .currency-note { font-size: 15px; color: var(--muted); }
+  .fact .currency-button { grid-column: 2; justify-self: start; align-self: flex-start; margin-top: 8px; padding: 8px 14px; font-size: 12px; letter-spacing: 0.1em; }
+  .fact .currency-note { grid-column: 2; margin: 6px 0 0; font-size: 15px; color: var(--muted); }
   summary::after { color: var(--gold); }
   .schedule dt { color: var(--gold); }
   .zoom::backdrop { background: rgba(10, 8, 6, 0.94); }
@@ -554,6 +556,8 @@
         <span class="label">Pris</span>
         <span class="value js-price" data-price-lang="da">7.020 DKK</span>
         <span class="sub">Undervisning og model</span>
+        <button type="button" class="currency-button js-currency" data-price-lang="da">Vis i norske kroner</button>
+        <p class="currency-note js-currency-note" data-price-lang="da" aria-live="polite" hidden></p>
       </div>
       <div class="fact">
         <span class="label">Pladser</span>
@@ -844,6 +848,8 @@
         <span class="label">Price</span>
         <span class="value js-price" data-price-lang="en">7,020 DKK</span>
         <span class="sub">Tuition and model included</span>
+        <button type="button" class="currency-button js-currency" data-price-lang="en">Show in NOK</button>
+        <p class="currency-note js-currency-note" data-price-lang="en" aria-live="polite" hidden></p>
       </div>
       <div class="fact">
         <span class="label">Places</span>
@@ -1079,7 +1085,7 @@
       <div class="price-grid">
         <div>
           <p class="big js-price" id="price-en" data-price-lang="en">7,020 DKK</p>
-          <button type="button" class="currency-button js-currency" data-price-lang="en">Show in Norwegian kroner</button>
+          <button type="button" class="currency-button js-currency" data-price-lang="en">Show in NOK</button>
           <p class="currency-note js-currency-note" data-price-lang="en" aria-live="polite" hidden></p>
           <ul class="included" aria-label="What you get">
             <li>Five days of teaching with Jan-Ove Tuv, 9–13 June 2027</li>
@@ -1196,7 +1202,7 @@
         rate: function (date, rate) { return "Omregnet med kursen fra " + date + ": 1 DKK = " + rate + " NOK."; }
       },
       en: {
-        toNok: "Show in Norwegian kroner", toDkk: "Show in Danish kroner", loading: "Fetching rate …",
+        toNok: "Show in NOK", toDkk: "Show in DKK", loading: "Fetching rate …",
         failed: "The rate can't be fetched right now. Please try again shortly.",
         rate: function (date, rate) { return "Converted at the rate from " + date + ": 1 DKK = " + rate + " NOK."; }
       }
