@@ -84,7 +84,7 @@ Attention and clarity first; what is left out matters as much as what is in. Whi
   - with a car it is easy to bring easel and canvases, and people can share the car; or fly to Aarhus, Billund or Copenhagen and go on by train or bus
 - **Text trim, 10 Nov 2026** (Lasse felt the page was getting text-heavy): the intro is one paragraph, the days section has one sentence above the slots and one merged paragraph below, and the bio is two paragraphs. Keep visible text short; put extra facts in fold-outs.
 - **Opening line** of the intro (Lasse, 10 Nov 2026): "For første gang i Danmark afholder Jan-Ove Tuv, tidligere assistent og elev hos Odd Nerdrum, et malekursus." / "For the first time in Denmark, Jan-Ove Tuv, former assistant and student of Odd Nerdrum, is holding a painting course." It continues: "Mal efter nøgenmodel og udforsk landskabet i og omkring Mols Bjerge." (Lasse's wording). Nerdrum links to nerdrum.com.
-- **Norwegian participants** are a main audience (Lasse, 4 Nov 2026): make it easy for them to say yes. The intro says the teaching is in Norwegian and English, and the place section says Ebeltoft is about 20 minutes away.
+- **Norwegian participants** are a main audience (Lasse, 4 Nov 2026): make it easy for them to say yes. The intro says the teaching is in Norwegian and English, and the place section says Ebeltoft is about 20 minutes away by car or bus (10 Nov 2026).
 - **Jan-Ove Tuv** (from malekurstuv.no):
   - born 1976
   - Odd Nerdrum's assistant 1996–2002
