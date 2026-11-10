@@ -504,6 +504,20 @@
   .shop-name { font-family: var(--caps); font-size: 18px; letter-spacing: 0.04em; color: var(--gold); text-decoration: none; align-self: flex-start; padding: 2px 0; }
   .shop-name:hover { color: var(--ink); }
   .shop-where { font-size: 15px; color: var(--muted); }
+  /* Improvements, 10 Nov 2026 */
+  .secnav a.secnav-cta { color: var(--gold); }
+  .secnav a.secnav-cta:hover { color: var(--ink); }
+  .inner > .after-days, .after-days { color: var(--body); font-size: 18px; }
+  .note a { color: inherit; }
+  .dots[hidden] { display: none; }
+  .video-thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .4s ease; }
+  .video-thumb.ready { opacity: 0.38; }
+  .video-facade:hover .video-thumb.ready { opacity: 0.5; }
+  .works-count { align-self: center; min-width: 4.5em; text-align: center; font-family: var(--caps); font-size: 13px; letter-spacing: 0.2em; color: var(--muted); }
+  @media (max-width: 599px) {
+    .works-nav { display: flex; margin-top: 8px; }
+    .works-nav button { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -525,10 +539,10 @@
 </header>
 
 <nav class="secnav" lang="da" aria-label="Indhold">
-  <a href="#dagene">Dagene</a><a href="#underviser">Underviser</a><a href="#stedet">Stedet</a><a href="#praktisk">Praktisk</a><a href="#tilmelding">Tilmelding</a>
+  <a href="#dagene">Dagene</a><a href="#underviser">Underviser</a><a href="#stedet">Stedet</a><a href="#praktisk">Praktisk</a><a class="secnav-cta" href="#tilmelding">Tilmelding</a>
 </nav>
 <nav class="secnav" lang="en" aria-label="Contents">
-  <a href="#the-days">The days</a><a href="#teacher">Teacher</a><a href="#the-place">The place</a><a href="#practical">Practical</a><a href="#booking">Booking</a>
+  <a href="#the-days">The days</a><a href="#teacher">Teacher</a><a href="#the-place">The place</a><a href="#practical">Practical</a><a class="secnav-cta" href="#booking">Booking</a>
 </nav>
 
 <!-- ================================================================
@@ -594,7 +608,7 @@
   </section>
 
   <figure class="photo-band">
-    <img src="works/mols-bjerge-trehoeje-wide.jpg" alt="Lyngklædte bakker og Trehøje i Nationalpark Mols Bjerge" width="2400" height="1591" loading="lazy">
+    <img src="works/mols-bjerge-trehoeje-wide.jpg" srcset="works/mols-bjerge-trehoeje-wide-1200.jpg 1200w, works/mols-bjerge-trehoeje-wide.jpg 2400w" sizes="100vw" alt="Lyngklædte bakker og Trehøje i Nationalpark Mols Bjerge" width="2400" height="1591" loading="lazy">
     <figcaption>Nationalpark Mols Bjerge, Trehøje. <a href="https://commons.wikimedia.org/wiki/File:Treh%C3%B8je_Mols_Bjerge.jpg" target="_blank" rel="noopener">Foto: Mikkel Houmøller</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></figcaption>
   </figure>
 
@@ -644,10 +658,10 @@
       <figcaption>Gammel kvinde</figcaption>
     </figure>
       </aside>
-      <div class="works-nav" aria-hidden="true"><button type="button" class="works-prev" tabindex="-1">‹</button><button type="button" class="works-next" tabindex="-1">›</button></div>
+      <div class="works-nav" aria-hidden="true"><button type="button" class="works-prev" tabindex="-1">‹</button><span class="works-count"></span><button type="button" class="works-next" tabindex="-1">›</button></div>
       <p class="lede video-intro">I videoen herunder forklarer han kort Apelles-paletten, som vi også arbejder med på kurset.</p>
       <a class="video-facade" href="https://www.youtube.com/watch?v=s_7lLQkglj0" target="_blank" rel="noopener" data-embed="https://www.youtube-nocookie.com/embed/s_7lLQkglj0?autoplay=1" data-title="Sådan bruger du Apelles-paletten, med Jan-Ove Tuv">
-        <span class="play"><span class="play-icon" aria-hidden="true"></span><span class="play-title">Apelles-paletten</span><span class="play-sub">Video med Jan-Ove Tuv · YouTube</span></span>
+        <img class="video-thumb" alt="" loading="lazy" referrerpolicy="no-referrer" data-id="s_7lLQkglj0"><span class="play"><span class="play-icon" aria-hidden="true"></span><span class="play-title">Apelles-paletten</span><span class="play-sub">Video med Jan-Ove Tuv · YouTube</span></span>
       </a>
       <div class="faq teach-more">
         <details>
@@ -684,7 +698,7 @@
       <p class="eyebrow">Stedet</p>
       <h2 id="place-da">Rødegaard</h2>
       <p class="lede">Rødegaard ligger i Vistoft ved Nationalpark Mols Bjerge, med bakker, skov og hav tæt på, og den gamle købstad Ebeltoft ligger ca. 20 minutter væk.</p>
-      <figure class="place-hero"><img src="works/roedegaard-luftfoto.jpg" alt="Rødegaard set fra luften, med haven, gårdens bygninger og bakkerne bagved" width="2400" height="1598" loading="lazy"></figure>
+      <figure class="place-hero"><img src="works/roedegaard-luftfoto.jpg" srcset="works/roedegaard-luftfoto-1200.jpg 1200w, works/roedegaard-luftfoto.jpg 2400w" sizes="(min-width: 912px) 880px, calc(100vw - 32px)" alt="Rødegaard set fra luften, med haven, gårdens bygninger og bakkerne bagved" width="2400" height="1598" loading="lazy"></figure>
       <p class="photo-credit">Fotos: <a href="https://jordenssang.dk/" target="_blank" rel="noopener">Jordens Sang</a></p>
       <div class="faq area-faq">
       <details>
@@ -730,7 +744,7 @@
           <p>Overnatning er ikke inkluderet.</p>
           <ul>
             <li>Tag et telt med og slå det op i haven på Rødegaard for 125 DKK pr. dag</li>
-            <li>Værelse på Rødegaard med eget bad og toilet: enkeltværelse 650 DKK og dobbeltværelse 1.000 DKK pr. dag. Bestil hos Jordens Sang: <a href="mailto:kontakt@jordenssang.dk">kontakt@jordenssang.dk</a></li>
+            <li>Værelse på Rødegaard: enkeltværelse 650 DKK og dobbeltværelse 1.000 DKK pr. dag. Der er mulighed for værelser med eget bad og toilet. Bestil hos Jordens Sang: <a href="mailto:kontakt@jordenssang.dk">kontakt@jordenssang.dk</a></li>
             <li><a href="https://hosmolsgaarden.dk/" target="_blank" rel="noopener">Molsgaarden B&amp;B</a>, Kildevej 26, Knebel: en bed and breakfast 2 minutters gågang fra Rødegaard</li>
           </ul>
           <div class="room-photos">
@@ -891,7 +905,7 @@
   </section>
 
   <figure class="photo-band">
-    <img src="works/mols-bjerge-trehoeje-wide.jpg" alt="Heather-covered hills and Trehøje in Mols Bjerge National Park" width="2400" height="1591" loading="lazy">
+    <img src="works/mols-bjerge-trehoeje-wide.jpg" srcset="works/mols-bjerge-trehoeje-wide-1200.jpg 1200w, works/mols-bjerge-trehoeje-wide.jpg 2400w" sizes="100vw" alt="Heather-covered hills and Trehøje in Mols Bjerge National Park" width="2400" height="1591" loading="lazy">
     <figcaption>Mols Bjerge National Park, Trehøje. <a href="https://commons.wikimedia.org/wiki/File:Treh%C3%B8je_Mols_Bjerge.jpg" target="_blank" rel="noopener">Photo: Mikkel Houmøller</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></figcaption>
   </figure>
 
@@ -941,10 +955,10 @@
       <figcaption>Old woman</figcaption>
     </figure>
       </aside>
-      <div class="works-nav" aria-hidden="true"><button type="button" class="works-prev" tabindex="-1">‹</button><button type="button" class="works-next" tabindex="-1">›</button></div>
+      <div class="works-nav" aria-hidden="true"><button type="button" class="works-prev" tabindex="-1">‹</button><span class="works-count"></span><button type="button" class="works-next" tabindex="-1">›</button></div>
       <p class="lede video-intro">In the video below, he gives a short introduction to the Apelles palette, which we will use during the course.</p>
       <a class="video-facade" href="https://www.youtube.com/watch?v=s_7lLQkglj0" target="_blank" rel="noopener" data-embed="https://www.youtube-nocookie.com/embed/s_7lLQkglj0?autoplay=1" data-title="How to use the Apelles Palette, by Jan-Ove Tuv">
-        <span class="play"><span class="play-icon" aria-hidden="true"></span><span class="play-title">The Apelles palette</span><span class="play-sub">Video with Jan-Ove Tuv · YouTube</span></span>
+        <img class="video-thumb" alt="" loading="lazy" referrerpolicy="no-referrer" data-id="s_7lLQkglj0"><span class="play"><span class="play-icon" aria-hidden="true"></span><span class="play-title">The Apelles palette</span><span class="play-sub">Video with Jan-Ove Tuv · YouTube</span></span>
       </a>
       <div class="faq teach-more">
         <details>
@@ -981,7 +995,7 @@
       <p class="eyebrow">The place</p>
       <h2 id="place-en">Rødegaard</h2>
       <p class="lede">Rødegaard is in Vistoft, by Mols Bjerge National Park, with hills, woods and the sea close by, and the old market town of Ebeltoft about 20 minutes away.</p>
-      <figure class="place-hero"><img src="works/roedegaard-luftfoto.jpg" alt="Rødegaard from the air, with the garden, the farm buildings and the hills behind" width="2400" height="1598" loading="lazy"></figure>
+      <figure class="place-hero"><img src="works/roedegaard-luftfoto.jpg" srcset="works/roedegaard-luftfoto-1200.jpg 1200w, works/roedegaard-luftfoto.jpg 2400w" sizes="(min-width: 912px) 880px, calc(100vw - 32px)" alt="Rødegaard from the air, with the garden, the farm buildings and the hills behind" width="2400" height="1598" loading="lazy"></figure>
       <p class="photo-credit">Photos: <a href="https://jordenssang.dk/" target="_blank" rel="noopener">Jordens Sang</a></p>
       <div class="faq area-faq">
       <details>
@@ -1027,7 +1041,7 @@
           <p>Accommodation is not included.</p>
           <ul>
             <li>Bring a tent and camp in the Rødegaard garden for 125 DKK per day</li>
-            <li>A room at Rødegaard with private bathroom: single room 650 DKK and double room 1,000 DKK per day. Book with Jordens Sang: <a href="mailto:kontakt@jordenssang.dk">kontakt@jordenssang.dk</a></li>
+            <li>A room at Rødegaard: single room 650 DKK and double room 1,000 DKK per day. Rooms with their own shower and toilet are available. Book with Jordens Sang: <a href="mailto:kontakt@jordenssang.dk">kontakt@jordenssang.dk</a></li>
             <li><a href="https://hosmolsgaarden.dk/" target="_blank" rel="noopener">Molsgaarden B&amp;B</a>, Kildevej 26, Knebel: a bed and breakfast a 2-minute walk from Rødegaard</li>
           </ul>
           <div class="room-photos">
@@ -1126,12 +1140,12 @@
 </main>
 
 <footer>
-  <p class="credits" lang="da">Fotos fra Nationalpark Mols Bjerge via Wikimedia Commons: Mikkel Houmøller (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>). Fotos af Rødegaard: Jordens Sang. Malerier: Jan-Ove Tuv.</p>
-  <p class="credits" lang="en">Photos of Mols Bjerge National Park via Wikimedia Commons: Mikkel Houmøller (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>). Photos of Rødegaard: Jordens Sang. Paintings: Jan-Ove Tuv.</p>
   <p class="organiser" lang="da">Arrangør: Lasse Topbjerg Storgaard · <a href="mailto:lassetopbjerg@gmail.com">lassetopbjerg@gmail.com</a> · <a href="tel:+4531177506">+45 31 17 75 06</a></p>
   <p class="organiser" lang="en">Organiser: Lasse Topbjerg Storgaard · <a href="mailto:lassetopbjerg@gmail.com">lassetopbjerg@gmail.com</a> · <a href="tel:+4531177506">+45 31 17 75 06</a></p>
   <span>Rødegaard · Karlshøjvej 5 · 8420 Knebel</span>
   <a href="https://www.instagram.com/jan_ove_tuv/" target="_blank" rel="noopener">Instagram: @jan_ove_tuv</a>
+  <p class="credits" lang="da">Fotos fra Nationalpark Mols Bjerge via Wikimedia Commons: Mikkel Houmøller (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>). Fotos af Rødegaard: Jordens Sang. Malerier: Jan-Ove Tuv.</p>
+  <p class="credits" lang="en">Photos of Mols Bjerge National Park via Wikimedia Commons: Mikkel Houmøller (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>). Photos of Rødegaard: Jordens Sang. Paintings: Jan-Ove Tuv.</p>
 </footer>
 
 <script>
@@ -1147,7 +1161,9 @@
     var text = {
       da: {
         dates: r.datesDa,
+        alt: "Virker knappen ikke? Skriv til ", max: "Højst " + total + " malere",
         open: { cta: "Reservér en plads", subject: "Malerefugium 2027 – reservation",
+                body: "Hej Lasse\n\nJeg vil gerne reservere en plads på Malerefugium på Mols, " + (r.datesDa || "") + ".\n\nNavn: \nTelefon: \nAntal pladser: \n\nVenlig hilsen\n",
                 note: "Åbner en mail til Lasse. Som svar får du bankoplysninger, materialeliste og praktisk information.",
                 places: left + " af " + total + " ledige" },
         full: { cta: "Skriv dig på ventelisten", subject: "Malerefugium 2027 – venteliste",
@@ -1161,7 +1177,9 @@
       },
       en: {
         dates: r.datesEn,
+        alt: "Button not working? Write to ", max: "Max " + total + " painters",
         open: { cta: "Reserve a place", subject: "Retreat 2027 – reservation",
+                body: "Hi Lasse\n\nI would like to reserve a place at the Painting Retreat on Mols, " + (r.datesEn || "") + ".\n\nName: \nPhone: \nNumber of places: \n\nBest regards\n",
                 note: "Opens an email to Lasse. In reply, you will receive the bank details, materials list and practical information.",
                 places: left + " of " + total + " left" },
         full: { cta: "Join the waitlist", subject: "Retreat 2027 – waitlist",
@@ -1185,17 +1203,21 @@
       var s = t[status] || t.soon;
 
       if (t.dates) main.querySelector(".js-dates").textContent = t.dates;
-      main.querySelector(".js-places").textContent = s.places;
+      var none = status === "open" && taken === 0;   // nobody yet: say "max 10" instead of "10 of 10 left"
+      main.querySelector(".js-places").textContent = none ? t.max : s.places;
 
       main.querySelectorAll(".action").forEach(function (box) {
       var cta = box.querySelector(".js-cta");
       var note = box.querySelector(".js-note");
       cta.textContent = s.cta;
-      cta.href = "mailto:" + email + "?subject=" + encodeURIComponent(s.subject);
-      note.textContent = s.note;
+      cta.href = "mailto:" + email + "?subject=" + encodeURIComponent(s.subject) + (s.body ? "&body=" + encodeURIComponent(s.body) : "");
+      note.textContent = s.note + " " + t.alt;
+      var alt = document.createElement("a"); alt.href = "mailto:" + email; alt.textContent = email;
+      note.appendChild(alt); note.appendChild(document.createTextNode("."));
       });
 
       var dots = main.querySelector(".js-dots");
+      if (none) dots.hidden = true;
       dots.setAttribute("aria-label", status === "soon" ? t.dotsSoon : t.dotsTaken);
       for (var i = 0; i < total; i++) {
         var d = document.createElement("span");
@@ -1343,7 +1365,17 @@
       var a = main.querySelector(".js-places"), b = main.querySelector(".js-places2");
       if (a && b) b.textContent = a.textContent;
       var d1 = main.querySelector(".js-dots"), d2 = main.querySelector(".js-dots2");
-      if (d1 && d2) d2.innerHTML = d1.innerHTML;
+      if (d1 && d2) { d2.innerHTML = d1.innerHTML; d2.hidden = d1.hidden; }
+    });
+    // Video still: try the large one, fall back to the small one, else keep the plain box
+    document.querySelectorAll(".video-thumb").forEach(function (img) {
+      var id = img.getAttribute("data-id"), triedSmall = false;
+      img.addEventListener("load", function () {
+        if (img.naturalWidth < 400 && !triedSmall) { triedSmall = true; img.src = "https://i.ytimg.com/vi/" + id + "/mqdefault.jpg"; return; }
+        img.classList.add("ready");
+      });
+      img.addEventListener("error", function () { img.remove(); });
+      img.src = "https://i.ytimg.com/vi/" + id + "/maxresdefault.jpg";
     });
     // Video: load YouTube only when clicked
     document.querySelectorAll(".video-facade").forEach(function (a) {
@@ -1364,6 +1396,16 @@
     if (!row) return;
     nav.querySelector(".works-prev").addEventListener("click", function () { row.scrollBy({ left: -row.clientWidth * 0.8, behavior: "smooth" }); });
     nav.querySelector(".works-next").addEventListener("click", function () { row.scrollBy({ left: row.clientWidth * 0.8, behavior: "smooth" }); });
+    // "1 / 7" counter, so it is clear there are more works to swipe through
+    var count = nav.querySelector(".works-count"), figs = row.querySelectorAll("figure");
+    function update() {
+      var i = 0, best = Infinity, x = row.getBoundingClientRect().left;
+      figs.forEach(function (f, k) { var d = Math.abs(f.getBoundingClientRect().left - x); if (d < best) { best = d; i = k; } });
+      if (row.scrollLeft + row.clientWidth >= row.scrollWidth - 4) i = figs.length - 1;
+      count.textContent = (i + 1) + " / " + figs.length;
+    }
+    var tick; row.addEventListener("scroll", function () { clearTimeout(tick); tick = setTimeout(update, 60); }, { passive: true });
+    update();
   });
 </script>
 </body>

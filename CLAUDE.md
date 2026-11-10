@@ -32,7 +32,7 @@ Lasse writes in Danish or English, so answer in the language he uses.
   - fold-out titles and link titles: Cinzel 18px, 0.04em, mixed case
   - reading text: Source Serif 4 18px; small text 15px; captions 13px
 - **Earlier designs are saved as git tags:** `foer-baand-design` (single-column dark page) and `foer-moerkt-design` (light page). To go back: `git checkout <tag> -- index.html`, then commit and push. Text changes made since then must be redone.
-- `tools/build_draft.py` built the band design from the old page and is no longer needed: edit index.html directly. Some files in works/ are no longer used (helgenaes-solnedgang.jpg, mols-bjerge-begtrup-vig.jpg, mols-bjerge-trehoeje.jpg), and some side-margin CSS for `.works` (min-width 1240px) is left over from the old layout.
+- Some side-margin CSS for `.works` (min-width 1240px) is left over from the old layout; harmless. The unused pictures and `tools/build_draft.py` were removed 10 Nov 2026.
 
 ## How the page works
 
@@ -42,12 +42,15 @@ Lasse writes in Danish or English, so answer in the language he uses.
   - `status`: `"open"` gives Reserve a place, `"full"` gives Join the waitlist, `"soon"` gives Get notified.
   - `datesDa` / `datesEn`, `placesTotal`, `placesTaken`, `email`, `priceDkk` (used for the NOK conversion; the price in the text must be changed by hand too).
   - When `placesTaken` reaches `placesTotal`, the page switches to waitlist by itself.
-- **Booking:** two `.action` boxes per language (after the intro, and in the price card); the script fills both. The button opens an email to Lasse with a prefilled subject; Lasse replies with Jan-Ove's bank details, the materials list and practical information, and updates `placesTaken` by hand. Participants pay by bank transfer directly to Jan-Ove (decided 9 Nov 2026; Stripe removed). Never put the bank details on the page. There is no form and no backend.
+  - While `placesTaken` is 0 the page says "Højst 10 malere / Max 10 painters" and hides the dots; from the first sign-up it shows "9 af 10 ledige" and the dots (10 Nov 2026).
+- **Booking:** two `.action` boxes per language (after the intro, and in the price card); the script fills both. The button opens an email to Lasse with a prefilled subject and body (name, phone, number of places); the note under it also shows the email address as a link, for visitors without a mail app. The Tilmelding / Booking link in the sticky menu is gold (`.secnav-cta`). Lasse replies with Jan-Ove's bank details, the materials list and practical information, and updates `placesTaken` by hand. Participants pay by bank transfer directly to Jan-Ove (decided 9 Nov 2026; Stripe removed). Never put the bank details on the page. There is no form and no backend.
 - **Links:** every external link gets `target="_blank" rel="noopener"`. "Getting there" has a button that opens Rødegaard in Maps.
 - **Prices** are always written in DKK, in both languages: Danish "7.020 DKK", English "7,020 DKK".
 - **Currency button** (added 9 Nov 2026): under the price in both the price card and the hero fact (both stay in sync), switches the retreat price between DKK and approximate NOK. Fetches the rate on each switch from api.frankfurter.dev (ECB, updated once per working day), with open.er-api.com as backup; no API key. If both fail, the price stays in DKK and a short message shows. Lodging and food prices stay in DKK.
 - Fold-out sections use native `<details>`.
-- **External dependencies:** Google Fonts (Cinzel, Source Serif 4; Georgia fallback) and YouTube (youtube-nocookie, loaded on click).
+- **External dependencies:** Google Fonts (Cinzel, Source Serif 4; Georgia fallback), YouTube (youtube-nocookie, loaded on click) and the video's still image from i.ytimg.com behind the play button (`.video-thumb`; tries maxresdefault, then mqdefault, and removes itself if it fails; not verified from the cloud session).
+- **Photos for phones:** the Trehøje band and the Rødegaard aerial photo have 1200px versions (`-1200.jpg`) picked through `srcset`; if either photo is replaced, remake both sizes.
+- **Works row:** a "1 / 7" counter (`.works-count`) under the row, on phones without the arrows.
 - **Footer:** organiser line (name, email, phone) per language, address, and Jan-Ove's Instagram; on phones also the photo credits.
 - **Share image** `works/share.jpg` (1200x630) has the name, dates and "Rødegaard, Vistoft" baked in; make a new one if any of those change, and bump the `?v=` on the og:image URL so Facebook refetches it. Top line redrawn 3 Nov and 6 Nov 2026 (new dates); Cinzel can be fetched from npm (`@fontsource/cinzel`, convert the woff2 to TTF with fonttools). The line is drawn (Cinzel Regular 21.5px, tracking 4.5, colour (185,155,100), centred at x 848.5, baseline 190).
 - **Tab icon:** `favicon-32.png`, `apple-touch-icon.png`, `favicon.ico` (gold Cinzel M).
@@ -67,12 +70,12 @@ Attention and clarity first; what is left out matters as much as what is in. Whi
 - **Model:** the model sessions are nude (akt), stated plainly on the page.
 - **What to bring** (fold-out, added 4 Nov 2026, short beginner version of Jan-Ove's PDF "Materialliste 2024" from his email of 14 Oct 2026): oil paint in black, white, yellow and red; medium (linseed oil + turpentine or odourless thinner); palette and cup; a handful of flat brushes, stiff and soft; one or two canvases up to 50 × 70 cm; an easel that can go outdoors (participants can borrow one from Lasse if they ask in advance, 9 Nov 2026); rags, charcoal, a small hand mirror. Names two shops (added 9 Nov 2026): Jotun in Ebeltoft (https://maps.app.goo.gl/79JL4d9Cj398v71AA), a 20-minute drive from Rødegaard, with a limited range of oil paint, mediums, canvas, canvas boards and brushes; and Aart de Vos in Aarhus (https://aartdevos.dk/) for anything more specific. Ends with: a more detailed list with brands is sent after sign-up (Lasse forwards it with the bank details).
 - **Included** (price card list): 5 days of teaching with Jan-Ove; live nude model every morning 10–13; plenty of time for feedback from Jan-Ove; open studio all day and evening; teaching videos from Jan-Ove before the course to prepare; plenty of time to enjoy the area; a creative community where we learn from one another (last two added by Lasse 8 Nov 2026). Do not list the materials list there.
-- **Days:** 10–13 live model, 13–15 break, from 15 optional plein air, or head out and explore Djursland. The atelier is open all day and in the evening. Participants may bring their own creative projects to work on in the afternoons and evenings (line under the time slots, added 4 Nov 2026). A second line below it says there is room for spontaneous outings and cosy evenings around the campfire (added 9 Nov 2026).
+- **Days:** 10–13 live model, 13–15 break, from 15 optional plein air, or head out and explore Djursland. The atelier is open all day and in the evening. Participants may bring their own creative projects to work on in the afternoons and evenings (line under the time slots, added 4 Nov 2026). A second line below it says there is room for spontaneous outings and cosy evenings around the campfire (added 9 Nov 2026). Both lines are in normal reading text since 10 Nov 2026.
 - **Terms:** full amount paid at sign-up, no deposit; if the retreat is cancelled, all money is returned.
 - **Food:** full board at Rødegaard 625 DKK/day, booked with Jordens Sang (kontakt@jordenssang.dk): breakfast, lunch, dinner, tea/coffee and snacks, all vegetarian, mostly from the garden. Single meals (only lunch, dinner or whatever is needed) can also be arranged. Alternatively, a small kitchen in the atelier. No shops in Knebel; groceries in Vrinners/Ebeltoft, about 20 minutes by bus.
 - **Lodging:**
   - tent in the Rødegaard garden, 125 DKK per day (changed from 100 per night, 5 Nov 2026)
-  - rooms at Rødegaard, private bathroom and toilet: single 650 DKK, double 1,000 DKK per day (confirmed by Lasse 5 Nov 2026); booked with Jordens Sang (kontakt@jordenssang.dk)
+  - rooms at Rødegaard: single 650 DKK, double 1,000 DKK per day (confirmed by Lasse 5 Nov 2026); the page says rooms with own shower and toilet are available, not that all have them (Lasse, 10 Nov 2026); booked with Jordens Sang (kontakt@jordenssang.dk)
   - Molsgaarden B&B, https://hosmolsgaarden.dk/ (Kildevej 26, Knebel), a bed and breakfast 2 minutes' walk from Rødegaard (Lasse, 8 Nov 2026)
 - **Getting there** (fold-out "Sådan kommer du hertil / Getting there"): Rødegaard, Karlshøjvej 5, 8420 Knebel, about 45 minutes from Aarhus. A "Fra Norge / From Norway" part (added 4 Nov 2026, Lasse wants it there, not in a separate fold-out):
   - ferry Kristiansand–Hirtshals (Fjord Line, Color Line) from about 2½ h
@@ -113,4 +116,4 @@ Attention and clarity first; what is left out matters as much as what is in. Whi
 - Jan-Ove should approve his bio and the student quote (Edith Maier Kihle), and his paintings' use in marketing.
 - Ask Jordens Sang whether they are fine with being listed, and to confirm full board for up to 10 people.
 - Lasse's own photos of the atelier, the garden and a painting set-up would strengthen the page.
-- Check with Rødegaard: the page says rooms have a private bathroom, but roedegaard-mols.dk says only some do and others share. That site also gives kontakt@roedegaard-mols.dk, while the page uses kontakt@jordenssang.dk.
+- roedegaard-mols.dk gives kontakt@roedegaard-mols.dk for booking, while the page uses kontakt@jordenssang.dk; ask Lasse which is right.
