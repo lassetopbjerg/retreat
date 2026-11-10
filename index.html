@@ -1532,7 +1532,7 @@
     return t;
   }
   function murmur(white) {
-    var mine = ctx, bus = ctx.createGain(); bus.gain.value = 0.3; bus.connect(master);
+    var mine = ctx, bus = ctx.createGain(); bus.gain.value = 0.5; bus.connect(master);
     var voices = [voice(92, -0.3, bus, white), voice(118, 0.3, bus, white)];
     function talk(who) {
       if (ctx !== mine) return;
