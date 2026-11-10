@@ -556,6 +556,9 @@
   footer > .sky { position: absolute; z-index: 0; left: 0; right: 0; bottom: 0; top: -140px; overflow: hidden; pointer-events: none;
     background: linear-gradient(to bottom, #0B1022, #0A0D1A 60%, #120F12);
     -webkit-mask-image: linear-gradient(to bottom, transparent, #000 42%); mask-image: linear-gradient(to bottom, transparent, #000 42%); }
+  /* Slightly curved horizon: the top of a very wide ellipse of dark ground, with a faint last light along the edge */
+  .sky::after { content: ""; position: absolute; left: -60%; width: 220%; height: 400px; top: calc(100% - 46px); border-radius: 50%;
+    background: #090705; border-top: 1px solid rgba(190,150,105,0.28); box-shadow: 0 0 46px 8px rgba(160,115,75,0.16); }
   .sky i { position: absolute; opacity: var(--o); animation: twinkle 4s ease-in-out infinite; }
   @keyframes twinkle { 0%, 100% { opacity: var(--o); } 45% { opacity: 0.12; } 60% { opacity: calc(var(--o) * 0.6); } }
   @media (prefers-reduced-motion: reduce) { .sky i { animation: none; } }
