@@ -518,22 +518,21 @@
     .works-nav { display: flex; margin-top: 8px; }
     .works-nav button { display: none; }
   }
-  /* Flame at the top (10 Nov 2026): three layers that flicker out of step, and a soft glow */
-  .flame-wrap { position: relative; flex-basis: 100%; height: 104px; margin-top: 8px; }
-  .flame { position: absolute; bottom: 6px; left: 50%; width: 34px; height: 46px; margin-left: -17px; pointer-events: none; }
-  .flame svg { position: relative; display: block; width: 100%; height: 100%; overflow: visible; filter: blur(0.9px); mix-blend-mode: screen; }
+  /* Flame at the very bottom (10 Nov 2026): pixel art in six frames, a soft glow, pixel sparks; a tap plays a fire sound */
+  .flame-wrap { position: relative; flex-basis: 100%; height: 112px; margin-top: 8px; }
+  .flame { position: absolute; bottom: 4px; left: 50%; width: 44px; height: 60px; margin-left: -22px; padding: 0; border: 0; background: none; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .flame svg { position: relative; display: block; width: 100%; height: 100%; }
   .flame::before { content: ""; position: absolute; left: 50%; bottom: -8px; width: 150px; height: 150px; margin-left: -75px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(226,150,60,0.30), rgba(226,150,60,0.10) 38%, rgba(226,150,60,0) 68%); animation: flame-glow 2.9s ease-in-out infinite; pointer-events: none; }
-  .flame path { transform-box: fill-box; transform-origin: 50% 100%; }
-  .flame .f1 { fill: url(#flame-g1); animation: flame-a 2.3s ease-in-out infinite; }
-  .flame .f2 { fill: url(#flame-g2); animation: flame-b 1.7s ease-in-out infinite; }
-  .flame .f3 { fill: url(#flame-g3); animation: flame-c 1.3s ease-in-out infinite; }
-  @keyframes flame-a { 0%,100% { transform: scale(1,1) skewX(0deg); } 18% { transform: scale(0.95,1.07) skewX(-3deg); } 41% { transform: scale(1.04,0.94) skewX(2deg); } 63% { transform: scale(0.97,1.1) skewX(4deg); } 82% { transform: scale(1.03,0.97) skewX(-2deg); } }
-  @keyframes flame-b { 0%,100% { transform: scale(1,1) skewX(0deg); } 22% { transform: scale(1.06,0.9) skewX(4deg); } 47% { transform: scale(0.93,1.12) skewX(-5deg); } 71% { transform: scale(1.02,0.95) skewX(3deg); } }
-  @keyframes flame-c { 0%,100% { transform: scale(1,1); opacity: 0.95; } 30% { transform: scale(0.88,1.16) skewX(-4deg); opacity: 0.8; } 58% { transform: scale(1.08,0.86) skewX(5deg); opacity: 1; } 80% { transform: scale(0.95,1.05); opacity: 0.85; } }
+    background: radial-gradient(circle, rgba(226,150,60,0.30), rgba(226,150,60,0.10) 38%, rgba(226,150,60,0) 68%); animation: flame-glow 2.9s ease-in-out infinite; pointer-events: none; transition: width 0.6s, height 0.6s, margin-left 0.6s; }
+  .flame[aria-pressed="true"]::before { width: 210px; height: 210px; margin-left: -105px; }
+  .flame .pa { fill: #B4551F; } .flame .pb { fill: #E0A040; } .flame .pc { fill: #FFF0C4; }
+  .flame g { opacity: 0; animation: flame-frame 0.9s steps(1) infinite; }
+  .flame g:nth-child(2) { animation-delay: 0.15s; } .flame g:nth-child(3) { animation-delay: 0.3s; } .flame g:nth-child(4) { animation-delay: 0.45s; }
+  .flame g:nth-child(5) { animation-delay: 0.6s; } .flame g:nth-child(6) { animation-delay: 0.75s; }
+  @keyframes flame-frame { 0% { opacity: 1; } 16.67%, 100% { opacity: 0; } }
   @keyframes flame-glow { 0%,100% { opacity: 0.85; transform: scale(1); } 27% { opacity: 0.6; transform: scale(0.94); } 55% { opacity: 1; transform: scale(1.05); } 78% { opacity: 0.7; transform: scale(0.97); } }
   /* Sparks: small square pixels that rise and drift gently to both sides */
-  .flame i { position: absolute; left: 50%; top: 30%; width: 3px; height: 3px; margin-left: -1px; background: #E8A94A; opacity: 0;
+  .flame i { position: absolute; left: 50%; top: 30%; width: 3px; height: 3px; margin-left: -1px; background: #E8A94A; opacity: 0; pointer-events: none;
     animation: spark var(--t, 4s) ease-out var(--d, 0s) infinite; }
   .flame i:nth-of-type(1) { --dx: -46px; --dy: -24px; --t: 4.3s; --d: 0s; }
   .flame i:nth-of-type(2) { --dx: 52px;  --dy: -20px; --t: 4.9s; --d: 0.7s; background: #F3D08A; width: 2px; height: 2px; }
@@ -545,7 +544,7 @@
   .flame i:nth-of-type(8) { --dx: 60px;  --dy: -22px; --t: 5.4s; --d: 5.2s; }
   @keyframes spark { 0% { transform: translate(0, 0); opacity: 0; } 8% { opacity: 0.95; } 55% { opacity: 0.7; }
     100% { transform: translate(var(--dx), var(--dy)); opacity: 0; } }
-  @media (prefers-reduced-motion: reduce) { .flame path, .flame::before { animation: none; } .flame i { display: none; } }
+  @media (prefers-reduced-motion: reduce) { .flame g, .flame::before { animation: none; } .flame g:first-child { opacity: 1; } .flame i { display: none; } }
 </style>
 </head>
 <body>
@@ -578,11 +577,6 @@
      ================================================================ -->
 <p class="language-break" id="dansk" lang="da"><span><svg class="flag" width="21" height="16" aria-hidden="true"><use href="#flag-dk"/></svg>Dansk</span></p>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-  <linearGradient id="flame-g1" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#9A3E14"/><stop offset="0.55" stop-color="#B4551F" stop-opacity="0.85"/><stop offset="1" stop-color="#B4551F" stop-opacity="0.15"/></linearGradient>
-  <linearGradient id="flame-g2" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#E0A040"/><stop offset="0.6" stop-color="#D08A30" stop-opacity="0.8"/><stop offset="1" stop-color="#D08A30" stop-opacity="0.1"/></linearGradient>
-  <linearGradient id="flame-g3" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FFF0C4"/><stop offset="0.7" stop-color="#F6DD9C" stop-opacity="0.8"/><stop offset="1" stop-color="#F6DD9C" stop-opacity="0.2"/></linearGradient>
-</defs></svg>
 <div class="hero" lang="da">
   <img class="hero-img" src="works/smykkeskrinet.jpg" alt="" width="963" height="1176">
     <div class="hero-text">
@@ -1177,7 +1171,7 @@
   <a href="https://www.instagram.com/jan_ove_tuv/" target="_blank" rel="noopener">Instagram: @jan_ove_tuv</a>
   <p class="credits" lang="da">Fotos fra Nationalpark Mols Bjerge via Wikimedia Commons: Mikkel Houmøller (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>). Fotos af Rødegaard: Jordens Sang. Malerier: Jan-Ove Tuv.</p>
   <p class="credits" lang="en">Photos of Mols Bjerge National Park via Wikimedia Commons: Mikkel Houmøller (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>). Photos of Rødegaard: Jordens Sang. Paintings: Jan-Ove Tuv.</p>
-  <div class="flame-wrap"><span class="flame" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><svg viewBox="0 0 34 46"><path class="f1" d="M17 0C19 9 30 15 30 29c0 9-6 17-13 17S4 38 4 29c0-7 4-10 6-15 1 4 3 6 4 6C13 13 14 6 17 0z"/><path class="f2" d="M17 12c2 6 8 10 8 19 0 8-4 15-8 15s-8-7-8-15c0-5 2-7 4-10 0 3 1 5 2 5 0-5 0-9 2-14z"/><path class="f3" d="M17 26c1 4 4 6 4 11 0 5-2 9-4 9s-4-4-4-9c0-3 1-4 2-6 0 2 1 3 1 3 0-3 0-5 1-8z"/></svg></span></div>
+  <div class="flame-wrap"><button type="button" class="flame" aria-pressed="false" aria-label="Lyd af bål / Sound of a fire" title="Lyd af bål / Sound of a fire"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><svg viewBox="0 0 11 15" shape-rendering="crispEdges"><g><path class="pa" d="M5 0h1v1h-1zM5 1h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM7 3h1v1h-1zM4 4h1v1h-1zM6 4h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM7 5h1v1h-1zM8 5h1v1h-1zM2 6h1v1h-1zM6 6h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM7 7h1v1h-1zM8 7h1v1h-1zM1 8h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1zM9 8h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM7 9h1v1h-1zM8 9h1v1h-1zM9 9h1v1h-1zM1 10h1v1h-1zM9 10h1v1h-1zM1 11h1v1h-1zM9 11h1v1h-1zM0 12h1v1h-1zM1 12h1v1h-1zM9 12h1v1h-1zM10 12h1v1h-1zM1 13h1v1h-1zM2 13h1v1h-1zM8 13h1v1h-1zM9 13h1v1h-1zM2 14h1v1h-1zM3 14h1v1h-1zM7 14h1v1h-1zM8 14h1v1h-1z"/><path class="pb" d="M5 4h1v1h-1zM6 5h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM4 8h1v1h-1zM6 8h1v1h-1zM4 9h1v1h-1zM6 9h1v1h-1zM2 10h1v1h-1zM3 10h1v1h-1zM7 10h1v1h-1zM8 10h1v1h-1zM2 11h1v1h-1zM3 11h1v1h-1zM7 11h1v1h-1zM8 11h1v1h-1zM2 12h1v1h-1zM3 12h1v1h-1zM7 12h1v1h-1zM8 12h1v1h-1zM3 13h1v1h-1zM7 13h1v1h-1zM4 14h1v1h-1zM6 14h1v1h-1z"/><path class="pc" d="M5 8h1v1h-1zM5 9h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM4 11h1v1h-1zM5 11h1v1h-1zM6 11h1v1h-1zM4 12h1v1h-1zM5 12h1v1h-1zM6 12h1v1h-1zM4 13h1v1h-1zM5 13h1v1h-1zM6 13h1v1h-1zM5 14h1v1h-1z"/></g><g><path class="pa" d="M6 1h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM7 4h1v1h-1zM8 4h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM4 6h1v1h-1zM8 6h1v1h-1zM5 7h1v1h-1zM9 7h1v1h-1zM3 8h1v1h-1zM9 8h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM9 9h1v1h-1zM10 9h1v1h-1zM0 10h1v1h-1zM1 10h1v1h-1zM9 10h1v1h-1zM10 10h1v1h-1zM0 11h1v1h-1zM1 11h1v1h-1zM9 11h1v1h-1zM10 11h1v1h-1zM0 12h1v1h-1zM1 12h1v1h-1zM9 12h1v1h-1zM10 12h1v1h-1zM1 13h1v1h-1zM2 13h1v1h-1zM8 13h1v1h-1zM9 13h1v1h-1zM2 14h1v1h-1zM3 14h1v1h-1zM7 14h1v1h-1zM8 14h1v1h-1z"/><path class="pb" d="M6 4h1v1h-1zM5 5h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1zM8 7h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM7 9h1v1h-1zM8 9h1v1h-1zM2 10h1v1h-1zM3 10h1v1h-1zM7 10h1v1h-1zM8 10h1v1h-1zM2 11h1v1h-1zM3 11h1v1h-1zM7 11h1v1h-1zM8 11h1v1h-1zM2 12h1v1h-1zM3 12h1v1h-1zM7 12h1v1h-1zM8 12h1v1h-1zM3 13h1v1h-1zM7 13h1v1h-1zM4 14h1v1h-1zM6 14h1v1h-1z"/><path class="pc" d="M6 8h1v1h-1zM6 9h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM4 11h1v1h-1zM5 11h1v1h-1zM6 11h1v1h-1zM4 12h1v1h-1zM5 12h1v1h-1zM6 12h1v1h-1zM4 13h1v1h-1zM5 13h1v1h-1zM6 13h1v1h-1zM5 14h1v1h-1z"/></g><g><path class="pa" d="M5 0h1v1h-1zM5 1h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM7 3h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1zM3 7h1v1h-1zM7 7h1v1h-1zM1 8h1v1h-1zM2 8h1v1h-1zM8 8h1v1h-1zM9 8h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM8 9h1v1h-1zM9 9h1v1h-1zM1 10h1v1h-1zM9 10h1v1h-1zM1 11h1v1h-1zM2 11h1v1h-1zM8 11h1v1h-1zM9 11h1v1h-1zM0 12h1v1h-1zM1 12h1v1h-1zM9 12h1v1h-1zM10 12h1v1h-1zM1 13h1v1h-1zM2 13h1v1h-1zM8 13h1v1h-1zM9 13h1v1h-1zM2 14h1v1h-1zM3 14h1v1h-1zM7 14h1v1h-1zM8 14h1v1h-1z"/><path class="pb" d="M4 4h1v1h-1zM5 5h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM3 9h1v1h-1zM4 9h1v1h-1zM6 9h1v1h-1zM7 9h1v1h-1zM2 10h1v1h-1zM3 10h1v1h-1zM7 10h1v1h-1zM8 10h1v1h-1zM3 11h1v1h-1zM7 11h1v1h-1zM2 12h1v1h-1zM3 12h1v1h-1zM7 12h1v1h-1zM8 12h1v1h-1zM3 13h1v1h-1zM7 13h1v1h-1zM4 14h1v1h-1zM6 14h1v1h-1z"/><path class="pc" d="M5 8h1v1h-1zM5 9h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM4 11h1v1h-1zM5 11h1v1h-1zM6 11h1v1h-1zM4 12h1v1h-1zM5 12h1v1h-1zM6 12h1v1h-1zM4 13h1v1h-1zM5 13h1v1h-1zM6 13h1v1h-1zM5 14h1v1h-1z"/></g><g><path class="pa" d="M3 0h1v1h-1zM4 1h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM3 4h1v1h-1zM5 4h1v1h-1zM3 5h1v1h-1zM5 5h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1zM0 8h1v1h-1zM1 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1zM0 9h1v1h-1zM1 9h1v1h-1zM7 9h1v1h-1zM8 9h1v1h-1zM0 10h1v1h-1zM1 10h1v1h-1zM9 10h1v1h-1zM10 10h1v1h-1zM0 11h1v1h-1zM1 11h1v1h-1zM9 11h1v1h-1zM10 11h1v1h-1zM0 12h1v1h-1zM1 12h1v1h-1zM9 12h1v1h-1zM10 12h1v1h-1zM1 13h1v1h-1zM2 13h1v1h-1zM8 13h1v1h-1zM9 13h1v1h-1zM2 14h1v1h-1zM3 14h1v1h-1zM7 14h1v1h-1zM8 14h1v1h-1z"/><path class="pb" d="M4 4h1v1h-1zM4 5h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM5 9h1v1h-1zM6 9h1v1h-1zM2 10h1v1h-1zM3 10h1v1h-1zM7 10h1v1h-1zM8 10h1v1h-1zM2 11h1v1h-1zM3 11h1v1h-1zM7 11h1v1h-1zM8 11h1v1h-1zM2 12h1v1h-1zM3 12h1v1h-1zM7 12h1v1h-1zM8 12h1v1h-1zM3 13h1v1h-1zM7 13h1v1h-1zM4 14h1v1h-1zM6 14h1v1h-1z"/><path class="pc" d="M4 8h1v1h-1zM4 9h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM4 11h1v1h-1zM5 11h1v1h-1zM6 11h1v1h-1zM4 12h1v1h-1zM5 12h1v1h-1zM6 12h1v1h-1zM4 13h1v1h-1zM5 13h1v1h-1zM6 13h1v1h-1zM5 14h1v1h-1z"/></g><g><path class="pa" d="M5 0h1v1h-1zM5 1h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM7 7h1v1h-1zM8 7h1v1h-1zM1 8h1v1h-1zM2 8h1v1h-1zM8 8h1v1h-1zM9 8h1v1h-1zM2 9h1v1h-1zM8 9h1v1h-1zM0 10h1v1h-1zM1 10h1v1h-1zM9 10h1v1h-1zM10 10h1v1h-1zM0 11h1v1h-1zM1 11h1v1h-1zM2 11h1v1h-1zM8 11h1v1h-1zM9 11h1v1h-1zM10 11h1v1h-1zM0 12h1v1h-1zM1 12h1v1h-1zM9 12h1v1h-1zM10 12h1v1h-1zM1 13h1v1h-1zM2 13h1v1h-1zM8 13h1v1h-1zM9 13h1v1h-1zM2 14h1v1h-1zM3 14h1v1h-1zM7 14h1v1h-1zM8 14h1v1h-1z"/><path class="pb" d="M5 4h1v1h-1zM5 5h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM3 9h1v1h-1zM4 9h1v1h-1zM6 9h1v1h-1zM7 9h1v1h-1zM2 10h1v1h-1zM3 10h1v1h-1zM7 10h1v1h-1zM8 10h1v1h-1zM3 11h1v1h-1zM7 11h1v1h-1zM2 12h1v1h-1zM3 12h1v1h-1zM7 12h1v1h-1zM8 12h1v1h-1zM3 13h1v1h-1zM7 13h1v1h-1zM4 14h1v1h-1zM6 14h1v1h-1z"/><path class="pc" d="M5 8h1v1h-1zM5 9h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM4 11h1v1h-1zM5 11h1v1h-1zM6 11h1v1h-1zM4 12h1v1h-1zM5 12h1v1h-1zM6 12h1v1h-1zM4 13h1v1h-1zM5 13h1v1h-1zM6 13h1v1h-1zM5 14h1v1h-1z"/></g><g><path class="pa" d="M6 1h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM7 3h1v1h-1zM4 4h1v1h-1zM6 4h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM5 6h1v1h-1zM9 6h1v1h-1zM4 7h1v1h-1zM8 7h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM9 8h1v1h-1zM10 8h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM9 9h1v1h-1zM10 9h1v1h-1zM0 10h1v1h-1zM1 10h1v1h-1zM9 10h1v1h-1zM10 10h1v1h-1zM1 11h1v1h-1zM9 11h1v1h-1zM0 12h1v1h-1zM1 12h1v1h-1zM9 12h1v1h-1zM10 12h1v1h-1zM1 13h1v1h-1zM2 13h1v1h-1zM8 13h1v1h-1zM9 13h1v1h-1zM2 14h1v1h-1zM3 14h1v1h-1zM7 14h1v1h-1zM8 14h1v1h-1z"/><path class="pb" d="M5 4h1v1h-1zM5 5h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM7 9h1v1h-1zM8 9h1v1h-1zM2 10h1v1h-1zM3 10h1v1h-1zM7 10h1v1h-1zM8 10h1v1h-1zM2 11h1v1h-1zM3 11h1v1h-1zM7 11h1v1h-1zM8 11h1v1h-1zM2 12h1v1h-1zM3 12h1v1h-1zM7 12h1v1h-1zM8 12h1v1h-1zM3 13h1v1h-1zM7 13h1v1h-1zM4 14h1v1h-1zM6 14h1v1h-1z"/><path class="pc" d="M6 8h1v1h-1zM6 9h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM4 11h1v1h-1zM5 11h1v1h-1zM6 11h1v1h-1zM4 12h1v1h-1zM5 12h1v1h-1zM6 12h1v1h-1zM4 13h1v1h-1zM5 13h1v1h-1zM6 13h1v1h-1zM5 14h1v1h-1z"/></g></svg></button></div>
 </footer>
 
 <script>
@@ -1439,6 +1433,47 @@
     var tick; row.addEventListener("scroll", function () { clearTimeout(tick); tick = setTimeout(update, 60); }, { passive: true });
     update();
   });
+</script>
+<script>
+/* Fire sound: a tap on the flame starts or stops it. Made in the browser (Web Audio), no sound file. */
+(function () {
+  var btn = document.querySelector(".flame"); if (!btn) return;
+  var AC = window.AudioContext || window.webkitAudioContext; if (!AC) return;
+  var ctx = null, master = null, timer = null;
+  function noise(seconds, brown) {
+    var n = Math.floor(ctx.sampleRate * seconds), buf = ctx.createBuffer(1, n, ctx.sampleRate), d = buf.getChannelData(0), last = 0;
+    for (var i = 0; i < n; i++) { var w = Math.random() * 2 - 1; if (brown) { last = (last + 0.02 * w) / 1.02; d[i] = last * 3.5; } else d[i] = w; }
+    return buf;
+  }
+  function crackle(white) {
+    if (!ctx) return;
+    var t = ctx.currentTime + 0.01, src = ctx.createBufferSource(), bp = ctx.createBiquadFilter(), g = ctx.createGain();
+    var loud = Math.pow(Math.random(), 3) * 0.5 + 0.03, len = 0.008 + Math.random() * 0.05;
+    src.buffer = white; bp.type = "bandpass"; bp.frequency.value = 700 + Math.random() * 4500; bp.Q.value = 1 + Math.random() * 3;
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(loud, t + 0.002); g.gain.exponentialRampToValueAtTime(0.0001, t + len);
+    src.connect(bp); bp.connect(g); g.connect(master); src.start(t, Math.random() * 1.5, len + 0.02);
+    timer = setTimeout(function () { crackle(white); }, Math.random() < 0.25 ? 15 + Math.random() * 40 : 60 + Math.random() * 320);
+  }
+  function start() {
+    ctx = new AC(); master = ctx.createGain(); master.gain.value = 0.0001; master.connect(ctx.destination);
+    master.gain.exponentialRampToValueAtTime(0.6, ctx.currentTime + 1.2);
+    var rumble = ctx.createBufferSource(), lp = ctx.createBiquadFilter(), rg = ctx.createGain(), lfo = ctx.createOscillator(), lg = ctx.createGain();
+    rumble.buffer = noise(4, true); rumble.loop = true; lp.type = "lowpass"; lp.frequency.value = 420; rg.gain.value = 0.55;
+    lfo.frequency.value = 0.37; lg.gain.value = 0.18; lfo.connect(lg); lg.connect(rg.gain); lfo.start();
+    rumble.connect(lp); lp.connect(rg); rg.connect(master); rumble.start();
+    var white = noise(2, false), hiss = ctx.createBufferSource(), hp = ctx.createBiquadFilter(), hg = ctx.createGain();
+    hiss.buffer = white; hiss.loop = true; hp.type = "highpass"; hp.frequency.value = 2500; hg.gain.value = 0.012;
+    hiss.connect(hp); hp.connect(hg); hg.connect(master); hiss.start();
+    crackle(white); btn.setAttribute("aria-pressed", "true");
+  }
+  function stop() {
+    if (!ctx) return; clearTimeout(timer); var old = ctx; ctx = null;
+    try { master.gain.cancelScheduledValues(old.currentTime); master.gain.setTargetAtTime(0.0001, old.currentTime, 0.15); } catch (e) {}
+    setTimeout(function () { old.close(); }, 700); btn.setAttribute("aria-pressed", "false");
+  }
+  btn.addEventListener("click", function () { if (ctx) stop(); else start(); });
+  document.addEventListener("visibilitychange", function () { if (document.hidden) stop(); });
+})();
 </script>
 </body>
 </html>
