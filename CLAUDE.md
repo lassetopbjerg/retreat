@@ -16,7 +16,7 @@ Lasse writes in Danish or English, so answer in the language he uses.
 - Dark, candlelit look inspired by nerdrum.com (Jan-Ove was Nerdrum's assistant; Lasse wants a touch of the kitsch spirit): warm umber ground #17120E, ivory text #EEE5D6, muted gold accent #C8A35E. Two typefaces only: Cinzel for everything that names or labels, Source Serif 4 regular for running text. No italics or bold.
 - **Band design** (live since 3 Nov 2026): full-width bands, top to bottom:
   1. Hero: Smykkeskrinet (whole figure visible, edges faded), with "9.–13. juni 2027 · Rødegaard, Vistoft", the name and Jan-Ove's motto.
-     A small flickering flame (`.flame`, added 10 Nov 2026 at Lasse's wish) sits above the date line: an inline SVG with three layers animated out of step in CSS, a soft glow behind, gradients in one hidden `<svg><defs>` (ids `flame-g1`–`g3`) before the Danish hero; it stands still under prefers-reduced-motion.
+     A small flickering flame (`.flame`, 10 Nov 2026, Lasse's wish) sits at the very top of the page, in the header: centred in the header row from 760px, and on its own space above the name below 760px (the header gets 56px more top padding there, and the hero height rule for 600–759px accounts for it). It is one inline SVG with three layers animated out of step in CSS, a soft glow behind, and eight small square "pixel" sparks (`.flame i`) that drift gently out to both sides; gradients live in a hidden `<svg><defs>` (ids `flame-g1`–`g3`). Under prefers-reduced-motion it stands still and the sparks are hidden. It was first tried in the hero above the date line, and at the top of the hero, where it looked like the figure's head was on fire.
   2. Intro, facts and the first booking button.
   3. Dagene: three time slots.
   4. Trehøje photo band.
