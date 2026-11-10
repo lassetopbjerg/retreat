@@ -75,7 +75,7 @@ Attention and clarity first; what is left out matters as much as what is in. Whi
 - **Food:** full board at Rødegaard 625 DKK/day, booked with Jordens Sang (kontakt@jordenssang.dk): breakfast, lunch, dinner, tea/coffee and snacks, all vegetarian, mostly from the garden. Single meals (only lunch, dinner or whatever is needed) can also be arranged. Alternatively, a small kitchen in the atelier. No shops in Knebel; groceries in Vrinners/Ebeltoft, about 20 minutes by bus.
 - **Lodging:**
   - tent in the Rødegaard garden, 125 DKK per day (changed from 100 per night, 5 Nov 2026)
-  - rooms at Rødegaard: single 650 DKK, double 1,000 DKK per day (confirmed by Lasse 5 Nov 2026); the page says rooms with own shower and toilet are available, not that all have them (Lasse, 10 Nov 2026); booked with Jordens Sang (kontakt@jordenssang.dk)
+  - rooms at Rødegaard: single 650 DKK, double 1,000 DKK per day (confirmed by Lasse 5 Nov 2026); the page says rooms with own shower and toilet are available, not that all have them (Lasse, 10 Nov 2026); booked with Jordens Sang (kontakt@jordenssang.dk; Lasse confirmed 10 Nov 2026 that this is the right address, not the one on roedegaard-mols.dk)
   - Molsgaarden B&B, https://hosmolsgaarden.dk/ (Kildevej 26, Knebel), a bed and breakfast 2 minutes' walk from Rødegaard (Lasse, 8 Nov 2026)
 - **Getting there** (fold-out "Sådan kommer du hertil / Getting there"): Rødegaard, Karlshøjvej 5, 8420 Knebel, about 45 minutes from Aarhus. A "Fra Norge / From Norway" part (added 4 Nov 2026, Lasse wants it there, not in a separate fold-out):
   - ferry Kristiansand–Hirtshals (Fjord Line, Color Line) from about 2½ h
@@ -116,4 +116,3 @@ Attention and clarity first; what is left out matters as much as what is in. Whi
 - Jan-Ove should approve his bio and the student quote (Edith Maier Kihle), and his paintings' use in marketing.
 - Ask Jordens Sang whether they are fine with being listed, and to confirm full board for up to 10 people.
 - Lasse's own photos of the atelier, the garden and a painting set-up would strengthen the page.
-- roedegaard-mols.dk gives kontakt@roedegaard-mols.dk for booking, while the page uses kontakt@jordenssang.dk; ask Lasse which is right.
