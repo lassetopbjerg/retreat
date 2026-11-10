@@ -1467,11 +1467,11 @@
   });
 </script>
 <script>
-/* Fire sound: a tap on the flame starts or stops it. Made in the browser (Web Audio), no sound file. */
+/* Fire sound, with two voices mumbling: a tap on the flame starts or stops it. Made in the browser (Web Audio), no sound file. */
 (function () {
   var btn = document.querySelector(".flame"); if (!btn) return;
   var AC = window.AudioContext || window.webkitAudioContext; if (!AC) return;
-  var ctx = null, master = null, timer = null;
+  var ctx = null, master = null, timer = null, talkTimer = null;
   function noise(seconds, brown) {
     var n = Math.floor(ctx.sampleRate * seconds), buf = ctx.createBuffer(1, n, ctx.sampleRate), d = buf.getChannelData(0), last = 0;
     for (var i = 0; i < n; i++) { var w = Math.random() * 2 - 1; if (brown) { last = (last + 0.02 * w) / 1.02; d[i] = last * 3.5; } else d[i] = w; }
@@ -1486,6 +1486,49 @@
     src.connect(bp); bp.connect(g); g.connect(master); src.start(t, Math.random() * 1.5, len + 0.02);
     timer = setTimeout(function () { crackle(white); }, Math.random() < 0.25 ? 15 + Math.random() * 40 : 60 + Math.random() * 320);
   }
+  /* Two low voices mumbling by the fire: wordless, made from a buzzing tone shaped by two vowel filters.
+     Each phrase has a sing-song melody with rises on stressed syllables and often at the end. */
+  var VOWELS = [[700, 1150], [480, 1750], [320, 2100], [450, 850], [340, 750], [430, 1450], [560, 950]];
+  function voice(f0, pan, bus) {
+    var osc = ctx.createOscillator(), g = ctx.createGain(), f1 = ctx.createBiquadFilter(), f2 = ctx.createBiquadFilter(), lp = ctx.createBiquadFilter();
+    osc.type = "sawtooth"; osc.frequency.value = f0; g.gain.value = 0;
+    f1.type = f2.type = "bandpass"; f1.Q.value = 6; f2.Q.value = 8; f1.frequency.value = 500; f2.frequency.value = 1200;
+    lp.type = "lowpass"; lp.frequency.value = 1000;
+    osc.connect(f1); osc.connect(f2); f1.connect(g); f2.connect(g); g.connect(lp);
+    if (ctx.createStereoPanner) { var p = ctx.createStereoPanner(); p.pan.value = pan; lp.connect(p); p.connect(bus); } else lp.connect(bus);
+    osc.start(); return { osc: osc, g: g, f1: f1, f2: f2, f0: f0 };
+  }
+  function phrase(v, t) {
+    var n = 3 + Math.floor(Math.random() * 8), rise = Math.random() < 0.6;
+    for (var i = 0; i < n; i++) {
+      var d = 0.11 + Math.random() * 0.13, vw = VOWELS[Math.floor(Math.random() * VOWELS.length)], stress = Math.random() < 0.35;
+      var pitch = v.f0 * (1 - 0.12 * i / n) * (stress ? 0.9 : 1);
+      v.f1.frequency.setTargetAtTime(vw[0], t, 0.02); v.f2.frequency.setTargetAtTime(vw[1], t, 0.02);
+      v.osc.frequency.setTargetAtTime(pitch, t, 0.02);
+      if (stress) v.osc.frequency.setTargetAtTime(pitch * 1.3, t + d * 0.5, 0.04);
+      if (i === n - 1 && rise) v.osc.frequency.setTargetAtTime(v.f0 * 1.25, t + d * 0.3, 0.05);
+      v.g.gain.setTargetAtTime((stress ? 0.9 : 0.6) * (0.7 + Math.random() * 0.3), t, 0.015);
+      v.g.gain.setTargetAtTime(0, t + d * 0.75, 0.02);
+      t += d + (Math.random() < 0.12 ? 0.12 : 0);
+    }
+    return t;
+  }
+  function murmur() {
+    var mine = ctx, bus = ctx.createGain(); bus.gain.value = 0.22; bus.connect(master);
+    var voices = [voice(96, -0.35, bus), voice(122, 0.35, bus)];
+    function talk(who) {
+      if (ctx !== mine) return;
+      var t = ctx.currentTime + 0.05, parts = 1 + Math.floor(Math.random() * 3);
+      for (var k = 0; k < parts; k++) t = phrase(voices[who], t) + 0.15 + Math.random() * 0.3;
+      if (Math.random() < 0.4) {                      /* the other one answers "mm" */
+        var o = voices[1 - who], at = t - 0.1;
+        o.osc.frequency.setTargetAtTime(o.f0 * 0.95, at, 0.03); o.f1.frequency.setTargetAtTime(300, at, 0.02); o.f2.frequency.setTargetAtTime(900, at, 0.02);
+        o.g.gain.setTargetAtTime(0.45, at, 0.03); o.g.gain.setTargetAtTime(0, at + 0.28, 0.05); t += 0.35;
+      }
+      talkTimer = setTimeout(function () { talk(1 - who); }, (t - ctx.currentTime + 0.3 + Math.random() * 1.4) * 1000);
+    }
+    talkTimer = setTimeout(function () { talk(0); }, 2500);
+  }
   function start() {
     ctx = new AC(); master = ctx.createGain(); master.gain.value = 0.0001; master.connect(ctx.destination);
     master.gain.exponentialRampToValueAtTime(0.6, ctx.currentTime + 1.2);
@@ -1496,10 +1539,10 @@
     var white = noise(2, false), hiss = ctx.createBufferSource(), hp = ctx.createBiquadFilter(), hg = ctx.createGain();
     hiss.buffer = white; hiss.loop = true; hp.type = "highpass"; hp.frequency.value = 2500; hg.gain.value = 0.012;
     hiss.connect(hp); hp.connect(hg); hg.connect(master); hiss.start();
-    crackle(white); btn.setAttribute("aria-pressed", "true");
+    crackle(white); murmur(); btn.setAttribute("aria-pressed", "true");
   }
   function stop() {
-    if (!ctx) return; clearTimeout(timer); var old = ctx; ctx = null;
+    if (!ctx) return; clearTimeout(timer); clearTimeout(talkTimer); var old = ctx; ctx = null;
     try { master.gain.cancelScheduledValues(old.currentTime); master.gain.setTargetAtTime(0.0001, old.currentTime, 0.15); } catch (e) {}
     setTimeout(function () { old.close(); }, 700); btn.setAttribute("aria-pressed", "false");
   }
