@@ -107,6 +107,7 @@ Attention and clarity first; what is left out matters as much as what is in. Whi
   - https://malekurstuv.no/
 - **Contact:** lassetopbjerg@gmail.com, +45 31 17 75 06, shown in the footer and in the last fold-out of Det praktiske, "Spørgsmål? / Questions?" (added 8 Nov 2026). Instagram on the page is Jan-Ove's @jan_ove_tuv; Lasse's own @lasse.topbjerg is not active.
 - **Visit counter:** GoatCounter (cookie-free, no cookie banner needed), script tag at the end of `<head>`. Stats at https://malerefugium.goatcounter.com (Lasse's account, added 11 Nov 2026). The `?kilde=` links show up as separate paths there.
+- **Facebook page** "Malerefugium på Mols" (https://www.facebook.com/profile.php?id=61596512578874), created 11 Nov 2026: category Kunstskole, gold-text profile picture, the share image as cover. No posts yet; nothing goes out before the January launch. Jan-Ove OK'd using his images in marketing (11 Nov 2026).
 - **Marketing:** the marketing plan is a Claude Doc, "Marketing plan: Malerefugium på Mols" (https://claude.ai/artifact/LPd1JVyaEzFHsiZZg7aCK8).
 
 ## Still open
@@ -124,6 +125,6 @@ Attention and clarity first; what is left out matters as much as what is in. Whi
 - The afternoon end time; worded generally on the page.
 - Sign-up deadline: not set.
 - Ask Jan-Ove whether the small pixel figure of Odd Nerdrum by the fire is fine with him and with Nerdrum.
-- Jan-Ove should approve his bio and the student quote (Edith Maier Kihle), and his paintings' use in marketing.
+- Jan-Ove should approve his bio and the student quote (Edith Maier Kihle). (His paintings in marketing: OK, 11 Nov 2026.)
 - Ask Jordens Sang whether they are fine with being listed, and to confirm full board for up to 10 people.
 - Lasse's own photos of the atelier, the garden and a painting set-up would strengthen the page.
