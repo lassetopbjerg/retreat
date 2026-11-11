@@ -106,6 +106,7 @@ Attention and clarity first; what is left out matters as much as what is in. Whi
   - https://www.youtube.com/c/schoolofapelles
   - https://malekurstuv.no/
 - **Contact:** lassetopbjerg@gmail.com, +45 31 17 75 06, shown in the footer and in the last fold-out of Det praktiske, "Spørgsmål? / Questions?" (added 8 Nov 2026). Instagram on the page is Jan-Ove's @jan_ove_tuv; Lasse's own @lasse.topbjerg is not active.
+- **Visit counter:** GoatCounter (cookie-free, no cookie banner needed), script tag at the end of `<head>`. Stats at https://malerefugium.goatcounter.com (Lasse's account, added 11 Nov 2026). The `?kilde=` links show up as separate paths there.
 - **Marketing:** the marketing plan is a Claude Doc, "Marketing plan: Malerefugium på Mols" (https://claude.ai/artifact/LPd1JVyaEzFHsiZZg7aCK8).
 
 ## Still open
