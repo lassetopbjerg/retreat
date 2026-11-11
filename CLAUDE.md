@@ -119,7 +119,7 @@ Attention and clarity first; what is left out matters as much as what is in. Whi
   - how Lasse's costs (model, marketing) are covered
   - when a place counts as secured: at the email or at payment
   - deactivate the old Stripe payment link in Stripe
-- Start time on day one and end time on day five: Lasse gives them later.
+- Start time on day one: Lasse gives it later. (Sunday, the last day, ends at 13:00, and people travelling from far away should arrive the day before: a second after-days line under Dagene, Lasse 11 Nov 2026.)
 - What happens if a participant cancels: not decided yet.
 - The afternoon end time; worded generally on the page.
 - Sign-up deadline: not set.
